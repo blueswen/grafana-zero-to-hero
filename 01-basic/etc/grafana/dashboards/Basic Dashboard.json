@@ -25,7 +25,7 @@
       "datasource": {
         "default": false,
         "type": "grafana-testdata-datasource",
-        "uid": "cdwhxx90my134e"
+        "uid": "testdata"
       },
       "description": "Time series visualizations are the default way to show the variations of a set of data values over time.",
       "fieldConfig": {
@@ -111,7 +111,7 @@
         {
           "datasource": {
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "refId": "A",
           "scenarioId": "random_walk",
@@ -120,7 +120,7 @@
         {
           "datasource": {
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "hide": false,
           "refId": "B",
@@ -135,7 +135,7 @@
       "datasource": {
         "default": false,
         "type": "grafana-testdata-datasource",
-        "uid": "cdwhxx90my134e"
+        "uid": "testdata"
       },
       "description": "A bar chart is a visual representation that uses rectangular bars, where the length of each bar represents each value.",
       "fieldConfig": {
@@ -214,7 +214,7 @@
           "csvContent": "name,value\nLoki,20\nGrafana,30\nTempo,60\nMimir,15",
           "datasource": {
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "refId": "A",
           "scenarioId": "csv_content"
@@ -227,7 +227,7 @@
       "datasource": {
         "default": false,
         "type": "grafana-testdata-datasource",
-        "uid": "cdwhxx90my134e"
+        "uid": "testdata"
       },
       "description": "A stat visualization displays your data in single values of interest—such as the latest or current value of a series—with an optional graph sparkline.",
       "fieldConfig": {
@@ -282,7 +282,7 @@
         {
           "datasource": {
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "refId": "A",
           "scenarioId": "random_walk"
@@ -294,7 +294,7 @@
     {
       "datasource": {
         "type": "grafana-testdata-datasource",
-        "uid": "cdwhxx90my134e"
+        "uid": "testdata"
       },
       "description": "Gauges are single-value visualizations that allow you to quickly visualize where a value falls within a defined or calculated min and max range.",
       "fieldConfig": {
@@ -356,7 +356,7 @@
       "datasource": {
         "default": false,
         "type": "grafana-testdata-datasource",
-        "uid": "cdwhxx90my134e"
+        "uid": "testdata"
       },
       "description": "Tables are a highly flexible visualization designed to display data in columns and rows. They support various data types, including tables, time series, annotations, and raw JSON data.",
       "fieldConfig": {
@@ -412,7 +412,7 @@
         {
           "datasource": {
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "refId": "A",
           "scenarioId": "random_walk_table"
@@ -435,7 +435,7 @@
           "datasource": {
             "default": false,
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "description": "Time series visualizations are the default way to show the variations of a set of data values over time.",
           "fieldConfig": {
@@ -531,7 +531,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "refId": "A",
               "scenarioId": "random_walk",
@@ -540,7 +540,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "hide": false,
               "refId": "B",
@@ -555,7 +555,7 @@
           "datasource": {
             "default": false,
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "description": "Time series visualizations are the default way to show the variations of a set of data values over time.",
           "fieldConfig": {
@@ -651,7 +651,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "refId": "A",
               "scenarioId": "random_walk",
@@ -660,7 +660,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "hide": false,
               "refId": "B",
@@ -675,7 +675,7 @@
           "datasource": {
             "default": false,
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "description": "Time series visualizations are the default way to show the variations of a set of data values over time.",
           "fieldConfig": {
@@ -771,7 +771,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "refId": "A",
               "scenarioId": "random_walk",
@@ -780,7 +780,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "hide": false,
               "refId": "B",
@@ -795,7 +795,7 @@
           "datasource": {
             "default": false,
             "type": "grafana-testdata-datasource",
-            "uid": "cdwhxx90my134e"
+            "uid": "testdata"
           },
           "description": "Time series visualizations are the default way to show the variations of a set of data values over time.",
           "fieldConfig": {
@@ -891,7 +891,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "refId": "A",
               "scenarioId": "random_walk",
@@ -900,7 +900,7 @@
             {
               "datasource": {
                 "type": "grafana-testdata-datasource",
-                "uid": "cdwhxx90my134e"
+                "uid": "testdata"
               },
               "hide": false,
               "refId": "B",

@@ -26,4 +26,15 @@ datasources:
       httpMethod: POST
     readOnly: false
     editable: true
-  
+  - uid: testdata
+    orgId: 1
+    name: grafana-testdata-datasource
+    type: grafana-testdata-datasource
+    typeName: TestData
+    access: proxy
+    url: ''
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: false
+    readOnly: false

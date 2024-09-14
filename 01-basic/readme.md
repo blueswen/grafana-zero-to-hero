@@ -4,6 +4,8 @@
 
 ## Goals
 
+此 Lab 會建立：
+
 1. Nginx：單純作為被監測的 Container
 2. cAdvisor：收集 Container 資料
 3. Node Exporter：收集運行的機器（Node）的資料
