@@ -23,7 +23,7 @@
 2. 檢視服務
 
    1. Grafana：[http://localhost:3000](http://localhost:3000)，登入帳號密碼為 `admin/admin`
-      1. 點擊左上 Menu > Dashboards > Node Exporter Dashboard 或是 cAdvisor Dashboard，即可看到預先建立的 Dashboard
+      1. 點擊左上 Menu > Dashboards > Provision Dashboards 再選擇 Basic Dashboard、cAdvisor exporter 或 Node Exporter Full，即可看到預先建立的 Dashboard
    2. nginx：[http://localhost](http://localhost)，可以顯示 IP 與時間
 
 3. 關閉所有服務

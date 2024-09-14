@@ -15,6 +15,9 @@ services:
       - "9090:9090"
     volumes:
       - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - node-exporter
+      - cadvisor
 
   node-exporter:
     image: prom/node-exporter:v1.8.2
