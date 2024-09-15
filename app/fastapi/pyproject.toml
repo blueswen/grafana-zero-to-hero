@@ -1,0 +1,19 @@
+[project]
+name = "fastapi"
+version = "0.1.0"
+description = "Demo FastAPI project"
+authors = [
+    { name = "blueswen", email = "blueswen.tw@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.114.2",
+    "uvicorn>=0.30.6",
+    "prometheus-client>=0.20.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
