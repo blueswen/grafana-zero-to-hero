@@ -18,7 +18,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
   "links": [],
   "panels": [
     {
@@ -718,7 +717,7 @@
           "refId": "B"
         }
       ],
-      "title": "Axis - Label and Centered Zero",
+      "title": "Axis: Label and Centered Zero",
       "type": "timeseries"
     },
     {
@@ -814,7 +813,7 @@
           "seriesCount": 1
         }
       ],
-      "title": "Soft Min and Soft Max",
+      "title": "Axis: Soft Min(0) and Soft Max(200)",
       "type": "timeseries"
     },
     {
@@ -2088,13 +2087,13 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "01 - Time Series",
   "uid": "ddxzeypc9ymm8c",
-  "version": 6,
+  "version": 1,
   "weekStart": ""
 }
