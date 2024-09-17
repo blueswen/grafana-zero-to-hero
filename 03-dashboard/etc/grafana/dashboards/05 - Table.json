@@ -1,0 +1,1612 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 9,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "panels": [],
+      "title": "Table",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Failed": {
+                        "color": "red",
+                        "index": 2
+                      },
+                      "Running": {
+                        "color": "green",
+                        "index": 3
+                      },
+                      "Starting": {
+                        "color": "blue",
+                        "index": 0
+                      },
+                      "Stopped": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Usage (%)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Usage (MB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decmbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Disk Usage (GB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decgbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Network I/O (MB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decmbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Uptime (hours)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "h"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Error Rate (%)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 50
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%),Memory Usage (MB),Disk Usage (GB),Network I/O (MB),Uptime (hours),Error Rate (%)\nService_1,Starting,95.52,1096.64,447.09,20.18,308.25,1.51\nService_2,Stopped,53.44,7517.75,227.27,611.24,645.99,55.18\nService_3,Stopped,53.0,7251.44,394.12,623.98,620.22,84.37\nService_4,Failed,16.42,4067.12,471.64,425.28,966.69,4.36\nService_5,Running,77.52,5931.06,114.45,54.15,935.22,35.96\nService_6,Running,69.52,2842.59,284.86,942.73,552.09,7.01\nService_7,Failed,97.55,4912.07,399.91,383.73,566.19,0.49\nService_8,Starting,76.68,7417.9,179.37,200.4,190.47,16.83\nService_9,Starting,60.05,5245.16,264.36,162.92,632.32,3.38\nService_10,Failed,2.94,7063.43,235.94,475.6,784.3,2.53\nService_11,Failed,23.8,1973.64,383.35,347.79,462.78,5.33\nService_12,Starting,95.13,7804.99,498.15,620.55,462.42,5.07\nService_13,Stopped,86.51,7860.58,188.35,701.73,294.31,0.32\nService_14,Failed,45.42,968.19,101.01,870.03,357.72,6.95\nService_15,Stopped,45.84,2321.82,116.1,973.46,44.79,1.97\nService_16,Failed,86.9,7405.23,23.46,624.08,12.27,1.36\nService_17,Failed,34.95,6542.36,407.97,375.42,12.7,7.21\nService_18,Running,5.33,721.71,74.3,785.38,823.89,7.09\nService_19,Running,83.92,5430.02,397.86,418.34,737.8,4.72\nService_20,Running,88.65,6349.41,419.65,729.3,15.78,7.01\nService_21,Failed,87.02,523.52,136.17,641.22,688.15,5.47\nService_22,Running,12.86,1565.3,204.57,440.44,174.5,4.41\nService_23,Stopped,38.88,1722.95,451.1,152.95,706.65,9.2\nService_24,Failed,7.0,5584.98,395.44,635.05,146.42,0.68\nService_25,Running,71.22,6876.48,193.83,430.06,239.5,5.43\nService_26,Failed,46.33,7446.0,52.41,801.34,117.89,5.33\nService_27,Stopped,77.13,7335.21,216.82,581.02,301.99,8.32\nService_28,Stopped,13.06,5157.64,208.17,421.29,205.29,9.07\nService_29,Failed,48.4,3239.81,157.14,554.57,570.37,7.1\nService_30,Failed,65.86,3019.48,54.5,76.13,745.99,65.61\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Table",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "Uptime (hours)"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "Frame A",
+          "scenarioId": "random_walk_table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "Frame B",
+          "scenarioId": "random_walk_table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "Frame C",
+          "scenarioId": "random_walk_table"
+        }
+      ],
+      "title": "Data Set Selector",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "logs"
+        }
+      ],
+      "title": "Cell Value Inspect",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Cell Type",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "applyToRow": false,
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Colored Background",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "applyToRow": true,
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "id": 7,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Colored Background: Apply to entire row",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 8,
+      "panels": [],
+      "title": "Override Cell Type",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Failed": {
+                        "color": "red",
+                        "index": 2
+                      },
+                      "Running": {
+                        "color": "green",
+                        "index": 3
+                      },
+                      "Starting": {
+                        "color": "blue",
+                        "index": 0
+                      },
+                      "Stopped": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 30
+      },
+      "id": 11,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Colored Text",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Usage (%)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 50
+                    },
+                    {
+                      "color": "red",
+                      "value": 90
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 30
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Color background",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Usage (%)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 30
+      },
+      "id": 10,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Gauge",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Details"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 38
+      },
+      "id": 12,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Details\nService_1,\"{\"\"Status\"\": \"\"Stopped\"\", \"\"CPU Usage (%)\"\": 7.59, \"\"Memory Usage (MB)\"\": 7938.98, \"\"Disk Usage (GB)\"\": 92.59, \"\"Network I/O (MB)\"\": 43.52, \"\"Uptime (hours)\"\": 202.68, \"\"Error Rate (%)\"\": 6.78}\"\nService_2,\"{\"\"Status\"\": \"\"Starting\"\", \"\"CPU Usage (%)\"\": 96.44, \"\"Memory Usage (MB)\"\": 6605.24, \"\"Disk Usage (GB)\"\": 487.94, \"\"Network I/O (MB)\"\": 673.65, \"\"Uptime (hours)\"\": 892.03, \"\"Error Rate (%)\"\": 0.75}\"\nService_3,\"{\"\"Status\"\": \"\"Stopped\"\", \"\"CPU Usage (%)\"\": 76.96, \"\"Memory Usage (MB)\"\": 5332.43, \"\"Disk Usage (GB)\"\": 378.31, \"\"Network I/O (MB)\"\": 590.07, \"\"Uptime (hours)\"\": 603.01, \"\"Error Rate (%)\"\": 7.96}\"\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "JSON View with inspect",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Browser"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "image"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OS"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 38
+      },
+      "id": 13,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "User Name,Location,Browser,OS\nNukumizu,Tokyo,\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAADAFBMVEVHcEwAAAC/MiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPlyEAAADKIyPXQzkAAAAAAAA9nDtROw2RaBgfWSnlYE/aOjPhT0LgRTtugBvdNTDMLSpDp0A9lT0sbC46jj3XHiLEHSAhWCengBQjXinapxkUNhiXcBaMZxXAiiAqdzYAAABBoT7eW0vpvwjiWEnluwfXsQXcUkTkYVBwWAvUqBA7kDofSh+7kxAzfTPtxQXgsxBErUHZtAXZqhU2hTlifjTNnBrZSBrRGyAteDYyhTsufTjIkSHAjB4QLRWzgB8objL8uEn80glNuElMuEn6zwzfIifiMDBMt0nkNjPoS0HlPTdKs0jmQTpLtEhLsEf4yw/hLCzqUETkOjb1yBFJr0dHqEbnRDzgJChGpEUverv70QrhKStWks00fsHrV0lFh8dcltDjNDHRHSEodbXoRz7qVEf70QvlsR7f4OLtXk89gsTiLi5JrUfzxRbwvxkeZaHuZFPrW0z5zg3zxgvgJinywhZKi8ljnNNRj8ztuxvpth7qZFJNjMrvwRHVHyM6gcQ2gMPtvRRFoUXy8/M3jT1xqNpDnEP38/Hq6+zjSSJJq0ZooNbiSCNCmUR5rNvs7/Mhbq0fbKnwalhEqUJGsEPyxA8/l0FBhcZCo0FgmtJso9faoyDotxbhqyOEsdsxhDs8kkHeKyrcJSbaHSL4zwj52kakxeTGGx7dpyLD1sRRhbAlcrHfMi/1zQfjSDlZu1XmW1z51CFXqEDiSifV2t/Pwht6vnngPDV1fjm5Nif14XyLWy/UmyHWnyLqgH+Dx4Lx573i5um61bqTvePru7zrsLLRfoD07MuttiV4rTL16KyVy5SxxdVfgDMTXZicTCuRtS9alD3hwBrL2+qft8rtyssSXZhDf7FRi7p1pM20JR9lmsZbpVNsaC+5zd6NbVOdKx3F1ubQNTnjYWXOTVDv4rDpw1LswCKvzejnyg5lnjxglcCUsijW2sG50by4oixEgbNZsFm/AACAiwyNAAABAHRSTlMAGyUEESQNAQgUBTL+PmllJjhyU5CS0sTS4i/xV9fbgu7xWXuCiu5QiXve3ie7ddizu391s0LBwUKLi9ba5Gzb0MbQ5MbS9Onp0lnHx/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8l2NEXhQAABLRJREFUSMfNlmdcU1cYhw0kuTdAlVX3Vtzde+/dXy+EkEGAkGCAsAlhBCSAYcheUlACLUPC3lOkFFDrxFWto3vvYfe07zn33hAV8UO/9Plyv/yf877vHefcWbP+/xA2N985dxtm7q132BDXi8+ZH2rYlvwKItlg0PrNn0PMGF8g1hri4pIxcXGGUK14eME1FcJm3rDYTxtqAAUwQFzrJ46W7Z03fWPE4kV7o8ViPz+tNhSD4uLoAJlkaNHiaQxi9pCXTBYACjg0OC6TKLyG2mcTV+fbh7wUEqREIwnC0UzcK8KzveNKg1jZ0e4Z4aVQSMCRBSDgKpEoFBBP8A3u6Fx5mUFcWtHh6+sJCjggYRQojeK+wWmbO1dcsjbsHotMSwv29U0ABySaCEjT8TShUNj5pJ2V4FxzIFcICnJAYkhAaVhdiOm0GoN8yHt0f65QuBk5yFKMHD48Mvw6sAPzMrDjCdIygXMNRe2LzMULgTRyYjvm6I9NQEFBQU5OTm2tf+rDbAlyiZSivPczhufJosme4y0tx382bb/4UwHK1vr7pAS91PUAU4JYWCOiKPd9kdjw/NDUYy6pBErMPaY3E+kwZvdCuoStc407CO5vY+NkWWV6hbkEMFekV5reYsJYuN2W7ugmJFDUu71gfG9qCW9Ir6gwmysq0hvCe4q6rYTb6J74S6QiJFAHwDjxbYYmHBSgoSFck/H+0Smh6xY+FrivemNBVP5Z73dlLcYMDSgIjSYju6XoNYvgkcrFgoARKOrL3h/KNGHG7AxwIJ2RbQzTTPUU5JEqYASpCA9Byb85VZYXXx9mNGYDRmNYWH180RszCNT5U5Mh+UjB1NfH5+WbLEJMSi0j7JIzPYmkX0/Gh4CSFw/k5eXnhxhN3ZYCKTmsoPRmS3wx+XlgYAgAWSAw8NMydugYDx9WWKqSsmNT/eeioqICWaKivrLcVo+U2gdpgXuPWm4pcST2k6rBwSjM4GDVb2XdVgXupm8r//5d+qkSx8Y+rq6urgLg8nfsxakJ/Avuox8ceW9pudJyo/b0jw1sYRgY+4OZICgmxSex6S761bDlLFXr2abc3fcci/1g4KMLF7YMnIv9c3yqocSCRzj0y0dwl5WqLAblTh3pj8X0T5zpsuT9tzat5jJfEMlbbm2gvibOnp34R104zvSD8plreOw3SgiW1amxwU6OHqJSpf6dnRfySbrVAssuQPIeZQ1LEW+lavQXenk6/7ilAJpi7XJsSJFCO1K96jQbT9yaqVvjwrXayew4q4rrClXltIIkkVx/ZneMB8Qhn5Sp61vPsd7ICJLnBoYaK1JvkKRK+bhHCqyOls/SNa7jkZdvrnxHt+K2Uqwo5SDp9e/44HRSZmZWc+M6R/6V2zffcdXTxTuRAo5erxp9LxHSSZlZsLzD+qvyyOCtfaq1bSc4hWq1uvA0LI3SzX2HnnPh8ac7gkiOvdszrcVtdSCV/qrL0ul0zc2NB591teeQ0x9ydlyek9vG1tbi4ra2v5r7+hoPHXTY4OrE49pd8xwlBTz75298cWPreQdgwwuuLvY8ATnjSU1yOZvsnW7AONlv4nDJ6/4L2JJ8rgDD5ZO2xH/+F/kXs+WF1/OrTf0AAAAASUVORK5CYII=\",\"data:image/png;base64,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\"\nYanami,Osaka,\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAADAFBMVEVHcEwrb6ywIAXGNgUFBgsAAADOcicQEhwMGCEABAzcbAbJSgv20FIAAAABAAAJAQASM21hvuASCQIfW5scBgDHThXujSDDaTTQYCAAAADgSQXxvEPqmRjFUyMrYpk3c6i8Vxq7YRyzHAPWQQVSHwRfFQIDAQCPhXcAAADvgBy1SDC4Tg+MioLscx7uoDLwxlnvsUEUP3/1rzErY5lWh6DRhjNNUGi1GwPsfBm1HASGDgN/EgJIIAmVHAPwgSK5lEfocw6DiF2qKAT1uytCis7mji0jTIeqrYIfWZbZYCLtvTfIKgTRcVSEQQoGJ2EIK2YqaqiLVAjgVxMEJFsGIFX77rxMrdeiv7dSttvgsiLSRwvRUA7gcQrTVg7YXg3PSg3UXBPORQvfch3XSQnaZAiWDwLaZhXoig/WYBQcabLhZwy/8vvSWRPdbhjrlBHkegrPVBLfXgvAPw3XYxkgcbnN9v0POHezKAUWRYUZUZIYYKnLTxHZTwqb6/k9ndvypxb3wCmPDAL71UXGRg/H9PzMQQSnIAUyktPbVwwTP34WS43eahQKLGgEIGHU+f648fudEgK+NQadHASS6fjaaxnlgg7tnBkkZaXb+/8AI28BMYLupyX0sh8jecD5zTajFgO6LQVu1vKI5PWy7/phy/D63lr73UQqhMmk7/xYwO7lj0B0zelDqOWm7PgKPonhVQZ+3fIEHlkxjM2N3e/sqT6FTzZSnc/ytC7xw05Rt+tMsee1NwrreRc8LkMxe71dREetsZaJCAHEQgzmgi/FXRC9ZykBKXcEBCQABjAAE0oyaLenMhBCl9OndC4xYJZUq9lkqMz97mucfF+s8PyZRiNYtN+xkHFvZ2YnQ3FHhrN3s8ZHYYLRWgTsaBh5NzCVkHRqNTBVLRkqVqHkbRq0iC0wOFYWHkzp1GtpennZ2oqPiErNZAhswuaBk57dkF67UB/hulTy1qvtm2R9x9+DIBu/xbKNa02/t2vR2Lz685TUxGdnMhXpUw670syKv8RHcEyncTyIAAABAHRSTlMA/v7+JUsKDAUY/v79MECC/v1k/ZUdg0X9OP3+uP0uQt/wn/6uwnAWV/z++v6gMYtLpqZ//fn7XVjwytiX7Ob+3P70lP5u+/7ZtOLY6dDCgN6ZhuHm/oT+wf7////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+//////////////8ADL8RIAAABn9JREFUSMeNlgdUU1cYx0kIBghCGCJTcOG21tXWDre2du+WPEKALMgkCAkjEAKEMAIBEiIGAwJBBZE9ZFehrTLEvVfdba3avU+/+wIUq7X9neScnJP/797v3vvuvc/K6jGQp03z85s2x9bq/zDH7+mXCWdbRkbOfef80Qd+/yVNe3oTYaSxnJezDcjhNZ58a9mcJ8YzDEfKdh+P3oaTkxN93Pms6zLyv8Rt36TKDh8pk+9Ojc7BiY5O5TWe+3D5y36PZBcvsbKyeyM74/CG6jo5LzU12kIqL7em+uwPPy9fNnXSw8JSdyvSuxrqF4dbvq5u/OMHUFKj4cvLLa+pcyb0/tK70n/KxPySgy9Nfa8+WwbCyEJfcS8PSIVv+fGaumrnQcLmo3dW+k+dICy6eNH3Zj110xeHz85PiT9VU56by+PlQvON8mrnIy0jw78evdPju/FvYc3vXl73hlZUfXPqnoTS/528phwUlK9G+e67P992MN9p9l0ylp/kNTOh81oWWxfqcSCFv7CxQF5zvBzKKaj+2vnkkcENht5ffnUw//T9lrElmWKt7sxS04F4ijjqbllBgXw3IJeX1TmfPFmR2L3p1lFzm/nHFU+NPQ20zki1Wh0UxBCLGYyBP8vKCuRAQUFZWd3OnRV7El1vm4+2ebcNOYxO7rOdkQkAjUYT87n80sAotu7YOTyO5/fvNZy5ZTY3td2vtIxi0ksRCWFhgYHBwTQaLtTW1vYt34moqKjY097d3SA75WBua1NWPjXeARJCQoJpYgY3L6rq2re9LSi7Z//+9r0NBkJ67GlIw2c9LvhcTJiJ50OC48Vc3TcP3n9wd7hlD8TbBwf3JjYQXF1jV7Z5K82VpqX4HM2LCAsbE/hRoVXfnhomDLZD4+2J3QRCevrW2MxhqneTyaw0LUXLvXFe5GhBeP5g1THXhsS9QGJ6YoPBsNUQm5nRe6apqdWsbPV5BQT3eWrIB6IBoPzBqssN6YkIaN7gGgtkxmz+qcnBqKxsne6PhM4EyxQFMaI8PDyqmi7vakhHNKB4ZmamTBZzudJb2aQ0tTZPh5Vwv2bJ8xkp+cms72POnN+xy4IB5WUyWUbMWqXSpKg0FfcgYVFkGKoniBGfz8rP74mLi9u6Y5TwcBTPyKCuNZkUrZUK480VSEjAB8DnduSrVNLmuPDwreOEo3hMTPaXCodWhan4+o0tMIZXwkLSQGBwO1TS0jzdeTDGiYN0DBJaHYwKRfHQxz4gvDMzxNoiSPOs00J1p6GoOMP5Y8cWDsdlQppKzb6x2qg0KoqTkgrdQZhqHVKKCwcgH5YVGtp/+vSP/bAe92/djttHzc7O1lw3Gk3FxUmFHM5itNSvphEPUOL53KC0mV61tKhQHIFAJ6haHbsP5W8qCo0KaF4oWoM/SzOsiXkpFDEjKsGrtjZhIF6H8mz+gp4zssx9Go2mvqeYA+0LhXrMHReeKZUSJRLogq2ujYzsyB/okEgkHSeo+4Dt9fX1h64n6SHP4WD2lrNm0nNEbZ6UAg8Gmx0ZEQGzOzBwqevT7TiaIk1XYaEwKYmj1zM9RnfcDKKWqJLEQ1E6HTtLcOVmvaYI5T8tOnSoqEgzJDQKhUKRCFswf1SYQtSyVKoUiyEQhDbfAKHo0OfAZ11dzZxWKIeDYX1XXhs7Z2aUsFisDtxggyEQ9Hdpij7/DLiqt8cKjXqRXmTP7DoxdmpYTXlOy0rWSpDBZaNOBLoTV65e/e1En8geQ62L9PbMSz3ei8cP+mdKWMnJ+cjgc6ETQJCVhWEijGmPiUAqxOhfDSnWTzhdZ2iTPwEDFhApMF1sNpNOZzDozAiMiRVy7DlJST4Tjnxb8irWJ2Dk4Z3wGQwuwGTSxUF0OlMkFHJgmnweuiJsSc8jg1VqMfhBOGJaEBNK0sOgOW8/fHGR7RxXwTCSWSoJPCV8OhedtEyoJwLDBJg95u9CeliwtZtsM0sLk8vSSg/Ew/6jw5pbgMr6fF08/yFYkUmec91e1AIlKqkEDLU6EoBevmq+NP8Fm8l2/7ixbckkRxen2aqSknwwSkut0wAK5cKFvub+6Sj/yN1Lxg2354lEolQKe88a7dsLsA7TZwU8Lo/6gHGAMnvdi+tK82D3USgL/F+f5RYw15Fk9/g3CKQ42rgEODm5zZo9283JySnAZa6NJ8mO/K9vHLbgkCZ7OjraIBw9J5OelB6XbMmjwM9H/v4Lm8U6AwkBs1MAAAAASUVORK5CYII=\",\"data:image/png;base64,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\"\nYakisio,Okinawa,\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAADAFBMVEVHcEwAAAC/MiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPlyEAAADKIyPXQzkAAAAAAAA9nDtROw2RaBgfWSnlYE/aOjPhT0LgRTtugBvdNTDMLSpDp0A9lT0sbC46jj3XHiLEHSAhWCengBQjXinapxkUNhiXcBaMZxXAiiAqdzYAAABBoT7eW0vpvwjiWEnluwfXsQXcUkTkYVBwWAvUqBA7kDofSh+7kxAzfTPtxQXgsxBErUHZtAXZqhU2hTlifjTNnBrZSBrRGyAteDYyhTsufTjIkSHAjB4QLRWzgB8objL8uEn80glNuElMuEn6zwzfIifiMDBMt0nkNjPoS0HlPTdKs0jmQTpLtEhLsEf4yw/hLCzqUETkOjb1yBFJr0dHqEbnRDzgJChGpEUverv70QrhKStWks00fsHrV0lFh8dcltDjNDHRHSEodbXoRz7qVEf70QvlsR7f4OLtXk89gsTiLi5JrUfzxRbwvxkeZaHuZFPrW0z5zg3zxgvgJinywhZKi8ljnNNRj8ztuxvpth7qZFJNjMrvwRHVHyM6gcQ2gMPtvRRFoUXy8/M3jT1xqNpDnEP38/Hq6+zjSSJJq0ZooNbiSCNCmUR5rNvs7/Mhbq0fbKnwalhEqUJGsEPyxA8/l0FBhcZCo0FgmtJso9faoyDotxbhqyOEsdsxhDs8kkHeKyrcJSbaHSL4zwj52kakxeTGGx7dpyLD1sRRhbAlcrHfMi/1zQfjSDlZu1XmW1z51CFXqEDiSifV2t/Pwht6vnngPDV1fjm5Nif14XyLWy/UmyHWnyLqgH+Dx4Lx573i5um61bqTvePru7zrsLLRfoD07MuttiV4rTL16KyVy5SxxdVfgDMTXZicTCuRtS9alD3hwBrL2+qft8rtyssSXZhDf7FRi7p1pM20JR9lmsZbpVNsaC+5zd6NbVOdKx3F1ubQNTnjYWXOTVDv4rDpw1LswCKvzejnyg5lnjxglcCUsijW2sG50by4oixEgbNZsFm/AACAiwyNAAABAHRSTlMAGyUEESQNAQgUBTL+PmllJjhyU5CS0sTS4i/xV9fbgu7xWXuCiu5QiXve3ie7ddizu391s0LBwUKLi9ba5Gzb0MbQ5MbS9Onp0lnHx/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8l2NEXhQAABLRJREFUSMfNlmdcU1cYhw0kuTdAlVX3Vtzde+/dXy+EkEGAkGCAsAlhBCSAYcheUlACLUPC3lOkFFDrxFWto3vvYfe07zn33hAV8UO/9Plyv/yf877vHefcWbP+/xA2N985dxtm7q132BDXi8+ZH2rYlvwKItlg0PrNn0PMGF8g1hri4pIxcXGGUK14eME1FcJm3rDYTxtqAAUwQFzrJ46W7Z03fWPE4kV7o8ViPz+tNhSD4uLoAJlkaNHiaQxi9pCXTBYACjg0OC6TKLyG2mcTV+fbh7wUEqREIwnC0UzcK8KzveNKg1jZ0e4Z4aVQSMCRBSDgKpEoFBBP8A3u6Fx5mUFcWtHh6+sJCjggYRQojeK+wWmbO1dcsjbsHotMSwv29U0ABySaCEjT8TShUNj5pJ2V4FxzIFcICnJAYkhAaVhdiOm0GoN8yHt0f65QuBk5yFKMHD48Mvw6sAPzMrDjCdIygXMNRe2LzMULgTRyYjvm6I9NQEFBQU5OTm2tf+rDbAlyiZSivPczhufJosme4y0tx382bb/4UwHK1vr7pAS91PUAU4JYWCOiKPd9kdjw/NDUYy6pBErMPaY3E+kwZvdCuoStc407CO5vY+NkWWV6hbkEMFekV5reYsJYuN2W7ugmJFDUu71gfG9qCW9Ir6gwmysq0hvCe4q6rYTb6J74S6QiJFAHwDjxbYYmHBSgoSFck/H+0Smh6xY+FrivemNBVP5Z73dlLcYMDSgIjSYju6XoNYvgkcrFgoARKOrL3h/KNGHG7AxwIJ2RbQzTTPUU5JEqYASpCA9Byb85VZYXXx9mNGYDRmNYWH180RszCNT5U5Mh+UjB1NfH5+WbLEJMSi0j7JIzPYmkX0/Gh4CSFw/k5eXnhxhN3ZYCKTmsoPRmS3wx+XlgYAgAWSAw8NMydugYDx9WWKqSsmNT/eeioqICWaKivrLcVo+U2gdpgXuPWm4pcST2k6rBwSjM4GDVb2XdVgXupm8r//5d+qkSx8Y+rq6urgLg8nfsxakJ/Avuox8ceW9pudJyo/b0jw1sYRgY+4OZICgmxSex6S761bDlLFXr2abc3fcci/1g4KMLF7YMnIv9c3yqocSCRzj0y0dwl5WqLAblTh3pj8X0T5zpsuT9tzat5jJfEMlbbm2gvibOnp34R104zvSD8plreOw3SgiW1amxwU6OHqJSpf6dnRfySbrVAssuQPIeZQ1LEW+lavQXenk6/7ilAJpi7XJsSJFCO1K96jQbT9yaqVvjwrXayew4q4rrClXltIIkkVx/ZneMB8Qhn5Sp61vPsd7ICJLnBoYaK1JvkKRK+bhHCqyOls/SNa7jkZdvrnxHt+K2Uqwo5SDp9e/44HRSZmZWc+M6R/6V2zffcdXTxTuRAo5erxp9LxHSSZlZsLzD+qvyyOCtfaq1bSc4hWq1uvA0LI3SzX2HnnPh8ac7gkiOvdszrcVtdSCV/qrL0ul0zc2NB591teeQ0x9ydlyek9vG1tbi4ra2v5r7+hoPHXTY4OrE49pd8xwlBTz75298cWPreQdgwwuuLvY8ATnjSU1yOZvsnW7AONlv4nDJ6/4L2JJ8rgDD5ZO2xH/+F/kXs+WF1/OrTf0AAAAASUVORK5CYII=\",\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABtlBMVEX+/v5Xia4zbJY0bpikv9MzbJYzbJY1cZ1HcEw0bpg1cJtLgaj9/f4zbZczbZgyapMxaJHx9fgzbJYyapQxaJAtYYYxaZEuYYcsXoIuYogwZo4sXoIsXoM1cJswZ48uYokrW34tX4R7or/7/P3s8fVNgqnQ3uhDe6RCeqP1+Pr2+foyapMzbJYxZ48vY4oxaJAyapQtYYcwZ44zbJYwZo7k7PKivdI2cp1FfKVVh63O3ed+pMBQhKp9pMA6daBhkLK3zNxWiK3w9Pfe6O/P3ejl7PLD1eKzydrC1OH09/lumbn5+/xdjbClv9Pa5e2JrMa0ytvU4erv9Pd9o8D8/f1HfaZGfaZJf6fz9/nT4Oni6vGgvNE2cp7///80bphLgahXia6kv9P+/v5GfaZnlLVEe6RFfaU1cZ5QhKqhvdJcjbChvdHt8vaRssr09/qFqcSowtX8/f43c56+0d/N3OddjbCZt817or+1y9t1nrz09/mUtMtIfqZynLufu9BHfabs8fXD1eJfj7JAeaJBeaP8/f2EqcT1+PpdjbFBeqM7dqD9/v6vx9jX4+vv9PdfjrFHfqZejrHI8guGAAAAXHRSTlP+/u/9/trZ/gD+/P7++vq2nv7wtp4QniQQJHskEPt7HhAk/v7+/v7+/v7+tdt7Hnq1HnrYev7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/jweeRYAAAHzSURBVEjHY+AgETDQT4O4nDArEx8zJwZg5mNiNdCXRNMgIyAbExPDDoToCEpxiYkia5BnYycIjPUQGiTYYIbhtAGI2EThGgTYidHALgbToMjFThTgkoRqMIohzoYYXagGfmI1CEM1sLITCXSgGpiItYEJqoEXKpJuEc8dD0dF6mAGEKfBNPBCNTBDbVTiYUAAF1UnGJNHCaqAE6qBE2pDIkMsQywU8ZQWQxggzAK1AaYhDosGh5QkYjWYZgLJQseSWIa8XB7sGjihTmQBu9jKEki42QMJFTtliCdY0PyAaoNaFpCsdAcanZOqTJQfkmIZqlI9QYwkBmKcBAIeXgzIAL+TQKi6Dh5cxAVrbSNeDZhO8lETFBTUIsFJTclhyV3RJMU0Q2x/JHFOcoWmwBANkJO8VQg5KSlFNb/Cr72boW9CRG9PcH0ZQSclOReUMza3hCfHqE9sC2ggMpQYNIOiQkmJOCBq7dTE7WmohmyUUOoIhGswQ9MAy6K2KAnI3xfOtEZzEqwQiLFJYEyAoxoNMAOIM8zRCgEmYsslWDHDSmy5xEpqUckP1SBFrAY5qAZpYot7cViFIkKcDQLwGkiBuCpLBlEpGhJRKbLJI1e7CiJc+G2QFZBAq9ilTbRZhYAVexxnHCpi5hNi5ZdSHIC2BrEAAMivRdqd1z9+AAAAAElFTkSuQmCC\"\nKomari,Kyoto,\"data:image/png;base64,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\",\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABtlBMVEX+/v5Xia4zbJY0bpikv9MzbJYzbJY1cZ1HcEw0bpg1cJtLgaj9/f4zbZczbZgyapMxaJHx9fgzbJYyapQxaJAtYYYxaZEuYYcsXoIuYogwZo4sXoIsXoM1cJswZ48uYokrW34tX4R7or/7/P3s8fVNgqnQ3uhDe6RCeqP1+Pr2+foyapMzbJYxZ48vY4oxaJAyapQtYYcwZ44zbJYwZo7k7PKivdI2cp1FfKVVh63O3ed+pMBQhKp9pMA6daBhkLK3zNxWiK3w9Pfe6O/P3ejl7PLD1eKzydrC1OH09/lumbn5+/xdjbClv9Pa5e2JrMa0ytvU4erv9Pd9o8D8/f1HfaZGfaZJf6fz9/nT4Oni6vGgvNE2cp7///80bphLgahXia6kv9P+/v5GfaZnlLVEe6RFfaU1cZ5QhKqhvdJcjbChvdHt8vaRssr09/qFqcSowtX8/f43c56+0d/N3OddjbCZt817or+1y9t1nrz09/mUtMtIfqZynLufu9BHfabs8fXD1eJfj7JAeaJBeaP8/f2EqcT1+PpdjbFBeqM7dqD9/v6vx9jX4+vv9PdfjrFHfqZejrHI8guGAAAAXHRSTlP+/u/9/trZ/gD+/P7++vq2nv7wtp4QniQQJHskEPt7HhAk/v7+/v7+/v7+tdt7Hnq1HnrYev7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/jweeRYAAAHzSURBVEjHY+AgETDQT4O4nDArEx8zJwZg5mNiNdCXRNMgIyAbExPDDoToCEpxiYkia5BnYycIjPUQGiTYYIbhtAGI2EThGgTYidHALgbToMjFThTgkoRqMIohzoYYXagGfmI1CEM1sLITCXSgGpiItYEJqoEXKpJuEc8dD0dF6mAGEKfBNPBCNTBDbVTiYUAAF1UnGJNHCaqAE6qBE2pDIkMsQywU8ZQWQxggzAK1AaYhDosGh5QkYjWYZgLJQseSWIa8XB7sGjihTmQBu9jKEki42QMJFTtliCdY0PyAaoNaFpCsdAcanZOqTJQfkmIZqlI9QYwkBmKcBAIeXgzIAL+TQKi6Dh5cxAVrbSNeDZhO8lETFBTUIsFJTclhyV3RJMU0Q2x/JHFOcoWmwBANkJO8VQg5KSlFNb/Cr72boW9CRG9PcH0ZQSclOReUMza3hCfHqE9sC2ggMpQYNIOiQkmJOCBq7dTE7WmohmyUUOoIhGswQ9MAy6K2KAnI3xfOtEZzEqwQiLFJYEyAoxoNMAOIM8zRCgEmYsslWDHDSmy5xEpqUckP1SBFrAY5qAZpYot7cViFIkKcDQLwGkiBuCpLBlEpGhJRKbLJI1e7CiJc+G2QFZBAq9ilTbRZhYAVexxnHCpi5hNi5ZdSHIC2BrEAAMivRdqd1z9+AAAAAElFTkSuQmCC\"",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Image",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Usage"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "sparkline"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 38
+      },
+      "id": 14,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "container_label_com_docker_compose_project"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_project=\"03-dashboard\"}[$__rate_interval])",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Sparkline",
+      "transformations": [
+        {
+          "id": "timeSeriesTable",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "container_label_com_docker_compose_config_hash": true,
+              "container_label_com_docker_compose_container_number": true,
+              "container_label_com_docker_compose_depends_on": true,
+              "container_label_com_docker_compose_image": true,
+              "container_label_com_docker_compose_oneoff": true,
+              "container_label_com_docker_compose_project": true,
+              "container_label_com_docker_compose_project_config_files": true,
+              "container_label_com_docker_compose_project_working_dir": true,
+              "container_label_com_docker_compose_service": true,
+              "container_label_com_docker_compose_version": true,
+              "container_label_maintainer": true,
+              "cpu": true,
+              "id": true,
+              "instance": true,
+              "job": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Trend #A": 17,
+              "container_label_com_docker_compose_config_hash": 0,
+              "container_label_com_docker_compose_container_number": 1,
+              "container_label_com_docker_compose_depends_on": 2,
+              "container_label_com_docker_compose_image": 3,
+              "container_label_com_docker_compose_oneoff": 4,
+              "container_label_com_docker_compose_project": 5,
+              "container_label_com_docker_compose_project_config_files": 6,
+              "container_label_com_docker_compose_project_working_dir": 7,
+              "container_label_com_docker_compose_service": 8,
+              "container_label_com_docker_compose_version": 9,
+              "container_label_maintainer": 10,
+              "cpu": 11,
+              "id": 12,
+              "image": 14,
+              "instance": 15,
+              "job": 16,
+              "name": 13
+            },
+            "renameByName": {
+              "Trend #A": "CPU Usage",
+              "id": "",
+              "image": "Container Image",
+              "job": "",
+              "name": "Container Name"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 17,
+      "panels": [],
+      "title": "Practice",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 46
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%),Memory Usage (MB),Disk Usage (GB),Network I/O (MB),Uptime (hours),Error Rate (%)\nService_1,Starting,95.52,1096.64,447.09,20.18,308.25,1.51\nService_2,Stopped,53.44,7517.75,227.27,611.24,645.99,55.18\nService_3,Stopped,53.0,7251.44,394.12,623.98,620.22,84.37\nService_4,Failed,16.42,4067.12,471.64,425.28,966.69,4.36\nService_5,Running,77.52,5931.06,114.45,54.15,935.22,35.96\nService_6,Running,69.52,2842.59,284.86,942.73,552.09,7.01\nService_7,Failed,97.55,4912.07,399.91,383.73,566.19,0.49\nService_8,Starting,76.68,7417.9,179.37,200.4,190.47,16.83\nService_9,Starting,60.05,5245.16,264.36,162.92,632.32,3.38\nService_10,Failed,2.94,7063.43,235.94,475.6,784.3,2.53\nService_11,Failed,23.8,1973.64,383.35,347.79,462.78,5.33\nService_12,Starting,95.13,7804.99,498.15,620.55,462.42,5.07\nService_13,Stopped,86.51,7860.58,188.35,701.73,294.31,0.32\nService_14,Failed,45.42,968.19,101.01,870.03,357.72,6.95\nService_15,Stopped,45.84,2321.82,116.1,973.46,44.79,1.97\nService_16,Failed,86.9,7405.23,23.46,624.08,12.27,1.36\nService_17,Failed,34.95,6542.36,407.97,375.42,12.7,7.21\nService_18,Running,5.33,721.71,74.3,785.38,823.89,7.09\nService_19,Running,83.92,5430.02,397.86,418.34,737.8,4.72\nService_20,Running,88.65,6349.41,419.65,729.3,15.78,7.01\nService_21,Failed,87.02,523.52,136.17,641.22,688.15,5.47\nService_22,Running,12.86,1565.3,204.57,440.44,174.5,4.41\nService_23,Stopped,38.88,1722.95,451.1,152.95,706.65,9.2\nService_24,Failed,7.0,5584.98,395.44,635.05,146.42,0.68\nService_25,Running,71.22,6876.48,193.83,430.06,239.5,5.43\nService_26,Failed,46.33,7446.0,52.41,801.34,117.89,5.33\nService_27,Stopped,77.13,7335.21,216.82,581.02,301.99,8.32\nService_28,Stopped,13.06,5157.64,208.17,421.29,205.29,9.07\nService_29,Failed,48.4,3239.81,157.14,554.57,570.37,7.1\nService_30,Failed,65.86,3019.48,54.5,76.13,745.99,65.61\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Table",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Failed": {
+                        "color": "red",
+                        "index": 2
+                      },
+                      "Running": {
+                        "color": "green",
+                        "index": 3
+                      },
+                      "Starting": {
+                        "color": "blue",
+                        "index": 0
+                      },
+                      "Stopped": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Usage (%)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Usage (MB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decmbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Disk Usage (GB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decgbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Network I/O (MB)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decmbytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Uptime (hours)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "h"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Error Rate (%)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 50
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 46
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Service Name,Status,CPU Usage (%),Memory Usage (MB),Disk Usage (GB),Network I/O (MB),Uptime (hours),Error Rate (%)\nService_1,Starting,95.52,1096.64,447.09,20.18,308.25,1.51\nService_2,Stopped,53.44,7517.75,227.27,611.24,645.99,55.18\nService_3,Stopped,53.0,7251.44,394.12,623.98,620.22,84.37\nService_4,Failed,16.42,4067.12,471.64,425.28,966.69,4.36\nService_5,Running,77.52,5931.06,114.45,54.15,935.22,35.96\nService_6,Running,69.52,2842.59,284.86,942.73,552.09,7.01\nService_7,Failed,97.55,4912.07,399.91,383.73,566.19,0.49\nService_8,Starting,76.68,7417.9,179.37,200.4,190.47,16.83\nService_9,Starting,60.05,5245.16,264.36,162.92,632.32,3.38\nService_10,Failed,2.94,7063.43,235.94,475.6,784.3,2.53\nService_11,Failed,23.8,1973.64,383.35,347.79,462.78,5.33\nService_12,Starting,95.13,7804.99,498.15,620.55,462.42,5.07\nService_13,Stopped,86.51,7860.58,188.35,701.73,294.31,0.32\nService_14,Failed,45.42,968.19,101.01,870.03,357.72,6.95\nService_15,Stopped,45.84,2321.82,116.1,973.46,44.79,1.97\nService_16,Failed,86.9,7405.23,23.46,624.08,12.27,1.36\nService_17,Failed,34.95,6542.36,407.97,375.42,12.7,7.21\nService_18,Running,5.33,721.71,74.3,785.38,823.89,7.09\nService_19,Running,83.92,5430.02,397.86,418.34,737.8,4.72\nService_20,Running,88.65,6349.41,419.65,729.3,15.78,7.01\nService_21,Failed,87.02,523.52,136.17,641.22,688.15,5.47\nService_22,Running,12.86,1565.3,204.57,440.44,174.5,4.41\nService_23,Stopped,38.88,1722.95,451.1,152.95,706.65,9.2\nService_24,Failed,7.0,5584.98,395.44,635.05,146.42,0.68\nService_25,Running,71.22,6876.48,193.83,430.06,239.5,5.43\nService_26,Failed,46.33,7446.0,52.41,801.34,117.89,5.33\nService_27,Stopped,77.13,7335.21,216.82,581.02,301.99,8.32\nService_28,Stopped,13.06,5157.64,208.17,421.29,205.29,9.07\nService_29,Failed,48.4,3239.81,157.14,554.57,570.37,7.1\nService_30,Failed,65.86,3019.48,54.5,76.13,745.99,65.61\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Table",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "Uptime (hours)"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "05 - Table",
+  "uid": "ady5kiv8f4npcb",
+  "version": 9,
+  "weekStart": ""
+}

@@ -1,0 +1,530 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 10,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "panels": [],
+      "title": "Logs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "lines": 30,
+          "refId": "A",
+          "scenarioId": "logs"
+        }
+      ],
+      "title": "Logs",
+      "type": "logs"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Node Graph",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 11,
+      "options": {
+        "edges": {},
+        "nodes": {}
+      },
+      "targets": [
+        {
+          "csvContent": "id,title\na,A\nb,B\nc,C",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "Nodes",
+          "scenarioId": "csv_content"
+        },
+        {
+          "csvContent": "id,source,target\na-b,a,b\na-c,a,c",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "Edges",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Simple Node Graph",
+      "type": "nodeGraph"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 12,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "id,title\na,A\nb,B\nc,C",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "Nodes",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Simple Node Graph: Node data frame",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "id": 13,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "id,source,target\na-b,a,b\na-c,a,c",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "Edges",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Simple Node Graph: Edge data frame",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 2,
+      "options": {
+        "edges": {},
+        "nodes": {}
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "node_graph"
+        }
+      ],
+      "title": "Node Graph",
+      "type": "nodeGraph"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "node_graph"
+        }
+      ],
+      "title": "Node Graph",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Traces",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 43
+      },
+      "id": 7,
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "trace"
+        }
+      ],
+      "title": "Traces",
+      "type": "traces"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 10,
+      "panels": [],
+      "title": "Flame Graph",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "id": 9,
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "flame_graph"
+        }
+      ],
+      "title": "Flame Graph",
+      "type": "flamegraph"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "flame_graph"
+        }
+      ],
+      "title": "Flame Graph",
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "06 - Log, Node Graph, Traces, Flame Graph",
+  "uid": "ady5kz6qzdddsc",
+  "version": 6,
+  "weekStart": ""
+}

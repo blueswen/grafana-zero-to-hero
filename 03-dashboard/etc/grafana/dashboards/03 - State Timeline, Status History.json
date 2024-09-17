@@ -1,0 +1,1869 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 7,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "panels": [],
+      "title": "State Timeline, Status History",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 3
+                },
+                "HIGH": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "LOW": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "NORMAL": {
+                  "color": "green",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "NORMAL,CRITICAL,LOW,HIGH,HIGH,NORMAL,"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "C",
+          "scenarioId": "server_error_500",
+          "stringInput": "HIGH,LOW,CRITICAL,NORMAL,HIGH,LOW,"
+        }
+      ],
+      "title": "State Timeline",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 3
+                },
+                "HIGH": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "LOW": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "NORMAL": {
+                  "color": "green",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "colWidth": 0.9,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,LOW"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "CRITICAL,CRITICAL,NORMAL,HIGH,HIGH,NORMAL,HIGH"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "C",
+          "scenarioId": "server_error_500",
+          "stringInput": "HIGH,LOW,CRITICAL,NORMAL,LOW,LOW,CRITICAL"
+        }
+      ],
+      "title": "Status History",
+      "type": "status-history"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 2,
+      "panels": [],
+      "title": "State Timeline",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 3
+                },
+                "HIGH": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "LOW": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "NORMAL": {
+                  "color": "green",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "NORMAL,CRITICAL,LOW,HIGH,HIGH,NORMAL,"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "C",
+          "scenarioId": "server_error_500",
+          "stringInput": "HIGH,LOW,CRITICAL,NORMAL,HIGH,LOW,"
+        }
+      ],
+      "title": "State Timeline: String",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "id": 1,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "1,20,90,30,5,0"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "33, 74, 5, 92, 18, 46"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "C",
+          "scenarioId": "server_error_500",
+          "stringInput": "56, 23, 89, 12, 67, 38"
+        }
+      ],
+      "title": "State Timeline: Numeric",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                },
+                "Warning": {
+                  "color": "orange",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 3,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down\n2024-02-29 11:00:00,Warning,Down",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline: single time column without connect null value",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline: single time column",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": true
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                },
+                "Warning": {
+                  "color": "orange",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 23
+      },
+      "id": 6,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down\n2024-02-29 11:00:00,Warning,Down",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline: single time column with connect null value",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": true
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                },
+                "Warning": {
+                  "color": "orange",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 7,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Start time,End time,Server A,Server B\n2024-02-29 8:00:00,2024-02-29 8:15:00,Up,Up\n2024-02-29 8:15:00,2024-02-29 8:30:00,Up,Up\n2024-02-29 8:45:00,2024-02-29 9:00:00,Down,Up\n2024-02-29 9:00:00,2024-02-29 9:15:00,Down,Up\n2024-02-29 9:30:00,2024-02-29 10:00:00,Down,Down\n2024-02-29 10:00:00,2024-02-29 10:30:00,Warning,Down\n2024-02-29 10:30:00,2024-02-29 11:00:00,Warning,Down",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline: two time columns",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Start time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "End time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                },
+                "Warning": {
+                  "color": "orange",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Start time,End time,Server A,Server B\n2024-02-29 8:00:00,2024-02-29 8:15:00,Up,Up\n2024-02-29 8:15:00,2024-02-29 8:30:00,Up,Up\n2024-02-29 8:45:00,2024-02-29 9:00:00,Down,Up\n2024-02-29 9:00:00,2024-02-29 9:15:00,Down,Up\n2024-02-29 9:30:00,2024-02-29 10:00:00,Down,Down\n2024-02-29 10:00:00,2024-02-29 10:30:00,Warning,Down\n2024-02-29 10:30:00,2024-02-29 11:00:00,Warning,Down",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline: two time columns",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Start time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "End time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 15,
+      "panels": [],
+      "title": "Status History",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "BAD": {
+                  "color": "red",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARN": {
+                  "color": "orange",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 37
+      },
+      "id": 17,
+      "options": {
+        "colWidth": 0.4,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,OK,WARN\n2024-02-29 8:15:00,WARN,\n2024-02-29 8:18:00,,WARN\n2024-02-29 8:30:00,BAD,\n2024-02-29 8:36:00,,OK\n2024-02-29 8:45:00,OK,",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History: single time column",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "status-history"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "BAD": {
+                  "color": "red",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARN": {
+                  "color": "orange",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 37
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,OK,WARN\n2024-02-29 8:15:00,WARN,\n2024-02-29 8:18:00,,WARN\n2024-02-29 8:30:00,BAD,\n2024-02-29 8:36:00,,OK\n2024-02-29 8:45:00,OK,",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History: single time column",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {}
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "BAD": {
+                  "color": "red",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARN": {
+                  "color": "orange",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 45
+      },
+      "id": 19,
+      "options": {
+        "colWidth": 0.85,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Start time,End time,Service A,Service B\n2024-02-29 8:00:00,2024-02-29 8:15:00,OK,OK\n2024-02-29 8:15:00,2024-02-29 8:30:00,,OK\n2024-02-29 8:30:00,2024-02-29 8:45:00,OK,OK\n2024-02-29 8:45:00,2024-02-29 9:00:00,BAD,\n2024-02-29 9:00:00,2024-02-29 9:15:00,,WARN\n2024-02-29 9:15:00,2024-02-29 9:30:00,OK,WARN",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History: two time columns",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Start time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "End time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "status-history"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "BAD": {
+                  "color": "red",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARN": {
+                  "color": "orange",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 45
+      },
+      "id": 20,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Start time,End time,Service A,Service B\n2024-02-29 8:00:00,2024-02-29 8:15:00,OK,OK\n2024-02-29 8:15:00,2024-02-29 8:30:00,,OK\n2024-02-29 8:30:00,2024-02-29 8:45:00,OK,OK\n2024-02-29 8:45:00,2024-02-29 9:00:00,BAD,\n2024-02-29 9:00:00,2024-02-29 9:15:00,,WARN\n2024-02-29 9:15:00,2024-02-29 9:30:00,OK,WARN",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History: two time columns",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Start time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "End time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 53
+      },
+      "id": 11,
+      "panels": [],
+      "title": "Practice",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 54
+      },
+      "id": 9,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,,Off\n2024-02-29 8:30:00,On,\n2024-02-29 8:45:00,,On\n2024-02-29 9:00:00,,\n2024-02-29 9:15:00,On,On\n2024-02-29 9:30:00,Off,Off\n2024-02-29 10:00:00,Off,On\n2024-02-29 10:30:00,Off,On",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": 2700000
+          },
+          "mappings": [
+            {
+              "options": {
+                "Off": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "OFF"
+                },
+                "On": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "ON"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 54
+      },
+      "id": 10,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,,Off\n2024-02-29 8:30:00,On,\n2024-02-29 8:45:00,,On\n2024-02-29 9:00:00,,\n2024-02-29 9:15:00,On,On\n2024-02-29 9:30:00,Off,Off\n2024-02-29 10:00:00,Off,On\n2024-02-29 10:30:00,Off,On",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "State Timeline",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "id": 21,
+      "options": {
+        "colWidth": 0.9,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,On,\n2024-02-29 8:18:00,,Off\n2024-02-29 8:30:00,Off,\n2024-02-29 8:36:00,,On\n2024-02-29 8:45:00,On,On",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History",
+      "type": "status-history"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "Off": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "OFF"
+                },
+                "On": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "ON"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 22,
+      "options": {
+        "colWidth": 0.45,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,On,\n2024-02-29 8:18:00,,Off\n2024-02-29 8:30:00,Off,\n2024-02-29 8:36:00,,On\n2024-02-29 8:45:00,On,On",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Status History",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Timestamps"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "status-history"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-02-29T00:00:00.000Z",
+    "to": "2024-02-29T03:00:00.000Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "03 - State Timeline, Status History",
+  "uid": "fdy4mdbvk6xoga",
+  "version": 8,
+  "weekStart": ""
+}
