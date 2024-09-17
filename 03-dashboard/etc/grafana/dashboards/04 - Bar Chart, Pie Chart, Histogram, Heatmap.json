@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -2571,7 +2571,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "table"
@@ -2658,7 +2666,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "heatmap"
@@ -2745,7 +2761,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "heatmap"
@@ -2832,7 +2856,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "heatmap"
@@ -3397,7 +3429,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "heatmap"
@@ -3484,7 +3524,15 @@
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
         }
       ],
       "type": "heatmap"
@@ -3504,6 +3552,6 @@
   "timezone": "browser",
   "title": "04 - Bar Chart, Pie Chart, Histogram, Heatmap",
   "uid": "ady4thqdyggzkf",
-  "version": 9,
+  "version": 1,
   "weekStart": ""
 }
