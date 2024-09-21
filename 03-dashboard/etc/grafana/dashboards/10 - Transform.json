@@ -1,0 +1,2103 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 14,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 28,
+      "panels": [],
+      "title": "Data",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 29,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Top 15 Company Stock Data",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 30,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Company Name,Founder(s),Headquarters Country,Headquarters State (if USA),Founded,Number of Employees,\"Revenue (Billion USD, Latest Year)\"\nApple Inc.,\"Steve Jobs, Steve Wozniak, Ronald Wayne\",USA,California,1976,164000,394.33\nMicrosoft Corp.,\"Bill Gates, Paul Allen\",USA,Washington,1975,221000,211.92\nNVIDIA Corp.,\"Jensen Huang, Chris Malachowsky, Curtis Priem\",USA,California,1993,26700,26.91\nAlphabet Inc.,\"Larry Page, Sergey Brin\",USA,California,1998,190234,257.64\nAmazon.com Inc.,\"Jeff Bezos\",USA,Washington,1994,154800,502.19\nMeta Platforms Inc.,\"Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, Chris Hughes\",USA,California,2004,86532,116.61\nTesla Inc.,\"Elon Musk, JB Straubel, Martin Eberhard, Marc Tarpenning\",USA,California,2003,99290,81.46\nBerkshire Hathaway,\"Warren Buffett\",USA,Nebraska,1839,360711,276.09\nTaiwan Semiconductor,\"Morris Chang\",Taiwan,,1987,56800,57.2\nSaudi Aramco,\"King Abdulaziz Al Saud\",Saudi Arabia,,1933,66836,400.4\nExxonMobil,\"John D. Rockefeller, Henry Flagler\",USA,Texas,1999,63000,402.7\nJohnson & Johnson,\"Robert Wood Johnson I, James Wood Johnson\",USA,New Jersey,1886,152700,93.77\nJPMorgan Chase,\"Aaron Burr, John Thompson\",USA,New York,1799,271025,128.7\nVisa Inc.,\"Dee Hock\",USA,California,1958,21000,29.31\nUnitedHealth Group,\"Richard Burke, Bob Sheehy\",USA,Minnesota,1977,400000,324.2\n",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Top 15 Company Info Data",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 31,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Founder Name,Gender,Country of Birth,Age,Founded Company\nSteve Jobs,Male,USA,56,Apple Inc.\nSteve Wozniak,Male,USA,72,Apple Inc.\nRonald Wayne,Male,USA,89,Apple Inc.\nBill Gates,Male,USA,68,Microsoft Corp.\nPaul Allen,Male,USA,65,Microsoft Corp.\nJensen Huang,Male,Taiwan,60,NVIDIA Corp.\nChris Malachowsky,Male,USA,68,NVIDIA Corp.\nCurtis Priem,Male,USA,65,NVIDIA Corp.\nLarry Page,Male,USA,50,Alphabet Inc.\nSergey Brin,Male,Russia,50,Alphabet Inc.\nJeff Bezos,Male,USA,59,Amazon.com Inc.\nMark Zuckerberg,Male,USA,39,Meta Platforms Inc.\nEduardo Saverin,Male,Brazil,41,Meta Platforms Inc.\nAndrew McCollum,Male,USA,39,Meta Platforms Inc.\nDustin Moskovitz,Male,USA,39,Meta Platforms Inc.\nChris Hughes,Male,USA,39,Meta Platforms Inc.\nElon Musk,Male,South Africa,52,Tesla Inc.\nJB Straubel,Male,USA,46,Tesla Inc.\nMartin Eberhard,Male,USA,63,Tesla Inc.\nMarc Tarpenning,Male,USA,61,Tesla Inc.\nWarren Buffett,Male,USA,93,Berkshire Hathaway\nMorris Chang,Male,China,92,Taiwan Semiconductor\nKing Abdulaziz Al Saud,Male,Saudi Arabia,142,Saudi Aramco\n",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Top 15 Company Founder Data",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 8
+      },
+      "id": 33,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "date,server_name,cpu_usage,memory_usage,disk_usage\n2024/09/18,server_1,85,12560,410\n2024/09/18,server_2,63,24576,320\n2024/09/18,server_3,74,16384,290\n2024/09/19,server_1,91,19540,370\n2024/09/19,server_2,49,8760,450\n2024/09/19,server_3,68,29800,150\n2024/09/20,server_1,88,23010,300\n2024/09/20,server_2,77,28000,470\n2024/09/20,server_3,55,15200,225\n2024/09/21,server_1,93,16200,365\n2024/09/21,server_2,72,21780,490\n2024/09/21,server_3,81,18760,305\n2024/09/22,server_1,60,25040,325\n2024/09/22,server_2,50,30960,275\n2024/09/22,server_3,90,28300,460\n",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Server Data",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 8
+      },
+      "id": 32,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "server_name,cpu_usage,memory_usage,disk_usage,uptime,location\nserver_1,43,15324,412,721,New York\nserver_2,65,11324,308,456,San Francisco\nserver_3,12,28456,178,985,Los Angeles\nserver_4,87,24567,332,211,Houston\nserver_5,39,17643,91,612,Chicago\nserver_6,92,20345,450,722,New York\nserver_7,25,23567,285,511,San Francisco\nserver_8,58,13456,120,842,Los Angeles\nserver_9,34,17653,300,254,Houston\nserver_10,77,29345,450,643,Chicago\nserver_11,46,18653,182,311,New York\nserver_12,19,25673,198,642,San Francisco\nserver_13,83,17654,412,524,Los Angeles\nserver_14,66,19876,150,801,Houston\nserver_15,50,28934,420,223,Chicago\nserver_16,72,14567,380,742,New York\nserver_17,31,20678,200,487,San Francisco\nserver_18,88,17654,462,556,Los Angeles\nserver_19,53,28643,312,654,Houston\nserver_20,95,17653,120,712,Chicago\n",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Server Data",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 8
+      },
+      "id": 34,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "x,y,z\n12,8,25\n30,14,6\n7,23,19\n20,9,16\n3,27,15\n11,18,24\n26,5,13\n4,29,2\n22,1,17\n10,21,28",
+        "mode": "code"
+      },
+      "pluginVersion": "11.2.0",
+      "title": "Numeric Data",
+      "type": "text"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 5,
+      "panels": [],
+      "title": "Filter",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Original Data",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Filter data by values",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "NYSE"
+                  }
+                },
+                "fieldName": "Stock Exchange"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Filter data by name",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Company Name",
+                "Stock Price (USD)",
+                "Stock Exchange",
+                "Ticker Symbol"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Limit",
+      "transformations": [
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "3"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "id": 9,
+      "panels": [],
+      "title": "Reorder and rename",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "server_name,cpu_usage,memory_usage,disk_usage,up_hours,location\nserver_1,43,15324,412,721,New York\nserver_2,65,11324,308,456,San Francisco\nserver_3,12,28456,178,985,Los Angeles\nserver_4,87,24567,332,211,Houston\nserver_5,39,17643,91,612,Chicago\nserver_6,92,20345,450,722,New York\nserver_7,25,23567,285,511,San Francisco\nserver_8,58,13456,120,842,Los Angeles\nserver_9,34,17653,300,254,Houston\nserver_10,77,29345,450,643,Chicago\nserver_11,46,18653,182,311,New York\nserver_12,19,25673,198,642,San Francisco\nserver_13,83,17654,412,524,Los Angeles\nserver_14,66,19876,150,801,Houston\nserver_15,50,28934,420,223,Chicago\nserver_16,72,14567,380,742,New York\nserver_17,31,20678,200,487,San Francisco\nserver_18,88,17654,462,556,Los Angeles\nserver_19,53,28643,312,654,Houston\nserver_20,95,17653,120,712,Chicago\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Original Data",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 11,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "server_name,cpu_usage,memory_usage,disk_usage,up_hours,location\nserver_1,43,15324,412,721,New York\nserver_2,65,11324,308,456,San Francisco\nserver_3,12,28456,178,985,Los Angeles\nserver_4,87,24567,332,211,Houston\nserver_5,39,17643,91,612,Chicago\nserver_6,92,20345,450,722,New York\nserver_7,25,23567,285,511,San Francisco\nserver_8,58,13456,120,842,Los Angeles\nserver_9,34,17653,300,254,Houston\nserver_10,77,29345,450,643,Chicago\nserver_11,46,18653,182,311,New York\nserver_12,19,25673,198,642,San Francisco\nserver_13,83,17654,412,524,Los Angeles\nserver_14,66,19876,150,801,Houston\nserver_15,50,28934,420,223,Chicago\nserver_16,72,14567,380,742,New York\nserver_17,31,20678,200,487,San Francisco\nserver_18,88,17654,462,556,Los Angeles\nserver_19,53,28643,312,654,Houston\nserver_20,95,17653,120,712,Chicago\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Organize fields by name",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "location": true,
+              "up_hours": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "cpu_usage": "CPU Usage(%)",
+              "disk_usage": "Disk Usage(%)",
+              "memory_usage": "Memory Usage(%)",
+              "server_name": "Server Name"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "id": 7,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "server_name,cpu_usage,memory_usage,disk_usage,up_hours,location\nserver_1,43,15324,412,721,New York\nserver_2,65,11324,308,456,San Francisco\nserver_3,12,28456,178,985,Los Angeles\nserver_4,87,24567,332,211,Houston\nserver_5,39,17643,91,612,Chicago\nserver_6,92,20345,450,722,New York\nserver_7,25,23567,285,511,San Francisco\nserver_8,58,13456,120,842,Los Angeles\nserver_9,34,17653,300,254,Houston\nserver_10,77,29345,450,643,Chicago\nserver_11,46,18653,182,311,New York\nserver_12,19,25673,198,642,San Francisco\nserver_13,83,17654,412,524,Los Angeles\nserver_14,66,19876,150,801,Houston\nserver_15,50,28934,420,223,Chicago\nserver_16,72,14567,380,742,New York\nserver_17,31,20678,200,487,San Francisco\nserver_18,88,17654,462,556,Los Angeles\nserver_19,53,28643,312,654,Houston\nserver_20,95,17653,120,712,Chicago\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Rename fields by regex",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "([a-z]*)_([a-z]*)",
+            "renamePattern": "$1 $2"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 41
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "server_name,cpu_usage,memory_usage,disk_usage,up_hours,location\nserver_1,43,15324,412,721,New York\nserver_2,65,11324,308,456,San Francisco\nserver_3,12,28456,178,985,Los Angeles\nserver_4,87,24567,332,211,Houston\nserver_5,39,17643,91,612,Chicago\nserver_6,92,20345,450,722,New York\nserver_7,25,23567,285,511,San Francisco\nserver_8,58,13456,120,842,Los Angeles\nserver_9,34,17653,300,254,Houston\nserver_10,77,29345,450,643,Chicago\nserver_11,46,18653,182,311,New York\nserver_12,19,25673,198,642,San Francisco\nserver_13,83,17654,412,524,Los Angeles\nserver_14,66,19876,150,801,Houston\nserver_15,50,28934,420,223,Chicago\nserver_16,72,14567,380,742,New York\nserver_17,31,20678,200,487,San Francisco\nserver_18,88,17654,462,556,Los Angeles\nserver_19,53,28643,312,654,Houston\nserver_20,95,17653,120,712,Chicago\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Sort by",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "cpu_usage"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 10,
+      "panels": [],
+      "title": "Calculate new fields",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 27,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "x,y,z\n12,8,25\n30,14,6\n7,23,19\n20,9,16\n3,27,15\n11,18,24\n26,5,13\n4,29,2\n22,1,17\n10,21,28\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Original Data",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "x,y,z\n12,8,25\n30,14,6\n7,23,19\n20,9,16\n3,27,15\n11,18,24\n26,5,13\n4,29,2\n22,1,17\n10,21,28\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Reduce",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "labelsToFields": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "max",
+              "min",
+              "mean",
+              "variance",
+              "p99"
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 61
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "x,y,z\n12,8,25\n30,14,6\n7,23,19\n20,9,16\n3,27,15\n11,18,24\n26,5,13\n4,29,2\n22,1,17\n10,21,28\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Add field from calculation",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Row Index",
+            "index": {
+              "asPercentile": false
+            },
+            "mode": "index",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "x",
+                "y",
+                "z"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "cumulative": {
+              "field": "x",
+              "reducer": "sum"
+            },
+            "mode": "cumulativeFunctions",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "windowFunctions",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "window": {
+              "field": "x",
+              "reducer": "mean",
+              "windowAlignment": "centered",
+              "windowSize": 3,
+              "windowSizeMode": "fixed"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 68
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Reformat",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 69
+      },
+      "id": 17,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Time,Walking (km)\n2024-09-01 00:00:00,0.9714220037259623\n2024-09-01 01:00:00,1.9561103795612718\n2024-09-01 02:00:00,2.965658691705054\n2024-09-01 03:00:00,3.9535937893327513\n2024-09-01 04:00:00,4.7177380200499455\n2024-09-01 05:00:00,5.612996639409699\n2024-09-01 06:00:00,7.3758137514323625\n2024-09-01 07:00:00,8.243722829251078\n2024-09-01 08:00:00,7.961063763535179\n2024-09-01 09:00:00,10.236589675033755\n2024-09-01 10:00:00,11.794971179222284\n2024-09-01 11:00:00,10.652797925353815\n2024-09-01 12:00:00,12.865248110645323\n2024-09-01 13:00:00,14.089728959222873\n2024-09-01 14:00:00,15.818044590084442\n2024-09-01 15:00:00,15.176373655123188\n2024-09-01 16:00:00,15.565432731196026\n2024-09-01 17:00:00,15.993661563412395\n2024-09-01 18:00:00,18.75808425293981\n2024-09-01 19:00:00,17.766953673215024\n2024-09-01 20:00:00,21.124118016086864\n2024-09-01 21:00:00,21.07887765955444\n2024-09-01 22:00:00,24.06085462846195\n2024-09-01 23:00:00,24.758282605365267\n2024-09-02 00:00:00,23.6420495822159\n2024-09-02 01:00:00,26.439869564718578\n2024-09-02 02:00:00,25.866866654815908\n2024-09-02 03:00:00,25.95414755268054\n2024-09-02 04:00:00,25.88988872964013\n2024-09-02 05:00:00,30.22155280022768\n2024-09-02 06:00:00,32.09160365655049\n2024-09-02 07:00:00,28.742369891549732\n2024-09-02 08:00:00,30.255311604244376\n2024-09-02 09:00:00,32.16545597828162\n2024-09-02 10:00:00,32.78482961956377\n2024-09-02 11:00:00,35.46667701298655\n2024-09-02 12:00:00,32.66386407252101\n2024-09-02 13:00:00,39.93382832200555\n2024-09-02 14:00:00,41.19845946167103\n2024-09-02 15:00:00,40.96994128576055\n2024-09-02 16:00:00,40.46013746779877\n2024-09-02 17:00:00,44.65098197296983\n2024-09-02 18:00:00,43.50210310765121\n2024-09-02 19:00:00,45.96068363326412\n2024-09-02 20:00:00,43.461608078600925\n2024-09-02 21:00:00,43.085347260017194\n2024-09-02 22:00:00,43.85429953551787\n2024-09-02 23:00:00,43.00876289751588\n2024-09-03 00:00:00,45.406649391288774\n2024-09-03 01:00:00,52.85594077140595\n2024-09-03 02:00:00,54.75581997417674\n2024-09-03 03:00:00,53.762203364309286\n2024-09-03 04:00:00,53.88898963898867\n2024-09-03 05:00:00,50.73470553735164\n2024-09-03 06:00:00,50.35510813625934\n2024-09-03 07:00:00,57.23822356327932\n2024-09-03 08:00:00,61.310981960003346\n2024-09-03 09:00:00,56.95967897504063\n2024-09-03 10:00:00,53.14178084360654\n2024-09-03 11:00:00,53.430251823265976\n2024-09-03 12:00:00,56.13288263214933\n2024-09-03 13:00:00,63.31179402724802\n2024-09-03 14:00:00,66.1157430954049\n2024-09-03 15:00:00,60.06751390195224\n2024-09-03 16:00:00,57.587152173595534\n2024-09-03 17:00:00,67.46517478743657\n2024-09-03 18:00:00,64.1844744612441\n2024-09-03 19:00:00,64.4750401729747\n2024-09-03 20:00:00,62.959013086264505\n2024-09-03 21:00:00,75.1327789849259\n2024-09-03 22:00:00,66.66314232174125\n2024-09-03 23:00:00,72.0854993735864\n2024-09-04 00:00:00,67.54114770702232\n2024-09-04 01:00:00,67.19438926248789\n2024-09-04 02:00:00,68.69980997728929\n2024-09-04 03:00:00,81.95930815603572\n2024-09-04 04:00:00,69.18857008083539\n2024-09-04 05:00:00,80.70059139837379\n2024-09-04 06:00:00,81.75809835375806\n2024-09-04 07:00:00,72.22306718816344\n2024-09-04 08:00:00,85.52835215606892\n2024-09-04 09:00:00,84.94267952046611\n2024-09-04 10:00:00,74.59035000369985\n2024-09-04 11:00:00,89.21988034130098\n2024-09-04 12:00:00,83.13499105520427\n2024-09-04 13:00:00,76.78335200736757\n2024-09-04 14:00:00,77.76754249089082\n2024-09-04 15:00:00,87.13638246056662\n2024-09-04 16:00:00,90.79997618234164\n2024-09-04 17:00:00,96.89592493134413\n2024-09-04 18:00:00,94.99329429055139\n2024-09-04 19:00:00,90.76824871047084\n2024-09-04 20:00:00,88.80117339959591\n2024-09-04 21:00:00,84.87218751464307\n2024-09-04 22:00:00,87.26609519809494\n2024-09-04 23:00:00,90.62751207535479\n2024-09-05 00:00:00,93.9157548672984\n2024-09-05 01:00:00,95.56818638806509\n2024-09-05 02:00:00,91.47119161394534\n2024-09-05 03:00:00,107.07791475590803\n2024-09-05 04:00:00,90.2010241829576\n2024-09-05 05:00:00,104.48298006412595\n2024-09-05 06:00:00,94.98787021919266\n2024-09-05 07:00:00,95.84562970372427\n2024-09-05 08:00:00,97.11505905608067\n2024-09-05 09:00:00,93.57259473424453\n2024-09-05 10:00:00,99.3475295368115\n2024-09-05 11:00:00,91.22039171321626\n2024-09-05 12:00:00,89.23542706458636\n2024-09-05 13:00:00,97.21234643792022\n2024-09-05 14:00:00,99.44801635397688\n2024-09-05 15:00:00,106.51114081483058\n2024-09-05 16:00:00,93.21809053490843\n2024-09-05 17:00:00,93.35766243351331\n2024-09-05 18:00:00,106.61773645670382\n2024-09-05 19:00:00,92.63596588811366\n2024-09-05 20:00:00,103.96583403795596\n2024-09-05 21:00:00,102.91372519306782\n2024-09-05 22:00:00,97.13021870515367\n2024-09-05 23:00:00,96.64169410699394\n2024-09-06 00:00:00,94.8981380968131\n2024-09-06 01:00:00,101.95641945361386\n2024-09-06 02:00:00,90.9628964529088\n2024-09-06 03:00:00,88.95604377889305\n2024-09-06 04:00:00,97.99281832648214\n2024-09-06 05:00:00,98.50130814180557\n2024-09-06 06:00:00,93.77835433119546\n2024-09-06 07:00:00,88.04222283660953\n2024-09-06 08:00:00,96.75747514071878\n2024-09-06 09:00:00,97.75168396855102\n2024-09-06 10:00:00,92.03296089615861\n2024-09-06 11:00:00,96.88005464731019\n2024-09-06 12:00:00,89.82326868578495\n2024-09-06 13:00:00,91.34993207163716\n2024-09-06 14:00:00,102.00243680006416\n2024-09-06 15:00:00,89.69044810217031\n2024-09-06 16:00:00,99.71392308465131\n2024-09-06 17:00:00,91.22468291391696\n2024-09-06 18:00:00,88.70558348177474\n2024-09-06 19:00:00,91.7404162513418\n2024-09-06 20:00:00,85.59969646266559\n2024-09-06 21:00:00,99.41021550698598\n2024-09-06 22:00:00,101.24618601087047\n2024-09-06 23:00:00,83.09425752546623\n2024-09-07 00:00:00,94.2502036476486\n2024-09-07 01:00:00,94.93335956850386\n2024-09-07 02:00:00,100.0687787931984\n2024-09-07 03:00:00,87.32603295398908\n2024-09-07 04:00:00,86.95883424032559\n2024-09-07 05:00:00,83.08261835404419\n2024-09-07 06:00:00,88.08192824255877\n2024-09-07 07:00:00,93.7374934466507\n2024-09-07 08:00:00,98.74541546829508\n2024-09-07 09:00:00,83.63829967570886\n2024-09-07 10:00:00,97.8396814143387\n2024-09-07 11:00:00,89.4874501360442\n2024-09-07 12:00:00,83.53610904501555\n2024-09-07 13:00:00,85.77241093129548\n2024-09-07 14:00:00,87.88470941374688\n2024-09-07 15:00:00,92.19209486549902\n2024-09-07 16:00:00,93.827609143197\n2024-09-07 17:00:00,92.15414580853447\n2024-09-07 18:00:00,86.60610789516973\n2024-09-07 19:00:00,85.56082749533353\n2024-09-07 20:00:00,95.95094451032605\n2024-09-07 21:00:00,88.67729660550874\n2024-09-07 22:00:00,89.0411159444417\n2024-09-07 23:00:00,86.00266332648843\n2024-09-08 00:00:00,79.90060766834556\n2024-09-08 01:00:00,88.59981912905135\n2024-09-08 02:00:00,92.8686523297032\n2024-09-08 03:00:00,91.7974043551685\n2024-09-08 04:00:00,79.77819667485431\n2024-09-08 05:00:00,82.92095019907164\n2024-09-08 06:00:00,90.39067755136642\n2024-09-08 07:00:00,92.5633921566457\n2024-09-08 08:00:00,84.35012804690668\n2024-09-08 09:00:00,82.6737629333705\n2024-09-08 10:00:00,93.35823359146362\n2024-09-08 11:00:00,77.16074109548556\n2024-09-08 12:00:00,92.51932918223268\n2024-09-08 13:00:00,82.61473007536489\n2024-09-08 14:00:00,81.30373813608595\n2024-09-08 15:00:00,85.3553543283116\n2024-09-08 16:00:00,91.30810159104698\n2024-09-08 17:00:00,91.21595370738193\n2024-09-08 18:00:00,76.17737593325197\n2024-09-08 19:00:00,75.01972748635524\n2024-09-08 20:00:00,84.60539580705282\n2024-09-08 21:00:00,86.25233279606083\n2024-09-08 22:00:00,89.39134715500902\n2024-09-08 23:00:00,76.30215396732498\n2024-09-09 00:00:00,81.01233528686636\n2024-09-09 01:00:00,86.90128974982491\n2024-09-09 02:00:00,80.61485589144303\n2024-09-09 03:00:00,74.79216554274046\n2024-09-09 04:00:00,75.52463354190091\n2024-09-09 05:00:00,77.2335247520692\n2024-09-09 06:00:00,81.07851454996643\n2024-09-09 07:00:00,75.91940676944928\n2024-09-09 08:00:00,74.61025366394746\n2024-09-09 09:00:00,81.41310621102598\n2024-09-09 10:00:00,78.1945983802382\n2024-09-09 11:00:00,73.67718937010929\n2024-09-09 12:00:00,73.20106553537582\n2024-09-09 13:00:00,88.0221648789667\n2024-09-09 14:00:00,77.85570780361832\n2024-09-09 15:00:00,75.93490187062744\n2024-09-09 16:00:00,75.5852716163085\n2024-09-09 17:00:00,73.98957805520541\n2024-09-09 18:00:00,89.0329376631144\n2024-09-09 19:00:00,81.71350696753345\n2024-09-09 20:00:00,89.1281839813374\n2024-09-09 21:00:00,90.83105159939488\n2024-09-09 22:00:00,86.28647311188541\n2024-09-09 23:00:00,78.30285038896791\n2024-09-10 00:00:00,84.22803574046267\n2024-09-10 01:00:00,80.73430059801197\n2024-09-10 02:00:00,90.21719266866941\n2024-09-10 03:00:00,80.50794508794196\n2024-09-10 04:00:00,91.51671082064973\n2024-09-10 05:00:00,80.13060839217451\n2024-09-10 06:00:00,86.14077295816008\n2024-09-10 07:00:00,81.92781044217831\n2024-09-10 08:00:00,79.9112564006563\n2024-09-10 09:00:00,81.92346490728275\n2024-09-10 10:00:00,83.73389670535128\n2024-09-10 11:00:00,96.50267847689722\n2024-09-10 12:00:00,80.7379727118467\n2024-09-10 13:00:00,98.64090813598033\n2024-09-10 14:00:00,81.8927342698008\n2024-09-10 15:00:00,87.62071410081836\n2024-09-10 16:00:00,89.85956860031479\n2024-09-10 17:00:00,90.46384746401023\n2024-09-10 18:00:00,88.51982560578458\n2024-09-10 19:00:00,95.90900662821231\n2024-09-10 20:00:00,85.96574284963974\n2024-09-10 21:00:00,90.86599364423597\n2024-09-10 22:00:00,90.61804849816372\n2024-09-10 23:00:00,84.65358513732592\n2024-09-11 00:00:00,97.88646282163128\n2024-09-11 01:00:00,99.77106768006249\n2024-09-11 02:00:00,101.64930438087589\n2024-09-11 03:00:00,98.59561476263168\n2024-09-11 04:00:00,90.89020948149334\n2024-09-11 05:00:00,88.14476865473824\n2024-09-11 06:00:00,95.98342427818332\n2024-09-11 07:00:00,95.85167736280395\n2024-09-11 08:00:00,90.56663734451303\n2024-09-11 09:00:00,103.1708172443648\n2024-09-11 10:00:00,96.055308858299\n2024-09-11 11:00:00,104.6235066771966\n2024-09-11 12:00:00,103.87473972834779\n2024-09-11 13:00:00,92.45798073547793\n2024-09-11 14:00:00,106.19026774787606\n2024-09-11 15:00:00,97.65746835229909\n2024-09-11 16:00:00,98.1623503488307\n2024-09-11 17:00:00,110.22340735524381\n2024-09-11 18:00:00,101.50342067961913\n2024-09-11 19:00:00,104.1170402095217\n2024-09-11 20:00:00,111.02670824732517\n2024-09-11 21:00:00,109.99947607615792\n2024-09-11 22:00:00,97.04658004345704\n2024-09-11 23:00:00,104.48745940412228\n2024-09-12 00:00:00,100.08410192967727\n2024-09-12 01:00:00,114.47370393698114\n2024-09-12 02:00:00,113.97135755417615\n2024-09-12 03:00:00,105.91681112410035\n2024-09-12 04:00:00,107.91648918688058\n2024-09-12 05:00:00,101.56735422960861\n2024-09-12 06:00:00,110.05890252075962\n2024-09-12 07:00:00,105.34973878331849\n2024-09-12 08:00:00,104.0558923590641\n2024-09-12 09:00:00,112.6626554337627\n2024-09-12 10:00:00,105.17403651425731\n2024-09-12 11:00:00,109.10927773669479\n2024-09-12 12:00:00,116.31066260188014\n2024-09-12 13:00:00,101.10744934845553\n2024-09-12 14:00:00,107.0808481854347\n2024-09-12 15:00:00,99.59873172121286\n2024-09-12 16:00:00,106.05004141061369\n2024-09-12 17:00:00,109.40952458452756\n2024-09-12 18:00:00,121.04918052252641\n2024-09-12 19:00:00,100.61776183467434\n2024-09-12 20:00:00,113.66761198919929\n2024-09-12 21:00:00,119.61621661522187\n2024-09-12 22:00:00,108.27671983808354\n2024-09-12 23:00:00,115.82429852374922\n2024-09-13 00:00:00,103.89493357275812\n2024-09-13 01:00:00,124.37192953635794\n2024-09-13 02:00:00,116.7469475158426\n2024-09-13 03:00:00,110.7701863813295\n2024-09-13 04:00:00,122.84896602029573\n2024-09-13 05:00:00,109.66986697550749\n2024-09-13 06:00:00,118.6848063033059\n2024-09-13 07:00:00,113.4592334883488\n2024-09-13 08:00:00,105.60333281464501\n2024-09-13 09:00:00,111.14238953764071\n2024-09-13 10:00:00,126.87352550273319\n2024-09-13 11:00:00,106.57713504991136\n2024-09-13 12:00:00,106.86081593681206\n2024-09-13 13:00:00,115.6023299740161\n2024-09-13 14:00:00,117.23521258990168\n2024-09-13 15:00:00,110.32193278636561\n2024-09-13 16:00:00,130.70664431311906\n2024-09-13 17:00:00,113.83331360660775\n2024-09-13 18:00:00,110.2719552330234\n2024-09-13 19:00:00,118.21396717093961\n2024-09-13 20:00:00,114.22254038760786\n2024-09-13 21:00:00,113.82312543060931\n2024-09-13 22:00:00,109.01622081555155\n2024-09-13 23:00:00,107.63956040652721\n2024-09-14 00:00:00,120.94315601642865\n2024-09-14 01:00:00,108.95632846299411\n2024-09-14 02:00:00,107.42528014998321\n2024-09-14 03:00:00,111.39866282928398\n2024-09-14 04:00:00,115.15177245213275\n2024-09-14 05:00:00,125.64119773070583\n2024-09-14 06:00:00,120.18312945798348\n2024-09-14 07:00:00,106.46925626100413\n2024-09-14 08:00:00,123.45250041199641\n2024-09-14 09:00:00,107.30910900912566\n2024-09-14 10:00:00,104.99065700856171\n2024-09-14 11:00:00,126.00745085480445\n2024-09-14 12:00:00,114.38163954136046\n2024-09-14 13:00:00,123.6260824978782\n2024-09-14 14:00:00,107.96067990998472\n2024-09-14 15:00:00,108.99957390295715\n2024-09-14 16:00:00,123.74382128011429\n2024-09-14 17:00:00,102.88644484657048\n2024-09-14 18:00:00,119.58611143177745\n2024-09-14 19:00:00,122.04240760121\n2024-09-14 20:00:00,122.20958062916738\n2024-09-14 21:00:00,113.11600773647089\n2024-09-14 22:00:00,102.98582521535613\n2024-09-14 23:00:00,112.74202632641818\n2024-09-15 00:00:00,113.1189207440928\n2024-09-15 01:00:00,116.57584392389695\n2024-09-15 02:00:00,108.50240538795877\n2024-09-15 03:00:00,107.57026012047625\n2024-09-15 04:00:00,112.06487150558823\n2024-09-15 05:00:00,118.98948892493345\n2024-09-15 06:00:00,102.281842491759\n2024-09-15 07:00:00,104.67679302014098\n2024-09-15 08:00:00,111.76228044104936\n2024-09-15 09:00:00,114.861322329651\n2024-09-15 10:00:00,117.83939278669764\n2024-09-15 11:00:00,107.08468800178221\n2024-09-15 12:00:00,116.89548586743165\n2024-09-15 13:00:00,96.55703662112755\n2024-09-15 14:00:00,112.12929147749018\n2024-09-15 15:00:00,96.538256032722\n2024-09-15 16:00:00,113.98536219622103\n2024-09-15 17:00:00,97.94076866375786\n2024-09-15 18:00:00,97.42804514088039\n2024-09-15 19:00:00,105.52407768196932\n2024-09-15 20:00:00,114.77364222007814\n2024-09-15 21:00:00,96.83572613456938\n2024-09-15 22:00:00,104.82500076508836\n2024-09-15 23:00:00,100.18295313026009\n2024-09-16 00:00:00,112.0808018052605\n2024-09-16 01:00:00,106.71156110591221\n2024-09-16 02:00:00,103.51973870375468\n2024-09-16 03:00:00,99.48113102889016\n2024-09-16 04:00:00,108.03029848837329\n2024-09-16 05:00:00,105.52419948560933\n2024-09-16 06:00:00,111.8020404213721\n2024-09-16 07:00:00,95.36992052339203\n2024-09-16 08:00:00,95.03925839762134\n2024-09-16 09:00:00,108.68999740160531\n2024-09-16 10:00:00,95.41037351697078\n2024-09-16 11:00:00,100.86741230005134\n2024-09-16 12:00:00,94.07634847640385\n2024-09-16 13:00:00,99.15688474107118\n2024-09-16 14:00:00,107.43772888145257\n2024-09-16 15:00:00,97.18551541090349\n2024-09-16 16:00:00,107.29932056294322\n2024-09-16 17:00:00,93.1756103205751\n2024-09-16 18:00:00,89.0254449428942\n2024-09-16 19:00:00,96.46482140694599\n2024-09-16 20:00:00,105.483173263986\n2024-09-16 21:00:00,97.80380824455577\n2024-09-16 22:00:00,104.6963766642977\n2024-09-16 23:00:00,104.03063845227335\n2024-09-17 00:00:00,99.97895613848385\n2024-09-17 01:00:00,98.69813473268705\n2024-09-17 02:00:00,101.79705817854234\n2024-09-17 03:00:00,96.38109572673848\n2024-09-17 04:00:00,102.49897781258089\n2024-09-17 05:00:00,94.52165444297219\n2024-09-17 06:00:00,93.09978546742792\n2024-09-17 07:00:00,95.31095213364024\n2024-09-17 08:00:00,92.13524961866352\n2024-09-17 09:00:00,100.71768339044667\n2024-09-17 10:00:00,99.90801030098339\n2024-09-17 11:00:00,97.77292779086588\n2024-09-17 12:00:00,94.63876510694716\n2024-09-17 13:00:00,97.42742020896547\n2024-09-17 14:00:00,97.05084195053048\n2024-09-17 15:00:00,97.75454973406839\n2024-09-17 16:00:00,84.0006325076854\n2024-09-17 17:00:00,94.11686410543349\n2024-09-17 18:00:00,91.64810795950021\n2024-09-17 19:00:00,91.66670750620047\n2024-09-17 20:00:00,82.14567342982261\n2024-09-17 21:00:00,85.71171832467081\n2024-09-17 22:00:00,94.26710435418175\n2024-09-17 23:00:00,96.763184736462\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Convert field type",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 69
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "date,server_name,cpu_usage,memory_usage,disk_usage\n2024/09/18,server_1,85,12560,410\n2024/09/18,server_2,63,24576,320\n2024/09/18,server_3,74,16384,290\n2024/09/19,server_1,91,19540,370\n2024/09/19,server_2,49,8760,450\n2024/09/19,server_3,68,29800,150\n2024/09/20,server_1,88,23010,300\n2024/09/20,server_2,77,28000,470\n2024/09/20,server_3,55,15200,225\n2024/09/21,server_1,93,16200,365\n2024/09/21,server_2,72,21780,490\n2024/09/21,server_3,81,18760,305\n2024/09/22,server_1,60,25040,325\n2024/09/22,server_2,50,30960,275\n2024/09/22,server_3,90,28300,460\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Partition by values",
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": {
+            "fields": [
+              "server_name"
+            ],
+            "keepFields": true,
+            "naming": {
+              "asLabels": false
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 13,
+      "panels": [],
+      "title": "Combine",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 78
+      },
+      "id": 19,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "x,y\n12,8\n30,14\n7,23\n20,9\n3,27\n11,18\n26,5\n4,29\n22,1\n10,21",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        },
+        {
+          "csvContent": "x,y,z\n12,8,25\n30,14,6\n7,23,19\n20,9,16\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Concatenate fields",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frameqqw",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 78
+      },
+      "id": 20,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Founder Name,Gender,Country of Birth,Age,Founded Company\nSteve Jobs,Male,USA,56,Apple Inc.\nSteve Wozniak,Male,USA,72,Apple Inc.\nRonald Wayne,Male,USA,89,Apple Inc.\nBill Gates,Male,USA,68,Microsoft Corp.\nPaul Allen,Male,USA,65,Microsoft Corp.\nJensen Huang,Male,Taiwan,60,NVIDIA Corp.\nChris Malachowsky,Male,USA,68,NVIDIA Corp.\nCurtis Priem,Male,USA,65,NVIDIA Corp.\nLarry Page,Male,USA,50,Alphabet Inc.\nSergey Brin,Male,Russia,50,Alphabet Inc.\nJeff Bezos,Male,USA,59,Amazon.com Inc.\nMark Zuckerberg,Male,USA,39,Meta Platforms Inc.\nEduardo Saverin,Male,Brazil,41,Meta Platforms Inc.\nAndrew McCollum,Male,USA,39,Meta Platforms Inc.\nDustin Moskovitz,Male,USA,39,Meta Platforms Inc.\nChris Hughes,Male,USA,39,Meta Platforms Inc.\nElon Musk,Male,South Africa,52,Tesla Inc.\nJB Straubel,Male,USA,46,Tesla Inc.\nMartin Eberhard,Male,USA,63,Tesla Inc.\nMarc Tarpenning,Male,USA,61,Tesla Inc.\nWarren Buffett,Male,USA,93,Berkshire Hathaway\nMorris Chang,Male,China,92,Taiwan Semiconductor\nKing Abdulaziz Al Saud,Male,Saudi Arabia,142,Saudi Aramco\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Group by",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Age": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Founded Company": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Founder Name": {
+                "aggregations": [
+                  "allValues"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 86
+      },
+      "id": 21,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "A",
+          "scenarioId": "csv_content"
+        },
+        {
+          "csvContent": "Company Name,Founder(s),Headquarters Country,Headquarters State (if USA),Founded,Number of Employees,\"Revenue (Billion USD, Latest Year)\"\nApple Inc.,\"Steve Jobs, Steve Wozniak, Ronald Wayne\",USA,California,1976,164000,394.33\nMicrosoft Corp.,\"Bill Gates, Paul Allen\",USA,Washington,1975,221000,211.92\nNVIDIA Corp.,\"Jensen Huang, Chris Malachowsky, Curtis Priem\",USA,California,1993,26700,26.91\nAlphabet Inc.,\"Larry Page, Sergey Brin\",USA,California,1998,190234,257.64\nAmazon.com Inc.,\"Jeff Bezos\",USA,Washington,1994,154800,502.19\nMeta Platforms Inc.,\"Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, Chris Hughes\",USA,California,2004,86532,116.61\nTesla Inc.,\"Elon Musk, JB Straubel, Martin Eberhard, Marc Tarpenning\",USA,California,2003,99290,81.46\nBerkshire Hathaway,\"Warren Buffett\",USA,Nebraska,1839,360711,276.09\nTaiwan Semiconductor,\"Morris Chang\",Taiwan,,1987,56800,57.2\nSaudi Aramco,\"King Abdulaziz Al Saud\",Saudi Arabia,,1933,66836,400.4\nExxonMobil,\"John D. Rockefeller, Henry Flagler\",USA,Texas,1999,63000,402.7\nJohnson & Johnson,\"Robert Wood Johnson I, James Wood Johnson\",USA,New Jersey,1886,152700,93.77\nJPMorgan Chase,\"Aaron Burr, John Thompson\",USA,New York,1799,271025,128.7\nVisa Inc.,\"Dee Hock\",USA,California,1958,21000,29.31\nUnitedHealth Group,\"Richard Burke, Bob Sheehy\",USA,Minnesota,1977,400000,324.2\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Join by field",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Company Name",
+            "mode": "inner"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 86
+      },
+      "id": 22,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "container_memory_usage_bytes{container_label_com_docker_compose_project=\"03-dashboard\"}",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "container_fs_usage_bytes{container_label_com_docker_compose_project=\"03-dashboard\"}",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Join by labels",
+      "transformations": [
+        {
+          "id": "joinByLabels",
+          "options": {
+            "join": [
+              "container_label_com_docker_compose_service"
+            ],
+            "value": "__name__"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 94
+      },
+      "id": 23,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "1,20,90,30,5,0"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "35, 82, 19, 64, 45, 7, 93"
+        }
+      ],
+      "title": "Series to rows",
+      "transformations": [
+        {
+          "id": "seriesToRows",
+          "options": {}
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 94
+      },
+      "id": 24,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "server_error_500",
+          "stringInput": "1,20,90,30,5,0"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "server_error_500",
+          "stringInput": "1,24,9,31,5,1"
+        }
+      ],
+      "title": "Merge series/tables",
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 102
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Practice",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 103
+      },
+      "id": 26,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        },
+        {
+          "csvContent": "Company Name,Founder(s),Headquarters Country,Headquarters State (if USA),Founded,Number of Employees,\"Revenue (Billion USD, Latest Year)\"\nApple Inc.,\"Steve Jobs, Steve Wozniak, Ronald Wayne\",USA,California,1976,164000,394.33\nMicrosoft Corp.,\"Bill Gates, Paul Allen\",USA,Washington,1975,221000,211.92\nNVIDIA Corp.,\"Jensen Huang, Chris Malachowsky, Curtis Priem\",USA,California,1993,26700,26.91\nAlphabet Inc.,\"Larry Page, Sergey Brin\",USA,California,1998,190234,257.64\nAmazon.com Inc.,\"Jeff Bezos\",USA,Washington,1994,154800,502.19\nMeta Platforms Inc.,\"Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, Chris Hughes\",USA,California,2004,86532,116.61\nTesla Inc.,\"Elon Musk, JB Straubel, Martin Eberhard, Marc Tarpenning\",USA,California,2003,99290,81.46\nBerkshire Hathaway,\"Warren Buffett\",USA,Nebraska,1839,360711,276.09\nTaiwan Semiconductor,\"Morris Chang\",Taiwan,,1987,56800,57.2\nSaudi Aramco,\"King Abdulaziz Al Saud\",Saudi Arabia,,1933,66836,400.4\nExxonMobil,\"John D. Rockefeller, Henry Flagler\",USA,Texas,1999,63000,402.7\nJohnson & Johnson,\"Robert Wood Johnson I, James Wood Johnson\",USA,New Jersey,1886,152700,93.77\nJPMorgan Chase,\"Aaron Burr, John Thompson\",USA,New York,1799,271025,128.7\nVisa Inc.,\"Dee Hock\",USA,California,1958,21000,29.31\nUnitedHealth Group,\"Richard Burke, Bob Sheehy\",USA,Minnesota,1977,400000,324.2\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Practice",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 103
+      },
+      "id": 35,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\nSaudi Aramco,2.1,1768.56,TADAWUL,2019-12-11,2222\nExxonMobil,0.52,102.67,NYSE,1978-04-15,XOM\nJohnson & Johnson,0.47,172.45,NYSE,1944-01-28,JNJ\nJPMorgan Chase,0.46,157.42,NYSE,1969-05-19,JPM\nVisa Inc.,0.44,238.55,NYSE,2008-03-19,V\nUnitedHealth Group,0.43,492.11,NYSE,1984-12-20,UNH\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        },
+        {
+          "csvContent": "Company Name,Founder(s),Headquarters Country,Headquarters State (if USA),Founded,Number of Employees,\"Revenue (Billion USD, Latest Year)\"\nApple Inc.,\"Steve Jobs, Steve Wozniak, Ronald Wayne\",USA,California,1976,164000,394.33\nMicrosoft Corp.,\"Bill Gates, Paul Allen\",USA,Washington,1975,221000,211.92\nNVIDIA Corp.,\"Jensen Huang, Chris Malachowsky, Curtis Priem\",USA,California,1993,26700,26.91\nAlphabet Inc.,\"Larry Page, Sergey Brin\",USA,California,1998,190234,257.64\nAmazon.com Inc.,\"Jeff Bezos\",USA,Washington,1994,154800,502.19\nMeta Platforms Inc.,\"Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, Chris Hughes\",USA,California,2004,86532,116.61\nTesla Inc.,\"Elon Musk, JB Straubel, Martin Eberhard, Marc Tarpenning\",USA,California,2003,99290,81.46\nBerkshire Hathaway,\"Warren Buffett\",USA,Nebraska,1839,360711,276.09\nTaiwan Semiconductor,\"Morris Chang\",Taiwan,,1987,56800,57.2\nSaudi Aramco,\"King Abdulaziz Al Saud\",Saudi Arabia,,1933,66836,400.4\nExxonMobil,\"John D. Rockefeller, Henry Flagler\",USA,Texas,1999,63000,402.7\nJohnson & Johnson,\"Robert Wood Johnson I, James Wood Johnson\",USA,New Jersey,1886,152700,93.77\nJPMorgan Chase,\"Aaron Burr, John Thompson\",USA,New York,1799,271025,128.7\nVisa Inc.,\"Dee Hock\",USA,California,1958,21000,29.31\nUnitedHealth Group,\"Richard Burke, Bob Sheehy\",USA,Minnesota,1977,400000,324.2\n",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "hide": false,
+          "refId": "B",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Practice",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Company Name",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Founded": true,
+              "Founder(s)": true,
+              "Headquarters Country": false,
+              "Headquarters State (if USA)": true,
+              "IPO Date": true,
+              "Market Cap (Trillions USD)": true,
+              "Number of Employees": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Company Name": 2,
+              "IPO Date": 5,
+              "Market Cap (Trillions USD)": 3,
+              "Stock Exchange": 0,
+              "Stock Price (USD)": 4,
+              "Ticker Symbol": 1
+            },
+            "renameByName": {
+              "Company Name": "Name",
+              "IPO Date": "",
+              "Market Cap (Trillions USD)": "",
+              "Revenue (Billion USD, Latest Year)": "2023 Revenue($)",
+              "Stock Exchange": "",
+              "Stock Price (USD)": "Price($)",
+              "Ticker Symbol": "Code"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Price($)"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "10 - Transform",
+  "uid": "edydg07xvi5mob",
+  "version": 13,
+  "weekStart": ""
+}
