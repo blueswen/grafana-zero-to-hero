@@ -1,0 +1,3 @@
+HMSET AAPL company_name "Apple Inc." market_cap 3.06 stock_price 172.99 stock_exchange "NASDAQ" ipo_date "1980-12-12"
+HMSET MSFT company_name "Microsoft Corp." market_cap 3.234 stock_price 311.50 stock_exchange "NASDAQ" ipo_date "1986-03-13"
+HMSET NVDA company_name "NVIDIA Corp." market_cap 2.94 stock_price 570.88 stock_exchange "NASDAQ" ipo_date "1999-01-22"

@@ -1,0 +1,59 @@
+# config file version
+apiVersion: 1
+
+# list of datasources that should be deleted from the database
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+# list of datasources to insert/update depending
+# what's available in the database
+datasources:
+  # <string, required> name of the datasource. Required
+  - uid: "sqlite"
+    orgId: "1"
+    name: "frser-sqlite-datasource"
+    type: "frser-sqlite-datasource"
+    typeName: "SQLite"
+    access: "proxy"
+    url: ""
+    user: ""
+    database: ""
+    basicAuth: false
+    isDefault: false
+    jsonData: 
+      attachLimit: 0
+      path: "/etc/sqlite.db"
+      pathPrefix: "file:"
+    readOnly: false
+  - uid: "google-sheets"
+    orgId: "1"
+    name: "grafana-googlesheets-datasource"
+    type: "grafana-googlesheets-datasource"
+    typeName: "Google Sheets"
+    access: "proxy"
+    url: ""
+    user: ""
+    database: ""
+    basicAuth: false
+    isDefault: false
+    jsonData: 
+      authenticationType: "key"
+    readOnly: false
+    editable: true
+  - uid: "redis"
+    orgId: "1"
+    name: "redis-datasource"
+    type: "redis-datasource"
+    typeName: "Redis"
+    access: "proxy"
+    url: "redis://redis:6379"
+    user: ""
+    database: ""
+    basicAuth: false
+    isDefault: false
+    jsonData: 
+      acl: false
+      client: "standalone"
+      tlsAuth: false
+    readOnly: false
