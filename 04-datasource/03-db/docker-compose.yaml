@@ -1,0 +1,63 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - postgres-exporter
+      - mysql-exporter
+
+  postgres:
+    image: postgres:16.4
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./etc/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.15.0
+    ports:
+      - "9187:9187"
+    environment:
+      - DATA_SOURCE_URI=postgres:5432/postgres?sslmode=disable
+      - DATA_SOURCE_USER=postgres
+      - DATA_SOURCE_PASS=postgres
+    depends_on:
+      - postgres
+
+  mysql:
+    image: mysql:8.4.2
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mysql
+    volumes:
+      - ./etc/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mysql-exporter:
+    image: prom/mysqld-exporter:v0.15.1
+    ports:
+      - "9104:9104"
+    environment:
+      - DATA_SOURCE_NAME=root:root@(mysql:3306)/mysql
+    volumes:
+      - ./etc/user_my.cnf:/.my.cnf
+    depends_on:
+      - mysql

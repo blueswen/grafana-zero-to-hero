@@ -1,0 +1,72 @@
+# config file version
+apiVersion: 1
+
+# list of datasources that should be deleted from the database
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+# list of datasources to insert/update depending
+# what's available in the database
+datasources:
+  # <string, required> name of the datasource. Required
+  - uid: prometheus
+    orgId: 1
+    name: Prometheus
+    type: prometheus
+    typeName: Prometheus
+    access: proxy
+    url: http://prometheus:9090
+    password: ''
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: true
+    jsonData:
+      httpMethod: POST
+    readOnly: false
+    editable: true
+  - id: 3
+    uid: postgresql
+    orgId: 1
+    name: grafana-postgresql-datasource
+    type: grafana-postgresql-datasource
+    typeName: PostgreSQL
+    access: proxy
+    url: postgres:5432
+    user: postgres
+    database: ''
+    basicAuth: false
+    isDefault: false
+    secureJsonData:
+      password: postgres
+    jsonData:
+      connMaxLifetime: 14400
+      database: postgres
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      maxOpenConns: 100
+      postgresVersion: 1600
+      sslmode: disable
+    readOnly: false
+  - id: 2
+    uid: mysql
+    orgId: 1
+    name: mysql
+    type: mysql
+    typeName: MySQL
+    access: proxy
+    url: mysql:3306
+    user: root
+    database: ''
+    basicAuth: false
+    isDefault: false
+    secureJsonData:
+      password: root
+    jsonData:
+      connMaxLifetime: 14400
+      database: mysql
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      maxOpenConns: 100
+    readOnly: false
