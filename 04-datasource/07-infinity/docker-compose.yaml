@@ -1,0 +1,15 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./data:/var/lib/grafana
+
+  app:
+    build: ./app
+    ports:
+      - "8000:8000"
