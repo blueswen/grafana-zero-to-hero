@@ -1,0 +1,26 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./data:/var/lib/grafana
+      - ./grafanazerotohero-demoapp-app/dist/:/var/lib/grafana/plugins/demoapp-app
+
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./etc/dump.rdb:/data/dump.rdb
+
+  app-plugin:
+    image: node:20
+    volumes:
+      - ./grafanazerotohero-demoapp-app:/app
+    command: ["sh", "-c", "cd /app && npm install && npm run dev"]
+    

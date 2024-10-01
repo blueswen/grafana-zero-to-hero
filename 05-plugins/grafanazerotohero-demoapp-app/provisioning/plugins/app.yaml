@@ -1,0 +1,12 @@
+apiVersion: 1
+
+apps:
+  - type: 'grafanazerotohero-demoapp-app'
+    org_id: 1
+    org_name: 'grafana-zero-to-hero'
+    disabled: false
+    jsonData:
+      apiUrl: http://default-url.com
+      isApiKeySet: true
+    secureJsonData:
+      apiKey: secret-key
