@@ -1,0 +1,22 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: detailed-mail
+      receivers:
+        - uid: cdzrf69h50av4a
+          type: email
+          settings:
+            addresses: <example@email.com>
+            message: '{{ template "default.message" . }}'
+            singleEmail: false
+          disableResolveMessage: false
+    - orgId: 1
+      name: summary-mail
+      receivers:
+        - uid: adzrf59tv67swc
+          type: email
+          settings:
+            addresses: <example@email.com>
+            message: '{{ template "default.title" . }}'
+            singleEmail: false
+          disableResolveMessage: false

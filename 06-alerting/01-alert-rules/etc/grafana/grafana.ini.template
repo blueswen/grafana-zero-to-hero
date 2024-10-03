@@ -1,0 +1,8 @@
+[smtp]
+enabled = true
+host = smtp.gmail.com:587
+user = [gamil account]
+password = [google app password]
+from_address = "alert@grafana.demo.com"
+from_name = "Grafana"
+skip_verify = true
