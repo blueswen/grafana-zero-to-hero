@@ -1,0 +1,110 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
+      - ./data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - node-exporter
+      - cadvisor
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.49.1
+    ports:
+      - "8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  nginx:
+    image: nginxdemos/hello:0.4
+    ports:
+      - "80:80"
+
+  zookeeper:
+    image: bitnami/zookeeper:3.9.2
+    ports:
+      - 2181:2181
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  
+  kafka:
+    image: 'bitnami/kafka:3.7.0'
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENERS=INTERNAL://0.0.0.0:9092,OUTSIDE://0.0.0.0:9094
+      - KAFKA_ADVERTISED_LISTENERS=INTERNAL://kafka:9092,OUTSIDE://kafka:9094
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INTERNAL
+    restart: always
+    depends_on:
+      - zookeeper
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  rest-proxy:
+    image: confluentinc/cp-kafka-rest:7.7.1
+    depends_on:
+      - kafka
+    ports:
+      - 8082:8082
+    hostname: rest-proxy
+    environment:
+      KAFKA_REST_HOST_NAME: rest-proxy
+      KAFKA_REST_BOOTSTRAP_SERVERS: 'kafka:9094'
+      KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
+  
+  app:
+    build: ./app
+    depends_on:
+      - kafka
+    volumes:
+      - ./app:/app
+
+  redpanda-console:
+    image: redpandadata/console:v2.6.0
+    ports:
+      - 8080:8080
+    environment:
+      - KAFKA_BROKERS=kafka:9092
+    depends_on:
+      - kafka
+
+  n8n:
+    image: n8nio/n8n:1.62.1
+    ports:
+      - 5678:5678
+    volumes:
+      - ./n8n:/home/node/.n8n
