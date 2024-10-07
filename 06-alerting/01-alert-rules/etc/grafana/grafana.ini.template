@@ -6,3 +6,10 @@ password = [google app password]
 from_address = "alert@grafana.demo.com"
 from_name = "Grafana"
 skip_verify = true
+
+[unified_alerting.screenshots]
+capture = true
+
+[rendering]
+server_url = http://renderer:8081/render
+callback_url = http://grafana:3000/
