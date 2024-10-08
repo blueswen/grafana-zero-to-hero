@@ -1,0 +1,110 @@
+services:
+  grafana-node-1:
+    image: grafana/grafana:11.2.0
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
+      - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+    environment:
+      - OTEL_SERVICE_NAME=grafana-node-1
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  grafana-node-2:
+    image: grafana/grafana:11.2.0
+    restart: always
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
+      - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+    environment:
+      - OTEL_SERVICE_NAME=grafana-node-2
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/storage:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d grafana -U password"]
+      timeout: 10s
+      retries: 10
+    environment:
+      - POSTGRES_DB=grafana
+      - POSTGRES_USER=grafana
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data/pg_data
+
+  nginx:
+    image: nginx:1.27.2
+    ports:
+      - "80:80"
+    volumes:
+      - ./etc/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - grafana-node-1
+      - grafana-node-2
+  
+  redis_alerting_ha:
+    image: redis/redis-stack-server:7.4.0-v1
+    ports:
+      - '6379:6379'
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--enable-feature=remote-write-receiver"
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      - node-exporter
+      - cadvisor
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.49.1
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  tempo:
+    image: grafana/tempo:2.6.0
+    ports:
+      - "4317:4317"
+    volumes:
+      - ./etc/tempo.yaml:/etc/tempo/tempo.yaml
+    command: 
+      - "--target=all"
+      - "--storage.trace.backend=local"
+      - "--storage.trace.local.path=/var/tempo"
+      - "--auth.enabled=false"
+      - "--config.file=/etc/tempo/tempo.yaml"
