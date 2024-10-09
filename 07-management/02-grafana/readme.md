@@ -2,8 +2,6 @@
 
 ## Goals
 
-此 Lab 會建立：
-
 1. cAdvisor：收集 Container 資料
 2. Node Exporter：收集運行的機器（Node）的資料
 3. Prometheus：採集 cAdvisor、Node Exporter 與 Grafana 的 Metrics
