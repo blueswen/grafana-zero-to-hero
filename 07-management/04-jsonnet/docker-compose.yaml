@@ -1,0 +1,60 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    environment:
+      GF_INSTALL_PLUGINS: grafana-resourcesexporter-app
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
+      - ./data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - node-exporter
+      - cadvisor
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.49.1
+    ports:
+      - "8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  nginx:
+    image: nginxdemos/hello:0.4
+    ports:
+      - "80:80"
+
+  grizzly:
+    image: grafana/grizzly:0.4.8
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./jsonnet:/jsonnet
+    environment:
+      GRAFANA_URL: http://grafana:3000
+      GRAFANA_USER: admin
+      GRAFANA_TOKEN: admin
+      JSONNET_PATH: /jsonnet/vendor # for grr watch
+    working_dir: /jsonnet
+    # `mkdir -p /root/.config/grizzly` is a hotfix for the issue of grr config set error
+    entrypoint: sh -c "mkdir -p /root/.config/grizzly && tail -f /dev/null"
