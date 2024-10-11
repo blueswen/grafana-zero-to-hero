@@ -1,0 +1,24 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  gatus:
+    image: twinproduction/gatus:v5.12.1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./etc/gatus.yaml:/config/config.yaml
