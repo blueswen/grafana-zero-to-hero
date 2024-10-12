@@ -6,7 +6,7 @@
 2. Grafana：Lab 操作
 3. Gatus：對指定網站定時檢查，並提供 Status Page
 
-### Quick Start
+## Quick Start
 
 1. 啟動所有服務
 
