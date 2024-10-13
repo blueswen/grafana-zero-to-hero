@@ -1,0 +1,13 @@
+services:
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./data:/var/lib/grafana
+    environment:
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
+      - GF_INSTALL_PLUGINS=marcusolsson-static-datasource,volkovlabs-variable-panel,marcusolsson-dynamictext-panel,volkovlabs-echarts-panel
