@@ -1,7 +1,7 @@
 import time
 from typing import Tuple
 
-from prometheus_client import REGISTRY, Counter, Gauge, Histogram, generate_latest
+from prometheus_client import REGISTRY, Counter, Gauge, Histogram, generate_latest, CONTENT_TYPE_LATEST
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.requests import Request
 from starlette.responses import Response
@@ -102,4 +102,4 @@ class PrometheusMiddleware(BaseHTTPMiddleware):
 
 
 def metrics(request: Request) -> Response:
-    return Response(generate_latest(REGISTRY))
+    return Response(generate_latest(REGISTRY), media_type=CONTENT_TYPE_LATEST)
