@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+        ports:
+        - name: http
+          containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi
+  labels:
+    app: fastapi
+spec:
+  selector:
+    app: fastapi
+  ports:
+  - name: http
+    port: 8000
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: fastapi
+spec:
+  selector:
+    matchLabels:
+      app: fastapi
+  endpoints:
+  - port: http
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: fastapi
+spec:
+  selector:
+    matchLabels:
+      app: fastapi
+  podMetricsEndpoints:
+  - port: http

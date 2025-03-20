@@ -1,0 +1,16 @@
+# k3d configuration file
+apiVersion: k3d.io/v1alpha3 # this will change in the future as we make everything more stable
+kind: Simple # internally, we also have a Cluster config, which is not yet available externally
+name: kube-prom-stack-lab # name that you want to give to your cluster (will still be prefixed with `k3d-`)
+servers: 1 # same as `--servers 1`
+agents: 1 # same as `--agents 1`
+kubeAPI: # same as `--api-port myhost.my.domain:6445` (where the name would resolve to 127.0.0.1)
+  hostPort: "6445" # where the Kubernetes API listening port will be mapped to on your host system
+
+ports:
+  - port: 9080:80 # same as `--port '8080:80@loadbalancer'`
+    nodeFilters:
+      - loadbalancer
+  - port: 9443:443 # same as `--port '9443:443@loadbalancer'`
+    nodeFilters:
+      - loadbalancer
