@@ -1,4 +1,4 @@
-# kKube Prometheus Stack
+# Kube Prometheus Stack
 
 <https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack>
 

@@ -19,10 +19,9 @@
    docker-compose up -d
    ```
 
-4. 安裝 Infinity Data Source Plugin 與檢視服務
+4. 檢視服務與 Alert 設定
    1. Grafana: <http://localhost:3000>，登入帳號密碼為 `admin/admin`
-      1. 點擊左上 Menu > Alerting > Contact points，設定 Contact Point 中的 Mail 收件者
-      2. Alert Rules、Contact Points、Notification Policies 接透過 Provisioning 設定，無法直接從 UI 更改，可以透過 Duplicate 或 View 檢視設定內容
+   2. 預先透過 Provisioning 設定的 Alert Rules、Contact Points、Notification Policies，無法直接從 UI 更改，但可以透過 Duplicate 或 View 檢視設定內容
 
 5. 關閉所有服務
 
