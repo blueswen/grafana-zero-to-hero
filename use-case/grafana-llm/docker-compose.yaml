@@ -95,8 +95,8 @@ services:
       GF_FEATURE_TOGGLES_ENABLE: alertingCentralAlertHistory
 
   app-a:
-    # build: ../app/fastapi/
     image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    build: ../../app/fastapi/
     container_name: app-a
     ports:
       - "8000:8000"
@@ -122,8 +122,8 @@ services:
     command: uv run obs.py
 
   app-b:
-    # build: ../app/fastapi/
     image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    build: ../../app/fastapi/
     container_name: app-b
     ports:
       - "8001:8000"
@@ -148,8 +148,8 @@ services:
     command: uv run obs.py
 
   app-c:
-    # build: ../app/fastapi/
     image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    build: ../../app/fastapi/
     container_name: app-c
     ports:
       - "8002:8000"

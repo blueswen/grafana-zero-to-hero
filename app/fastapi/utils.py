@@ -1,7 +1,19 @@
 import time
 from typing import Tuple
 
-from prometheus_client import REGISTRY, Counter, Gauge, Histogram, generate_latest, CONTENT_TYPE_LATEST
+from opentelemetry import trace
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
+from opentelemetry.instrumentation.logging import LoggingInstrumentor
+from opentelemetry.instrumentation.redis import RedisInstrumentor
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from prometheus_client import REGISTRY, Counter, Gauge, Histogram
+from prometheus_client.openmetrics.exposition import (
+    CONTENT_TYPE_LATEST,
+    generate_latest,
+)
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.requests import Request
 from starlette.responses import Response
@@ -23,7 +35,7 @@ RESPONSES = Counter(
 REQUESTS_PROCESSING_TIME = Histogram(
     "fastapi_requests_duration_seconds",
     "Histogram of requests processing time by path (in seconds)",
-    ["method", "path", "status_code", "app_name"],
+    ["method", "path", "app_name"],
 )
 EXCEPTIONS = Counter(
     "fastapi_exceptions_total",
@@ -71,13 +83,13 @@ class PrometheusMiddleware(BaseHTTPMiddleware):
         else:
             status_code = response.status_code
             after_time = time.perf_counter()
+            # retrieve trace id for exemplar
+            span = trace.get_current_span()
+            trace_id = trace.format_trace_id(span.get_span_context().trace_id)
 
             REQUESTS_PROCESSING_TIME.labels(
-                method=method,
-                path=path,
-                status_code=status_code,
-                app_name=self.app_name,
-            ).observe(after_time - before_time)
+                method=method, path=path, app_name=self.app_name
+            ).observe(after_time - before_time, exemplar={"trace_id": trace_id})
         finally:
             RESPONSES.labels(
                 method=method,
@@ -102,4 +114,18 @@ class PrometheusMiddleware(BaseHTTPMiddleware):
 
 
 def metrics(request: Request) -> Response:
-    return Response(generate_latest(REGISTRY), media_type=CONTENT_TYPE_LATEST)
+    return Response(
+        generate_latest(REGISTRY), headers={"Content-Type": CONTENT_TYPE_LATEST}
+    )
+
+
+def setting_otlp(app: ASGIApp, app_name: str, endpoint: str) -> None:
+    tracer = TracerProvider()
+    trace.set_tracer_provider(tracer)
+
+    tracer.add_span_processor(BatchSpanProcessor(OTLPSpanExporter(endpoint=endpoint)))
+
+    LoggingInstrumentor().instrument(set_logging_format=True)
+    FastAPIInstrumentor.instrument_app(app, tracer_provider=tracer)
+    RedisInstrumentor().instrument()
+    HTTPXClientInstrumentor().instrument()
