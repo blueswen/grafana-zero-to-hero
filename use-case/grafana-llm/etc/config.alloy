@@ -1,0 +1,49 @@
+loki.source.docker "default" {
+  host       = "unix:///var/run/docker.sock"
+  targets    = discovery.docker.linux.targets 
+  forward_to = [loki.process.log_pipeline.receiver]
+  relabel_rules = loki.relabel.docker_label.rules
+}
+
+discovery.docker "linux" {
+  host = "unix:///var/run/docker.sock"
+}
+
+loki.process "log_pipeline" {
+  forward_to = [loki.write.local.receiver]
+
+  stage.multiline {
+    firstline = "^\\d{4}-\\d{2}-\\d{2} \\d{1,2}:\\d{2}:\\d{2}"
+    max_wait_time = "3s"
+  }
+
+  stage.regex {
+    expression = "^(?P<time>\\d{4}-\\d{2}-\\d{2} \\d{1,2}:\\d{2}:\\d{2},\\d{3}) (?P<message>(?s:.*))$$"
+  }
+}
+
+loki.relabel "docker_label" {
+  forward_to = [loki.write.local.receiver]
+
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/(.*)"
+    target_label  = "container"
+  }
+
+  rule {
+    source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+    target_label  = "service"
+  }
+
+  rule {
+    source_labels = ["__meta_docker_container_label_com_docker_compose_project"]
+    target_label  = "project"
+  }
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
