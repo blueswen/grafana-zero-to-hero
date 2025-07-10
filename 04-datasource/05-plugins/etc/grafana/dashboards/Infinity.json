@@ -57,8 +57,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -88,7 +87,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -99,6 +98,7 @@
           "filters": [],
           "format": "table",
           "global_query_id": "",
+          "parser": "backend",
           "refId": "A",
           "root_selector": "",
           "source": "url",
@@ -136,8 +136,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -167,7 +166,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -178,6 +177,7 @@
           "filters": [],
           "format": "table",
           "global_query_id": "",
+          "parser": "backend",
           "refId": "A",
           "root_selector": "",
           "source": "url",
@@ -215,8 +215,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -246,7 +245,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -257,6 +256,7 @@
           "filters": [],
           "format": "table",
           "global_query_id": "",
+          "parser": "backend",
           "refId": "A",
           "root_selector": "",
           "source": "url",
@@ -283,7 +283,7 @@
       },
       "id": 5,
       "panels": [],
-      "title": "Backend Parser",
+      "title": "Backend Parser - JSONata",
       "type": "row"
     },
     {
@@ -302,8 +302,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -338,7 +337,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -382,8 +381,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -418,7 +416,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -456,7 +454,7 @@
       },
       "id": 10,
       "panels": [],
-      "title": "UQL Parser",
+      "title": "Frontend Parser - UQL",
       "type": "row"
     },
     {
@@ -482,8 +480,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -513,7 +510,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [],
@@ -576,8 +573,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -607,7 +603,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "columns": [
@@ -644,6 +640,7 @@
           "filters": [],
           "format": "table",
           "global_query_id": "",
+          "parser": "simple",
           "refId": "A",
           "root_selector": "table:nth-child(1) tbody tr",
           "source": "url",
@@ -659,20 +656,19 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 39,
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": false,
           "text": "1",
           "value": "1"
         },
-        "hide": 0,
         "includeAll": false,
         "label": "Todo Index",
-        "multi": false,
         "name": "todo_ind",
         "options": [
           {
@@ -692,20 +688,15 @@
           }
         ],
         "query": "1,2,3",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": true,
           "text": "true",
           "value": "true"
         },
-        "hide": 0,
         "includeAll": false,
         "label": "Todo Completed",
-        "multi": false,
         "name": "completed",
         "options": [
           {
@@ -720,13 +711,10 @@
           }
         ],
         "query": "true,false",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": true,
           "text": "John",
           "value": "John"
         },
@@ -735,10 +723,8 @@
           "uid": "infinity-api"
         },
         "definition": "api- (infinity) json",
-        "hide": 0,
         "includeAll": false,
         "label": "Executor Name",
-        "multi": false,
         "name": "executor",
         "options": [],
         "query": {
@@ -761,8 +747,6 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
         "type": "query"
       }
     ]
@@ -775,6 +759,5 @@
   "timezone": "browser",
   "title": "Infinity",
   "uid": "adzg7hq5qxddse",
-  "version": 3,
-  "weekStart": ""
+  "version": 3
 }

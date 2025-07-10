@@ -5,7 +5,16 @@
 此 Lab 會建立
 
 1. Redis：Redis 資料庫 Service
-2. Grafana：查看預先建立好的 Prometheus Data Source 設定方式與 Dashboard
+2. Application：基礎的 API 供 Infinity Data Source 抓取資料
+3. Grafana：Grafana Service
+   1. Data Source
+      - SQLite
+      - Google Sheets
+      - Redis
+      - Infinity
+   2. Dashboard
+      - Plugins: 使用 SQLite、Google Sheets、Redis Data Source
+      - Infinity：使用 Infinity Data Source
 
 ## Quick Start
 

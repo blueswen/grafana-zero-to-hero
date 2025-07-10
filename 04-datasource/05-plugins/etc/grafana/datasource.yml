@@ -57,3 +57,32 @@ datasources:
       client: "standalone"
       tlsAuth: false
     readOnly: false
+  - uid: "infinity-general"
+    orgId: 1
+    name: "general"
+    type: "yesoreyeram-infinity-datasource"
+    typeName: "Infinity"
+    access: "proxy"
+    url: ""
+    user: ""
+    database: ""
+    basicAuth: false
+    isDefault: false
+    jsonData: 
+      global_queries: 
+    readOnly: false
+  - uid: infinity-api
+    orgId: 1
+    name: api
+    type: yesoreyeram-infinity-datasource
+    typeName: Infinity
+    access: proxy
+    url: http://app:8000
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: false
+    jsonData:
+      customHealthCheckEnabled: true
+      global_queries: 
+    readOnly: false
