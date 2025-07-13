@@ -2,15 +2,18 @@
 
 ![Lab Architecture](lab-arch.png)
 
+## Components
+
+1. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+2. Node Exporter：收集機器資料，產生 Prometheus Metrics
+3. Nginx：範例應用程式
+4. Prometheus：爬取並儲存 Prometheus Metrics
+5. Grafana：查詢 Prometheus 上的 Metrics
+
 ## Goals
 
-此 Lab 會建立：
-
-1. Nginx：單純作為被監測的 Container
-2. cAdvisor：收集 Container 資料
-3. Node Exporter：收集運行的機器（Node）的資料
-4. Prometheus：採集 cAdvisor 與 Node Exporter 的 Metrics
-5. Grafana：Lab 操作，並查詢與顯示 Prometheus 採集到的 Metrics
+1. 熟悉 Grafana 基本操作與介面
+2. 操作內建 Dashboard： Basic Dashboard、Cadvisor exporter、Node Exporter Full
 
 ## Quick Start
 
