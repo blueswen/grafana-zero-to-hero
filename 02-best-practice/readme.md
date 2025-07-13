@@ -2,16 +2,18 @@
 
 ![Lab Architecture](lab-arch.png)
 
+## Components
+
+1. K6：模擬使用者，持續發送 Request 至 App 
+2. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+3. Node Exporter：收集機器資料，產生 Prometheus Metrics
+4. App：範例應用程式
+5. Prometheus：爬取並儲存 Prometheus Metrics
+6. Grafana：查詢 Prometheus 上的 Metrics
+
 ## Goals
 
-此 Lab 會建立
-
-1. Application：被監控的服務
-2. cAdvisor：收集 Container 資料
-3. Node Exporter：收集運行的機器（Node）的資料
-4. Prometheus：採集 Application、cAdvisor、Node Exporter 的 Metrics
-5. Grafana：查詢與顯示 Prometheus 採集到的 Metrics
-6. k6：使用 [k6](https://k6.io/) 對 Application 持續發送 Request
+1. 操作內建 Dashboard： Monitoring Best Practice、Cadvisor exporter 與 Node Exporter Full Dashboard
 
 ## Quick Start
 
