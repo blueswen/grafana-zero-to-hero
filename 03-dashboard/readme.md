@@ -1,15 +1,31 @@
 # Grafana Dashboard
 
+![Lab Architecture](lab-arch.png)
+
+## Components
+
+1. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+2. Node Exporter：收集機器資料，產生 Prometheus Metrics
+3. Prometheus：爬取並儲存 Prometheus Metrics
+4. Grafana：查詢 Prometheus 上的 Metrics
+
 ## Goals
 
-此 Lab 會建立
-
-1. cAdvisor：收集 Container 資料
-2. Node Exporter：收集運行的機器（Node）的資料
-3. Prometheus：採集 Application、cAdvisor、Node Exporter 的 Metrics
-4. Grafana：
-   1. 操作各種預先建立的 Visualization 示範與練習 Dashboard
-   2. 查詢與顯示 Prometheus 採集到的 Metrics
+1. 搭配內建的 TestData Data Source 操作各種 Visualization 的範例 Dashboard
+   - 01 - Time Series
+   - 02 - Stat, Gauge, Bar Gauge
+   - 03 - State Timeline, Status History
+   - 04 - Bar Chart, Pie Chart, Histogram, Heatmap
+   - 05 - Table
+   - 06 - Log, Node Graph, Traces, Flame Graph
+   - 07 - Text
+   - 08 - GeoMap
+   - 09 - Canvas, Panel Plugins
+   - 10 - Transform
+   - 11 - Variables
+   - Basic Dashboard
+   - Cadvisor exporter
+   - Node Exporter Full
 
 ## Quick Start
 

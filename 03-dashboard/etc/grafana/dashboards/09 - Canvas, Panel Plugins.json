@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 13,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -64,8 +64,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -138,7 +137,6 @@
               },
               "links": [],
               "name": "server 1 name",
-              "oneClickMode": "off",
               "placement": {
                 "height": 50,
                 "left": 77,
@@ -210,7 +208,6 @@
               },
               "links": [],
               "name": "server 1",
-              "oneClickMode": "off",
               "placement": {
                 "height": 100,
                 "left": 102,
@@ -254,7 +251,6 @@
               },
               "links": [],
               "name": "server 2 name",
-              "oneClickMode": "off",
               "placement": {
                 "height": 50,
                 "left": 327,
@@ -358,7 +354,6 @@
               },
               "links": [],
               "name": "server 2",
-              "oneClickMode": "off",
               "placement": {
                 "height": 100,
                 "left": 352,
@@ -402,7 +397,6 @@
               },
               "links": [],
               "name": "server 3 name",
-              "oneClickMode": "off",
               "placement": {
                 "height": 50,
                 "left": 577,
@@ -440,7 +434,6 @@
               },
               "links": [],
               "name": "server 3",
-              "oneClickMode": "off",
               "placement": {
                 "height": 100,
                 "left": 602,
@@ -479,7 +472,6 @@
               },
               "links": [],
               "name": "1->2",
-              "oneClickMode": "off",
               "placement": {
                 "height": 38,
                 "left": 227,
@@ -518,7 +510,6 @@
               },
               "links": [],
               "name": "2->1",
-              "oneClickMode": "off",
               "placement": {
                 "height": 38,
                 "left": 227,
@@ -557,7 +548,6 @@
               },
               "links": [],
               "name": "2->3",
-              "oneClickMode": "off",
               "placement": {
                 "height": 38,
                 "left": 483,
@@ -594,7 +584,6 @@
               },
               "links": [],
               "name": "Element 10",
-              "oneClickMode": "off",
               "placement": {
                 "height": 31,
                 "left": 267,
@@ -631,7 +620,6 @@
               },
               "links": [],
               "name": "Element 11",
-              "oneClickMode": "off",
               "placement": {
                 "height": 31,
                 "left": 267,
@@ -668,7 +656,6 @@
               },
               "links": [],
               "name": "Element 12",
-              "oneClickMode": "off",
               "placement": {
                 "height": 31,
                 "left": 517,
@@ -691,7 +678,7 @@
         },
         "showAdvancedTypes": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "name_1,status_1,cpu_1,name_2,status_2,cpu_2,name_3,status_3,cpu_3,1->2,2->1,2->3\nServer 01,running,80,Server 02,running,5,Server 03,stopping,0,55,66,0\n",
@@ -721,8 +708,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -784,7 +770,6 @@
               },
               "links": [],
               "name": "Element 1",
-              "oneClickMode": "off",
               "placement": {
                 "height": 70,
                 "left": 38,
@@ -817,7 +802,6 @@
               },
               "links": [],
               "name": "Element 2",
-              "oneClickMode": "off",
               "placement": {
                 "height": 70,
                 "left": 152,
@@ -852,7 +836,6 @@
               },
               "links": [],
               "name": "Element 3",
-              "oneClickMode": "off",
               "placement": {
                 "height": 70,
                 "left": 260,
@@ -887,7 +870,6 @@
               },
               "links": [],
               "name": "Element 4",
-              "oneClickMode": "off",
               "placement": {
                 "height": 70,
                 "left": 362,
@@ -934,7 +916,6 @@
                 "vertical": "top"
               },
               "name": "Element 5",
-              "oneClickMode": "off",
               "placement": {
                 "height": 45,
                 "left": 38,
@@ -967,7 +948,6 @@
               },
               "links": [],
               "name": "Element 6",
-              "oneClickMode": "off",
               "placement": {
                 "height": 70,
                 "left": 463,
@@ -996,7 +976,6 @@
               },
               "links": [],
               "name": "Element 7",
-              "oneClickMode": "off",
               "placement": {
                 "height": 60,
                 "left": 222,
@@ -1025,7 +1004,6 @@
               },
               "links": [],
               "name": "Element 8",
-              "oneClickMode": "off",
               "placement": {
                 "height": 60,
                 "left": 319,
@@ -1054,7 +1032,6 @@
               },
               "links": [],
               "name": "Element 9",
-              "oneClickMode": "off",
               "placement": {
                 "height": 60,
                 "left": 416,
@@ -1083,7 +1060,6 @@
               },
               "links": [],
               "name": "Element 10",
-              "oneClickMode": "off",
               "placement": {
                 "height": 60,
                 "left": 513,
@@ -1106,7 +1082,12 @@
         },
         "showAdvancedTypes": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Canvas: Elements",
       "type": "canvas"
     },
@@ -1129,36 +1110,15 @@
         "uid": "testdata"
       },
       "description": "",
-      "gridPos": {
-        "h": 4,
-        "w": 24,
-        "x": 0,
-        "y": 10
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
-      "id": 9,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "# **Install and enable the following plugins in \"Administration > Plugins and data > Plugins\" first.**\n\n1. Clock\n2. Treemap\n3. Timepicker Buttons Panel\n",
-        "mode": "markdown"
-      },
-      "pluginVersion": "11.2.0",
-      "type": "text"
-    },
-    {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
-      },
-      "description": "",
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 0,
-        "y": 14
+        "y": 10
       },
       "id": 3,
       "options": {
@@ -1209,7 +1169,12 @@
           "zoneFormat": "nameOffset"
         }
       },
-      "pluginVersion": "2.1.7",
+      "pluginVersion": "2.1.8",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Clock - Taipei",
       "type": "grafana-clock-panel"
     },
@@ -1219,11 +1184,15 @@
         "uid": "testdata"
       },
       "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 8,
-        "y": 14
+        "y": 10
       },
       "id": 5,
       "options": {
@@ -1274,7 +1243,12 @@
           "zoneFormat": "nameOffset"
         }
       },
-      "pluginVersion": "2.1.7",
+      "pluginVersion": "2.1.8",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Clock - Los Angeles",
       "type": "grafana-clock-panel"
     },
@@ -1284,11 +1258,15 @@
         "uid": "testdata"
       },
       "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 16,
-        "y": 14
+        "y": 10
       },
       "id": 4,
       "options": {
@@ -1339,7 +1317,12 @@
           "zoneFormat": "nameOffset"
         }
       },
-      "pluginVersion": "2.1.7",
+      "pluginVersion": "2.1.8",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Clock - New Work",
       "type": "grafana-clock-panel"
     },
@@ -1359,8 +1342,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
-                "value": null
+                "color": "blue"
               },
               {
                 "color": "green",
@@ -1387,12 +1369,13 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 16
       },
       "id": 6,
       "options": {
         "tiling": "treemapSquarify"
       },
+      "pluginVersion": "2.1.1",
       "targets": [
         {
           "csvContent": "Company Name,Market Cap (Trillions USD)\nMicrosoft,3.06\nApple,2.6\nNVIDIA,2.13\nAlphabet (Google),1.94\nAmazon,1.88\nMeta Platforms (Facebook),1.25\nTesla,1.17\nBerkshire Hathaway,0.98\nTaiwan Semiconductor,0.97\nSaudi Aramco,2.1\nExxonMobil,0.52\nJohnson & Johnson,0.47\nJPMorgan Chase,0.46\nVisa,0.44\nUnitedHealth Group,0.43\nProcter & Gamble,0.42\nChevron,0.4\nWalmart,0.38\nMastercard,0.36\nKweichow Moutai,0.35",
@@ -1413,11 +1396,15 @@
         "type": "grafana-testdata-datasource",
         "uid": "testdata"
       },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 16
       },
       "id": 11,
       "options": {
@@ -1429,9 +1416,10 @@
         "timeFromOption": "from",
         "timeToOption": "to"
       },
+      "pluginVersion": "4.1.1",
       "targets": [
         {
-          "csvContent": "name,from,to\n2024 Q1,1704067200,1711929599\n2024 Q2,1711929600,1719791999\n2024 Q3,1719792000,1727740799\n2024 Q4,1727740800,1735689599\n",
+          "csvContent": "name,from,to\n2025 Q1,1735660800,1743436799\n2025 Q2,1743436800,1751299199\n2025 Q3,1751299200,1759247999\n2025 Q4,1759248000,1767196799\n",
           "datasource": {
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
@@ -1457,8 +1445,9 @@
       "type": "williamvenner-timepickerbuttons-panel"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -1471,6 +1460,5 @@
   "timezone": "browser",
   "title": "09 - Canvas, Panel Plugins",
   "uid": "cdy99ekj09urka",
-  "version": 14,
-  "weekStart": ""
+  "version": 1
 }

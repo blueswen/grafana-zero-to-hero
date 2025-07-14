@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 11,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -35,13 +35,13 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 24,
+        "h": 8,
+        "w": 6,
         "x": 0,
         "y": 1
       },
@@ -52,10 +52,85 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "# Heading 1\n\n## Heading 2\n\nLink: [Grafana Zero to Hero](https://github.com/blueswen/grafana-zero-to-hero)\n\nImage: ![image alt](/public/img/fav32.png)\n\nTable:\n\n| Group | Installed | Online | Users |\n|---|---|---|---|\n| Loki | 55 | 33 | 80 |\n| Grafana | 79 | 70 | 122 |\n| Tempo | 30 | 25 | 45 |\n| Mimir | 62 | 55 | 100 |",
+        "content": "# Heading 1\n\n## Heading 2\n\nLink: [Grafana Zero to Hero](https://github.com/blueswen/grafana-zero-to-hero)\n\nImage: ![image alt](/public/img/fav32.png)",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "title": "Markdown",
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 1
+      },
+      "id": 12,
+      "options": {
+        "code": {
+          "language": "markdown",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "# Heading 1\n\n## Heading 2\n\nLink: [Grafana Zero to Hero](https://github.com/blueswen/grafana-zero-to-hero)\n\nImage: ![image alt](/public/img/fav32.png)",
+        "mode": "code"
+      },
+      "pluginVersion": "12.0.1",
+      "title": "Markdown",
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Table:\n\n| Group | Installed | Online | Users |\n|---|---|---|---|\n| Loki | 55 | 33 | 80 |\n| Grafana | 79 | 70 | 122 |\n| Tempo | 30 | 25 | 45 |\n| Mimir | 62 | 55 | 100 |",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.0.1",
+      "title": "Markdown",
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "code": {
+          "language": "markdown",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Table:\n\n| Group | Installed | Online | Users |\n|---|---|---|---|\n| Loki | 55 | 33 | 80 |\n| Grafana | 79 | 70 | 122 |\n| Tempo | 30 | 25 | 45 |\n| Mimir | 62 | 55 | 100 |",
+        "mode": "code"
+      },
+      "pluginVersion": "12.0.1",
       "title": "Markdown",
       "type": "text"
     },
@@ -65,7 +140,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 9
       },
       "id": 9,
       "panels": [],
@@ -73,15 +148,15 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 10
       },
       "id": 8,
       "options": {
@@ -93,21 +168,21 @@
         "content": "<div class=\"my-1\">\n  <div class=\"hero-simple d-flex flex-direction-row flex-direction-column-small column-gap-20 row-gap-10 justify-content-start align-items-center align-items-start-small flex-wrap\">\n    <div class=\"hero-simple__image flex-shrink-0 w-110 h-110\">\n      <img data-src=\"/public/img/grafana_icon.svg\" alt=\"Grafana OSS and Enterprise\" class=\" ls-is-cached lazyloaded\" width=\"100\" height=\"100\" src=\"/public/img/grafana_icon.svg\">\n    </div>\n    <div class=\"d-flex flex-direction-column flex-1-1 minw-400 minw-xs-unset\">\n      <div class=\"hero-simple__title\">\n        <h1 id=\"grafana-oss-and-enterprise\">Grafana OSS and Enterprise\n        </h1>\n      </div>\n      <div class=\"hero-simple__description\">Query, visualize, alert on, and explore your metrics, logs, and traces wherever they are stored.</div>\n    </div>\n  </div>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "HTML: basic",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
-      },
       "description": "Not recommended as it enables XSS vulnerabilities.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 10
       },
       "id": 10,
       "options": {
@@ -119,20 +194,20 @@
         "content": "<h3>Enter numbers separated by commas:</h3>\n<div>\n    <span>Number List:</span>\n    <input style=\"border:0.5px white solid;\" size=\"50\" type=\"text\" id=\"numberInput\" value=\"234, 43, 55, 63, 5, 6, 235, 547\" />\n</div>\n<div style=\"text-align: center; margin: 10px\">\n    <button onclick=\"performSort()\">Sort</button>\n</div>\n\n<script>\n    // Bubble sort Implementation using JavaScript\n    function bblSort(arr) {\n        for (var i = 0; i < arr.length; i++) {\n            for (var j = 0; j < (arr.length - i - 1); j++) {\n                if (arr[j] > arr[j + 1]) {\n                    var temp = arr[j];\n                    arr[j] = arr[j + 1];\n                    arr[j + 1] = temp;\n                }\n            }\n        }\n        return arr;\n    }\n\n    function performSort() {\n        // Get the input value\n        var input = document.getElementById('numberInput').value;\n\n        // Check if the input is valid\n        if (!input) {\n            alert(\"Please enter some numbers.\");\n            return;\n        }\n\n        // Split the input by commas and trim spaces\n        var arr = input.split(',').map(function(item) {\n            return item.trim();\n        });\n\n        // Validate that all elements are valid numbers\n        for (var i = 0; i < arr.length; i++) {\n            if (isNaN(arr[i]) || arr[i] === '') {\n                alert(\"Please ensure all inputs are valid numbers separated by commas.\");\n                return;\n            }\n        }\n\n        // Convert the strings to numbers\n        arr = arr.map(Number);\n\n        // Perform bubble sort\n        var sortedArr = bblSort(arr);\n\n        // Display the sorted array using alert\n        alert(\"Sorted Array: \" + sortedArr.join(', '));\n    }\n</script>",
         "mode": "html"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "HTML: allow script tags",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 11,
+        "h": 9,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 17
       },
       "id": 11,
       "options": {
@@ -144,7 +219,7 @@
         "content": "<iframe src=\"http://localhost:9090/\" width=\"1200px\" height=\"600px\"></iframe>",
         "mode": "html"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "HTML: iframe",
       "type": "text"
     },
@@ -154,7 +229,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 26
       },
       "id": 7,
       "panels": [],
@@ -162,15 +237,15 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 27
       },
       "id": 2,
       "options": {
@@ -182,20 +257,20 @@
         "content": "Grafana Open Source Software (OSS) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they're stored.\n\nGrafana data source plugins enable you to query data sources including time series databases like Prometheus and CloudWatch, logging tools like Loki and Elasticsearch, NoSQL/SQL databases like Postgres, CI/CD tooling like GitHub, and many more.\n\nGrafana OSS provides you with tools to display that data on live dashboards with insightful graphs and visualizations.",
         "mode": "code"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "Code: plaintext",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 32
       },
       "id": 3,
       "options": {
@@ -207,20 +282,20 @@
         "content": "<div class=\"my-1\">\n  <div class=\"hero-simple d-flex flex-direction-row flex-direction-column-small column-gap-20 row-gap-10 justify-content-start align-items-center align-items-start-small flex-wrap\">\n    <div class=\"hero-simple__image flex-shrink-0 w-110 h-110\">\n      <img data-src=\"/media/docs/grafana-cloud/infrastructure/grafanalogo.svg\" alt=\"Grafana OSS and Enterprise\" class=\" ls-is-cached lazyloaded\" width=\"100\" height=\"100\" src=\"/media/docs/grafana-cloud/infrastructure/grafanalogo.svg\">\n    </div>\n    <div class=\"d-flex flex-direction-column flex-1-1 minw-400 minw-xs-unset\">\n      <div class=\"hero-simple__title\">\n        <h1 id=\"grafana-oss-and-enterprise\">Grafana OSS and Enterprise <a href=\"#grafana-oss-and-enterprise\" class=\"docs-anchor-link\">\n            <i class=\"fa fa-link\" aria-hidden=\"true\"></i>\n          </a>\n        </h1>\n      </div>\n      <div class=\"hero-simple__description\">Query, visualize, alert on, and explore your metrics, logs, and traces wherever they are stored.</div>\n    </div>\n  </div>\n</div>",
         "mode": "code"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "Code: HTML with line numbers and mini map",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 45
+        "y": 38
       },
       "id": 5,
       "options": {
@@ -232,20 +307,20 @@
         "content": "{\n \"Status\": \"Stopped\",\n \"CPU Usage (%)\": 7.59,\n \"Memory Usage (MB)\": 7938.98,\n \"Disk Usage (GB)\": 92.59,\n \"Network I/O (MB)\": 43.52,\n \"Uptime (hours)\": 202.68,\n \"Error Rate (%)\": 6.78\n}",
         "mode": "code"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "Code: JSON with line numbers and mini map",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 45
+        "y": 38
       },
       "id": 6,
       "options": {
@@ -257,12 +332,13 @@
         "content": "// Bubble sort Implementation using JavaScript\n\n// Creating the bblSort function\nfunction bblSort(arr) {\n\n    for (var i = 0; i < arr.length; i++) {\n\n        // Last i elements are already in place  \n        for (var j = 0; j < (arr.length - i - 1); j++) {\n\n            // Checking if the item at present iteration \n            // is greater than the next iteration\n            if (arr[j] > arr[j + 1]) {\n\n                // If the condition is true\n                // then swap them\n                var temp = arr[j]\n                arr[j] = arr[j + 1]\n                arr[j + 1] = temp\n            }\n        }\n    }\n\n    // Print the sorted array\n    console.log(arr);\n}\n\n// This is our unsorted array\nvar arr = [234, 43, 55, 63, 5, 6, 235, 547];\n\n// Now pass this array to the bblSort() function\nbblSort(arr);",
         "mode": "code"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "Code: TypeScript with line numbers and mini map",
       "type": "text"
     }
   ],
-  "schemaVersion": 39,
+  "preload": false,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -275,6 +351,5 @@
   "timezone": "browser",
   "title": "07 - Text",
   "uid": "bdy8j67feevb4c",
-  "version": 9,
-  "weekStart": ""
+  "version": 1
 }

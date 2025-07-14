@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 14,
   "links": [],
   "panels": [
     {
@@ -58,8 +58,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -207,8 +206,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green",
-                      "value": null
+                      "color": "green"
                     },
                     {
                       "color": "orange",
@@ -246,7 +244,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Service Name,Status,CPU Usage (%),Memory Usage (MB),Disk Usage (GB),Network I/O (MB),Uptime (hours),Error Rate (%)\nService_1,Starting,95.52,1096.64,447.09,20.18,308.25,1.51\nService_2,Stopped,53.44,7517.75,227.27,611.24,645.99,55.18\nService_3,Stopped,53.0,7251.44,394.12,623.98,620.22,84.37\nService_4,Failed,16.42,4067.12,471.64,425.28,966.69,4.36\nService_5,Running,77.52,5931.06,114.45,54.15,935.22,35.96\nService_6,Running,69.52,2842.59,284.86,942.73,552.09,7.01\nService_7,Failed,97.55,4912.07,399.91,383.73,566.19,0.49\nService_8,Starting,76.68,7417.9,179.37,200.4,190.47,16.83\nService_9,Starting,60.05,5245.16,264.36,162.92,632.32,3.38\nService_10,Failed,2.94,7063.43,235.94,475.6,784.3,2.53\nService_11,Failed,23.8,1973.64,383.35,347.79,462.78,5.33\nService_12,Starting,95.13,7804.99,498.15,620.55,462.42,5.07\nService_13,Stopped,86.51,7860.58,188.35,701.73,294.31,0.32\nService_14,Failed,45.42,968.19,101.01,870.03,357.72,6.95\nService_15,Stopped,45.84,2321.82,116.1,973.46,44.79,1.97\nService_16,Failed,86.9,7405.23,23.46,624.08,12.27,1.36\nService_17,Failed,34.95,6542.36,407.97,375.42,12.7,7.21\nService_18,Running,5.33,721.71,74.3,785.38,823.89,7.09\nService_19,Running,83.92,5430.02,397.86,418.34,737.8,4.72\nService_20,Running,88.65,6349.41,419.65,729.3,15.78,7.01\nService_21,Failed,87.02,523.52,136.17,641.22,688.15,5.47\nService_22,Running,12.86,1565.3,204.57,440.44,174.5,4.41\nService_23,Stopped,38.88,1722.95,451.1,152.95,706.65,9.2\nService_24,Failed,7.0,5584.98,395.44,635.05,146.42,0.68\nService_25,Running,71.22,6876.48,193.83,430.06,239.5,5.43\nService_26,Failed,46.33,7446.0,52.41,801.34,117.89,5.33\nService_27,Stopped,77.13,7335.21,216.82,581.02,301.99,8.32\nService_28,Stopped,13.06,5157.64,208.17,421.29,205.29,9.07\nService_29,Failed,48.4,3239.81,157.14,554.57,570.37,7.1\nService_30,Failed,65.86,3019.48,54.5,76.13,745.99,65.61\n",
@@ -298,8 +296,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -330,7 +327,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -385,8 +382,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -416,7 +412,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -468,8 +464,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
-                "value": null
+                "color": "blue"
               },
               {
                 "color": "green",
@@ -507,7 +502,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
@@ -547,8 +542,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
-                "value": null
+                "color": "blue"
               },
               {
                 "color": "green",
@@ -586,7 +580,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Service Name,Status,CPU Usage (%)\nService_1,Starting,95.52\nService_2,Stopped,53.44\nService_3,Stopped,53.0\nService_4,Failed,16.42\nService_5,Running,77.52",
@@ -637,8 +631,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -747,8 +740,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -778,8 +770,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green",
-                      "value": null
+                      "color": "green"
                     },
                     {
                       "color": "orange",
@@ -857,8 +848,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -954,8 +944,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1042,8 +1031,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1140,8 +1128,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1306,8 +1293,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1376,8 +1362,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1525,8 +1510,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green",
-                      "value": null
+                      "color": "green"
                     },
                     {
                       "color": "orange",
@@ -1594,7 +1578,9 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 39,
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -1607,6 +1593,5 @@
   "timezone": "browser",
   "title": "05 - Table",
   "uid": "ady5kiv8f4npcb",
-  "version": 9,
-  "weekStart": ""
+  "version": 1
 }

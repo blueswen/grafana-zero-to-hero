@@ -18,15 +18,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 7,
   "links": [],
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 2,
+        "h": 3,
         "w": 24,
         "x": 0,
         "y": 0
@@ -38,10 +39,11 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div style=\"text-align:center\">\n  <h1>Time Range: ${__from:date:YYYY-MM-DD HH:mm:ss} ~ ${__to:date:YYYY-MM-DD HH:mm:ss}</h1>\n</div>",
+        "content": "<div style=\"text-align:center\">\n  <h2>Time Range: ${__from:date:YYYY-MM-DD HH:mm:ss} ~ ${__to:date:YYYY-MM-DD HH:mm:ss}</h2>\n  <p>URL: <span id=\"current-url\"></span></p>\n</div>\n<script>\n  document.getElementById(\"current-url\").textContent = window.location.href;\n</script>",
         "mode": "html"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "title": "",
       "type": "text"
     },
     {
@@ -50,7 +52,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 3
       },
       "id": 7,
       "panels": [],
@@ -58,15 +60,15 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 14,
         "w": 6,
         "x": 0,
-        "y": 3
+        "y": 4
       },
       "id": 1,
       "options": {
@@ -78,19 +80,20 @@
         "content": "# Global Variables\n\nDashboard Name: `$${empty}__dashboard` $__dashboard\n\nDashboard Time Range(Unix timestamp):\n\n- From: `$${empty}__from` $__from\n- To: `$${empty}__to` $__to\n\nDashbaord Time Zone: `$${empty}__timezone` $__timezone\n\nCurrent User ID: `$${empty}__user` $__user\n\nCurrent Organization:\n- ID: `$${empty}__org` $__org\n- Name: `$${empty}{__org.name}` ${__org.name}",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "title": "",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 14,
         "w": 6,
         "x": 6,
-        "y": 3
+        "y": 4
       },
       "id": 2,
       "options": {
@@ -102,19 +105,20 @@
         "content": "# Variables\n\nQuery: `$${empty}query` $query\n\nCustom: `$${empty}custom` $custom\n\nText Box:`$${empty}text` $text\n\nConstant: `$${empty}constant` $constant\n\nData Source: `$${empty}datasource` $datasource",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "title": "",
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "grafana-testdata-datasource",
-        "uid": "testdata"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 14,
         "w": 12,
         "x": 12,
-        "y": 3
+        "y": 4
       },
       "id": 8,
       "options": {
@@ -126,7 +130,8 @@
         "content": "# Variables Syntax\n\n## Date\n\nUnix millisecond e.g. `1594671549254` : `$${empty}__to` $__to\n\nISO 8601/RFC 3339 e.g. `2020-07-13T20:19:09.254Z`: `$${empty}{__to:date}` ${__to:date}\n\nUnix seconds e.g. `1594671549`: `$${empty}{__to:date:seconds}` ${__to:date:seconds}\n\nAny custom [date format](https://momentjs.com/docs/#/displaying/) for browser time. \n\n1. `$${empty}{__to:date:YYYY-MM-DD HH:mm:ss}` ${__to:date:YYYY-MM-DD HH:mm:ss}\n2. `$${empty}{__to:date:YYYY-MM-DD}` ${__to:date:YYYY-MM-DD}\n\n## List\n\nCustom with CSV `$${empty}{custom:csv}`: ${custom:csv}\n\nCustom with JSON `$${empty}{custom:json}`: ${custom:json}\n\nCustom with Query parameters `$${empty}{custom:queryparam}`: ${custom:queryparam}",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
+      "title": "",
       "type": "text"
     },
     {
@@ -135,7 +140,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 18
       },
       "id": 6,
       "panels": [],
@@ -186,8 +191,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -202,7 +206,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 19
       },
       "id": 4,
       "options": {
@@ -220,12 +224,14 @@
         "showValue": "auto",
         "stacking": "none",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         },
         "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\n",
@@ -312,8 +318,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -328,7 +333,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 19
       },
       "id": 10,
       "options": {
@@ -339,10 +344,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "alias": "Rick",
@@ -394,8 +401,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -429,7 +435,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 27
       },
       "id": 5,
       "options": {
@@ -444,7 +450,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Company Name,Market Cap (Trillions USD),Stock Price (USD),Stock Exchange,IPO Date,Ticker Symbol\nApple Inc.,3.06,172.99,NASDAQ,1980-12-12,AAPL\nMicrosoft Corp.,3.234,311.50,NASDAQ,1986-03-13,MSFT\nNVIDIA Corp.,2.94,570.88,NASDAQ,1999-01-22,NVDA\nAlphabet Inc.,2.03,2753.32,NASDAQ,2004-08-19,GOOGL\nAmazon.com Inc.,1.88,135.67,NASDAQ,1997-05-15,AMZN\nMeta Platforms Inc.,1.25,322.23,NASDAQ,2012-05-18,META\nTesla Inc.,1.17,1067.33,NASDAQ,2010-06-29,TSLA\nBerkshire Hathaway,0.98,525.44,NYSE,1965-05-01,BRK.B\nTaiwan Semiconductor,0.97,125.90,NYSE,1994-10-12,TSM\n",
@@ -497,8 +503,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -532,7 +537,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 27
       },
       "id": 9,
       "options": {
@@ -547,7 +552,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "service,day,value\nloki,3,20\ngrafana,3,39\ntempo,3,41\nmimir,3,94\nloki,7,85\ngrafana,7,99\ntempo,7,92\nmimir,7,54\n",
@@ -568,7 +573,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 35
       },
       "id": 19,
       "panels": [],
@@ -624,8 +629,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -641,7 +645,7 @@
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 36
       },
       "id": 3,
       "options": {
@@ -652,10 +656,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -679,7 +685,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 42
       },
       "id": 11,
       "panels": [],
@@ -703,8 +709,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -720,7 +725,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 43
       },
       "id": 12,
       "maxPerRow": 4,
@@ -767,12 +772,11 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 45
+        "y": 47
       },
       "id": 16,
       "panels": [],
       "repeat": "query",
-      "repeatDirection": "h",
       "title": "Row Repeat: ${query}",
       "type": "row"
     },
@@ -825,8 +829,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -842,7 +845,7 @@
         "h": 4,
         "w": 12,
         "x": 0,
-        "y": 46
+        "y": 48
       },
       "id": 17,
       "options": {
@@ -853,10 +856,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -923,8 +928,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -940,7 +944,7 @@
         "h": 4,
         "w": 12,
         "x": 12,
-        "y": 46
+        "y": 48
       },
       "id": 18,
       "options": {
@@ -951,10 +955,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -973,13 +979,13 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 39,
+  "preload": false,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": true,
           "text": [
             "grafana"
           ],
@@ -992,9 +998,7 @@
           "uid": "prometheus"
         },
         "definition": "label_values(container_last_seen,container_label_com_docker_compose_service)",
-        "hide": 0,
         "includeAll": false,
-        "label": "",
         "multi": true,
         "name": "query",
         "options": [],
@@ -1005,13 +1009,10 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
         "type": "query"
       },
       {
         "current": {
-          "selected": true,
           "text": [
             "grafana",
             "tempo",
@@ -1023,16 +1024,10 @@
             "mimir"
           ]
         },
-        "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "custom",
         "options": [
-          {
-            "selected": false,
-            "text": "All",
-            "value": "$__all"
-          },
           {
             "selected": false,
             "text": "loki",
@@ -1055,17 +1050,13 @@
           }
         ],
         "query": "loki,grafana,tempo,mimir",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": false,
           "text": "default string",
           "value": "default string"
         },
-        "hide": 0,
         "name": "text",
         "options": [
           {
@@ -1075,40 +1066,42 @@
           }
         ],
         "query": "default string",
-        "skipUrlSync": false,
         "type": "textbox"
       },
       {
+        "current": {
+          "text": "3.14159",
+          "value": "3.14159"
+        },
         "hide": 2,
         "name": "constant",
         "query": "3.14159",
-        "skipUrlSync": false,
+        "skipUrlSync": true,
         "type": "constant"
       },
       {
         "current": {
-          "selected": false,
           "text": "Prometheus",
           "value": "prometheus"
         },
-        "hide": 0,
         "includeAll": false,
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
-        "queryValue": "",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
+        "current": {
+          "text": "",
+          "value": ""
+        },
         "description": "for rendering variable usage text",
         "hide": 2,
         "name": "empty",
         "query": "",
-        "skipUrlSync": false,
+        "skipUrlSync": true,
         "type": "constant"
       }
     ]
@@ -1121,6 +1114,5 @@
   "timezone": "browser",
   "title": "11 - Variables",
   "uid": "fdyg3uj1nlczkf",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

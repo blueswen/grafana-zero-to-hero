@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 5,
   "links": [],
   "panels": [
     {
@@ -46,6 +46,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -83,8 +84,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -113,10 +113,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -124,7 +126,7 @@
             "uid": "testdata"
           },
           "refId": "A",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,"
         },
         {
@@ -132,9 +134,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "B",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "NORMAL,CRITICAL,LOW,HIGH,HIGH,NORMAL,"
         },
         {
@@ -142,9 +143,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "C",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "HIGH,LOW,CRITICAL,NORMAL,HIGH,LOW,"
         }
       ],
@@ -163,6 +163,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -198,8 +199,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -227,10 +227,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -238,7 +240,7 @@
             "uid": "testdata"
           },
           "refId": "A",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,LOW"
         },
         {
@@ -246,9 +248,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "B",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "CRITICAL,CRITICAL,NORMAL,HIGH,HIGH,NORMAL,HIGH"
         },
         {
@@ -256,9 +257,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "C",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "HIGH,LOW,CRITICAL,NORMAL,LOW,LOW,CRITICAL"
         }
       ],
@@ -290,6 +290,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -327,8 +328,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -337,7 +337,34 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "A-series"
+            },
+            "properties": [
+              {
+                "id": "custom.axisWidth"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -357,10 +384,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -368,7 +397,7 @@
             "uid": "testdata"
           },
           "refId": "A",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,"
         },
         {
@@ -378,7 +407,7 @@
           },
           "hide": false,
           "refId": "B",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "NORMAL,CRITICAL,LOW,HIGH,HIGH,NORMAL,"
         },
         {
@@ -388,7 +417,7 @@
           },
           "hide": false,
           "refId": "C",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "HIGH,LOW,CRITICAL,NORMAL,HIGH,LOW,"
         }
       ],
@@ -407,6 +436,7 @@
             "mode": "thresholds"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -422,8 +452,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -456,10 +485,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -467,7 +498,7 @@
             "uid": "testdata"
           },
           "refId": "A",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "1,20,90,30,5,0"
         },
         {
@@ -475,9 +506,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "B",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "33, 74, 5, 92, 18, 46"
         },
         {
@@ -485,9 +515,8 @@
             "type": "grafana-testdata-datasource",
             "uid": "testdata"
           },
-          "hide": false,
           "refId": "C",
-          "scenarioId": "server_error_500",
+          "scenarioId": "csv_metric_values",
           "stringInput": "56, 23, 89, 12, 67, 38"
         }
       ],
@@ -506,6 +535,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -539,8 +569,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -556,7 +585,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 12,
         "x": 0,
         "y": 18
@@ -573,10 +602,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down\n2024-02-29 11:00:00,Warning,Down",
@@ -628,8 +659,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -645,7 +675,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 8,
         "w": 12,
         "x": 12,
         "y": 18
@@ -663,7 +693,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down",
@@ -704,6 +734,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -737,8 +768,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -754,10 +784,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 12,
         "x": 0,
-        "y": 23
+        "y": 22
       },
       "id": 6,
       "options": {
@@ -771,10 +801,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,Up,Up\n2024-02-29 8:15:00,null,Up\n2024-02-29 8:30:00,Down,null\n2024-02-29 8:45:00,,Up\n2024-02-29 9:00:00,Up,\n2024-02-29 9:15:00,Up,Down\n2024-02-29 9:30:00,Up,Down\n2024-02-29 10:00:00,Down,Down\n2024-02-29 10:30:00,Warning,Down\n2024-02-29 11:00:00,Warning,Down",
@@ -815,6 +847,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -848,8 +881,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -865,10 +897,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 28
+        "y": 26
       },
       "id": 7,
       "options": {
@@ -882,10 +914,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Start time,End time,Server A,Server B\n2024-02-29 8:00:00,2024-02-29 8:15:00,Up,Up\n2024-02-29 8:15:00,2024-02-29 8:30:00,Up,Up\n2024-02-29 8:45:00,2024-02-29 9:00:00,Down,Up\n2024-02-29 9:00:00,2024-02-29 9:15:00,Down,Up\n2024-02-29 9:30:00,2024-02-29 10:00:00,Down,Down\n2024-02-29 10:00:00,2024-02-29 10:30:00,Warning,Down\n2024-02-29 10:30:00,2024-02-29 11:00:00,Warning,Down",
@@ -967,8 +1001,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "orange",
@@ -984,10 +1017,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 12,
-        "y": 28
+        "y": 26
       },
       "id": 8,
       "options": {
@@ -1002,7 +1035,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Start time,End time,Server A,Server B\n2024-02-29 8:00:00,2024-02-29 8:15:00,Up,Up\n2024-02-29 8:15:00,2024-02-29 8:30:00,Up,Up\n2024-02-29 8:45:00,2024-02-29 9:00:00,Down,Up\n2024-02-29 9:00:00,2024-02-29 9:15:00,Down,Up\n2024-02-29 9:30:00,2024-02-29 10:00:00,Down,Down\n2024-02-29 10:00:00,2024-02-29 10:30:00,Warning,Down\n2024-02-29 10:30:00,2024-02-29 11:00:00,Warning,Down",
@@ -1049,7 +1082,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 32
       },
       "id": 15,
       "panels": [],
@@ -1068,6 +1101,235 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 3
+                },
+                "HIGH": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "LOW": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "NORMAL": {
+                  "color": "green",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 23,
+      "options": {
+        "colWidth": 0.9,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,LOW,LOW"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "B",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "CRITICAL,CRITICAL,NORMAL,HIGH,HIGH,NORMAL,HIGH"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "C",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "HIGH,LOW,CRITICAL,NORMAL,LOW,LOW,CRITICAL"
+        }
+      ],
+      "title": "Status History without null",
+      "type": "status-history"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 3
+                },
+                "HIGH": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "LOW": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "NORMAL": {
+                  "color": "green",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 24,
+      "options": {
+        "colWidth": 0.9,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "LOW,HIGH,CRITICAL,NORMAL,HIGH,,LOW"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "B",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "CRITICAL,,NORMAL,HIGH,,,HIGH"
+        },
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "testdata"
+          },
+          "refId": "C",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "HIGH,LOW,CRITICAL,,LOW,LOW,CRITICAL"
+        }
+      ],
+      "title": "Status History with null",
+      "type": "status-history"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "grafana-testdata-datasource",
+        "uid": "testdata"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "shades"
+          },
+          "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1099,8 +1361,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1115,7 +1376,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 37
+        "y": 41
       },
       "id": 17,
       "options": {
@@ -1128,10 +1389,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,OK,WARN\n2024-02-29 8:15:00,WARN,\n2024-02-29 8:18:00,,WARN\n2024-02-29 8:30:00,BAD,\n2024-02-29 8:36:00,,OK\n2024-02-29 8:45:00,OK,",
@@ -1201,8 +1464,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1217,7 +1479,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 37
+        "y": 41
       },
       "id": 18,
       "options": {
@@ -1232,7 +1494,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,OK,WARN\n2024-02-29 8:15:00,WARN,\n2024-02-29 8:18:00,,WARN\n2024-02-29 8:30:00,BAD,\n2024-02-29 8:36:00,,OK\n2024-02-29 8:45:00,OK,",
@@ -1265,6 +1527,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1296,8 +1559,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1312,7 +1574,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 45
+        "y": 49
       },
       "id": 19,
       "options": {
@@ -1325,10 +1587,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Start time,End time,Service A,Service B\n2024-02-29 8:00:00,2024-02-29 8:15:00,OK,OK\n2024-02-29 8:15:00,2024-02-29 8:30:00,,OK\n2024-02-29 8:30:00,2024-02-29 8:45:00,OK,OK\n2024-02-29 8:45:00,2024-02-29 9:00:00,BAD,\n2024-02-29 9:00:00,2024-02-29 9:15:00,,WARN\n2024-02-29 9:15:00,2024-02-29 9:30:00,OK,WARN",
@@ -1410,8 +1674,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1426,7 +1689,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 45
+        "y": 49
       },
       "id": 20,
       "options": {
@@ -1441,7 +1704,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Start time,End time,Service A,Service B\n2024-02-29 8:00:00,2024-02-29 8:15:00,OK,OK\n2024-02-29 8:15:00,2024-02-29 8:30:00,,OK\n2024-02-29 8:30:00,2024-02-29 8:45:00,OK,OK\n2024-02-29 8:45:00,2024-02-29 9:00:00,BAD,\n2024-02-29 9:00:00,2024-02-29 9:15:00,,WARN\n2024-02-29 9:15:00,2024-02-29 9:30:00,OK,WARN",
@@ -1488,7 +1751,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 53
+        "y": 57
       },
       "id": 11,
       "panels": [],
@@ -1507,6 +1770,7 @@
             "mode": "thresholds"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1522,8 +1786,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1535,10 +1798,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 0,
-        "y": 54
+        "y": 58
       },
       "id": 9,
       "options": {
@@ -1552,10 +1815,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,,Off\n2024-02-29 8:30:00,On,\n2024-02-29 8:45:00,,On\n2024-02-29 9:00:00,,\n2024-02-29 9:15:00,On,On\n2024-02-29 9:30:00,Off,Off\n2024-02-29 10:00:00,Off,On\n2024-02-29 10:30:00,Off,On",
@@ -1582,6 +1847,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1613,8 +1879,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1626,10 +1891,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 12,
-        "y": 54
+        "y": 58
       },
       "id": 10,
       "options": {
@@ -1643,10 +1908,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Server A,Server B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,,Off\n2024-02-29 8:30:00,On,\n2024-02-29 8:45:00,,On\n2024-02-29 9:00:00,,\n2024-02-29 9:15:00,On,On\n2024-02-29 9:30:00,Off,Off\n2024-02-29 10:00:00,Off,On\n2024-02-29 10:30:00,Off,On",
@@ -1687,6 +1954,7 @@
             "mode": "thresholds"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1700,8 +1968,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1713,10 +1980,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 0,
-        "y": 60
+        "y": 63
       },
       "id": 21,
       "options": {
@@ -1729,10 +1996,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,On,\n2024-02-29 8:18:00,,Off\n2024-02-29 8:30:00,Off,\n2024-02-29 8:36:00,,On\n2024-02-29 8:45:00,On,On",
@@ -1759,6 +2028,7 @@
             "mode": "shades"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1788,8 +2058,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1801,10 +2070,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 12,
-        "y": 60
+        "y": 63
       },
       "id": 22,
       "options": {
@@ -1817,10 +2086,12 @@
         "rowHeight": 0.9,
         "showValue": "auto",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "csvContent": "Timestamps,Service A,Service B\n2024-02-29 8:00:00,On,Off\n2024-02-29 8:15:00,On,\n2024-02-29 8:18:00,,Off\n2024-02-29 8:30:00,Off,\n2024-02-29 8:36:00,,On\n2024-02-29 8:45:00,On,On",
@@ -1850,8 +2121,9 @@
       "type": "status-history"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -1864,6 +2136,5 @@
   "timezone": "browser",
   "title": "03 - State Timeline, Status History",
   "uid": "fdy4mdbvk6xoga",
-  "version": 8,
-  "weekStart": ""
+  "version": 1
 }
