@@ -1,15 +1,20 @@
 # Prometheus
 
+![Lab Architecture](lab-arch.png)
+
+## Components
+
+1. K6：模擬使用者，持續發送 Request 至 App 
+2. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+3. Node Exporter：收集機器資料，產生 Prometheus Metrics
+4. App：範例應用程式
+5. Prometheus：爬取並儲存 Prometheus Metrics
+6. Grafana：查詢 Prometheus 上的 Metrics
+
 ## Goals
 
-此 Lab 會建立
-
-1. Application：被監控的服務
-2. cAdvisor：收集 Container 資料
-3. Node Exporter：收集運行的機器（Node）的資料
-4. Prometheus：採集 cAdvisor、Node Exporter 的 Metrics
-5. Grafana：
-   1. 查看預先建立好的 Prometheus Data Source 設定方式與 Dashboard
+1. 操作 Explore 查閱預先建立好的 Prometheus Data Source
+2. 操作內建 Dashboard：Prometheus、Cadvisor exporter 與 Node Exporter Full Dashboard
 
 ## Quick Start
 
@@ -29,3 +34,7 @@
    ```bash
    docker-compose down
    ```
+
+## Note
+
+Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
