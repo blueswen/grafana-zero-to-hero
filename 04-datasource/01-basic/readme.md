@@ -1,15 +1,16 @@
 # Data Source Basic
 
+## Components
+
+1. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+2. Node Exporter：收集機器資料，產生 Prometheus Metrics
+3. Prometheus：爬取並儲存 Prometheus Metrics
+4. Grafana：查詢 Prometheus 上的 Metrics
+
 ## Goals
 
-此 Lab 會建立
-
-1. cAdvisor：收集 Container 資料
-2. Node Exporter：收集運行的機器（Node）的資料
-3. Prometheus：採集 cAdvisor、Node Exporter 的 Metrics
-4. Grafana：
-   1. 查看預先建立好的 Prometheus Data Source 設定方式
-   2. 操作 Explore 查閱預先建立好的 Prometheus 與 TestData
+1. 查看預先建立好的 Prometheus Data Source 設定方式
+2. 操作 Explore 查閱預先建立好的 Prometheus 與 TestData Data Source
 
 ## Quick Start
 
