@@ -1,0 +1,176 @@
+x-app-dependencies: &app-dependencies
+  postgres:
+    condition: service_healthy
+  redis:
+    condition: service_healthy
+services:
+  # Metrics
+  prometheus:
+    image: prom/prometheus:v3.3.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/workspace/prometheus.yml
+    command:
+      - --config.file=/workspace/prometheus.yml
+      - --enable-feature=exemplar-storage
+      - --web.enable-remote-write-receiver
+
+  # Logs
+  alloy:
+    image: grafana/alloy:v1.9.2
+    volumes:
+      - ./etc/config.alloy:/etc/alloy/config.alloy
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - run
+      - /etc/alloy/config.alloy
+      - --server.http.listen-addr=0.0.0.0:12345
+    ports:
+      - "12345:12345"
+    depends_on:
+      - loki
+  loki:
+    image: grafana/loki:3.5.0
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+
+  # Traces
+  tempo:
+    image: grafana/tempo:2.7.2
+    volumes:
+      - ./etc/tempo.yml:/etc/tempo.yml
+    command: [ "-config.file=/etc/tempo.yml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
+
+  # Profiles
+  pyroscope:
+    image: grafana/pyroscope:1.14.0
+    ports:
+      - "4040:4040"
+
+  # Others
+  grafana:
+    image: grafana/grafana:12.0.1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+
+  app-a:
+    build: ../../app/fastapi/
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - TARGET_ONE_SVC=app-b:8000
+      - TARGET_TWO_SVC=app-c:8000
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_SERVER=postgres
+      - REDIS_SERVER=redis
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+      - OTEL_PYTHON_EXCLUDED_URLS=/metrics
+      - OTEL_SERVICE_NAME=app-a
+      - CODE_BASED_INSTRUMENTATION=true
+      - APP_NAME=app-a
+      - TIME_BOMB=true
+      - PYROSCOPE_SERVER=http://pyroscope:4040
+      - ENABLE_PYROSCOPE=true
+    depends_on: *app-dependencies
+    command: uv run obs.py
+
+  app-b:
+    build: ../../app/fastapi/
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
+    ports:
+      - "8001:8000"
+    environment:
+      - TARGET_ONE_SVC=app-c:8000
+      - TARGET_TWO_SVC=app-a:8000
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_SERVER=postgres
+      - REDIS_SERVER=redis
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+      - OTEL_PYTHON_EXCLUDED_URLS=/metrics
+      - OTEL_SERVICE_NAME=app-b
+      - CODE_BASED_INSTRUMENTATION=true
+      - APP_NAME=app-b
+      - PYROSCOPE_SERVER=http://pyroscope:4040
+      - ENABLE_PYROSCOPE=true
+    depends_on: *app-dependencies
+    command: uv run obs.py
+
+  app-c:
+    build: ../../app/fastapi/
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
+    ports:
+      - "8002:8000"
+    environment:
+      - TARGET_ONE_SVC=app-a:8000
+      - TARGET_TWO_SVC=app-b:8000
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_SERVER=postgres
+      - REDIS_SERVER=redis
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+      - OTEL_PYTHON_EXCLUDED_URLS=/metrics
+      - OTEL_SERVICE_NAME=app-c
+      - CODE_BASED_INSTRUMENTATION=true
+      - APP_NAME=app-c
+      - PYROSCOPE_SERVER=http://pyroscope:4040
+      - ENABLE_PYROSCOPE=true
+    depends_on: *app-dependencies
+    command: uv run obs.py
+
+  postgres:
+    image: postgres:16.4
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  k6:
+    image: grafana/k6:1.0.0
+    volumes:
+      - ./etc/k6-script.js:/k6/script.js
+    command: run --vus 3 --duration 6000s /k6/script.js
+    environment:
+      - MODE=compose
+    depends_on:
+      - app-a
+      - app-b
+      - app-c
