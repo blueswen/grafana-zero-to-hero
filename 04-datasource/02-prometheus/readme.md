@@ -21,7 +21,7 @@
 1. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. 檢視服務
@@ -29,10 +29,16 @@
    1. Grafana: <http://localhost:3000>，登入帳號密碼為 `admin/admin`
       1. 點擊左上 Menu > Dashboards > Provision Dashboards 即可選擇預先建立的 Dashboard
 
-3. 關閉所有服務
+3. 模擬發送 Request，預設啟動時會持續發送 100 分鐘，若要再次發送可重新啟動 k6 container
 
    ```bash
-   docker-compose down
+   docker compose start k6
+   ```
+
+4. 關閉所有服務
+
+   ```bash
+   docker compose down
    ```
 
 ## Note

@@ -17,7 +17,7 @@
 1. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. 檢視服務
@@ -26,5 +26,5 @@
 3. 關閉所有服務
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
