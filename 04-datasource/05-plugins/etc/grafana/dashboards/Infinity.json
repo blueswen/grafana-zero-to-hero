@@ -692,15 +692,15 @@
       },
       {
         "current": {
-          "text": "true",
-          "value": "true"
+          "text": "",
+          "value": ""
         },
         "includeAll": false,
         "label": "Todo Completed",
         "name": "completed",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "true",
             "value": "true"
           },
@@ -759,5 +759,5 @@
   "timezone": "browser",
   "title": "Infinity",
   "uid": "adzg7hq5qxddse",
-  "version": 3
+  "version": 1
 }
