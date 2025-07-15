@@ -2,13 +2,6 @@
 
 ![Lab Architecture](lab-arch.png)
 
-Lab 架構組成：
-
-
-Lab 目標：
-
-
-
 ## Components
 
 1. App：範例應用程式
