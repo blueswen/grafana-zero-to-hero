@@ -12,13 +12,18 @@
   },
   "overrides": [
     {
-      "plugins": ["deprecation"],
       "files": ["src/**/*.{ts,tsx}"],
       "rules": {
-        "deprecation/deprecation": "warn"
+        "@typescript-eslint/no-deprecated": "warn"
       },
       "parserOptions": {
         "project": "./tsconfig.json"
+      }
+    },
+    {
+      "files": ["./tests/**/*"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off"
       }
     }
   ]

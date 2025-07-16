@@ -22,7 +22,6 @@
       "type": "page",
       "name": "Home",
       "path": "/a/%PLUGIN_ID%/home",
-      "role": "Admin",
       "addToNav": true,
       "defaultNav": true
     },
@@ -30,7 +29,6 @@
       "type": "page",
       "name": "Page with tabs",
       "path": "/a/%PLUGIN_ID%/page-with-tabs",
-      "role": "Admin",
       "addToNav": true,
       "defaultNav": false
     },
@@ -38,7 +36,6 @@
       "type": "page",
       "name": "Page with drilldown",
       "path": "/a/%PLUGIN_ID%/page-with-drilldown",
-      "role": "Admin",
       "addToNav": true,
       "defaultNav": false
     },
@@ -46,13 +43,12 @@
       "type": "page",
       "name": "Hello world",
       "path": "/a/%PLUGIN_ID%/hello-world",
-      "role": "Admin",
       "addToNav": true,
       "defaultNav": false
     }
   ],
   "dependencies": {
-    "grafanaDependency": ">=10.4.0",
+    "grafanaDependency": ">=11.2.0",
     "plugins": []
   }
 }

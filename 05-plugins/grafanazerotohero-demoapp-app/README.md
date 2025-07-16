@@ -54,11 +54,14 @@ To learn more about @grafana/scenes usage please refer to the [documentation](ht
    npm run server
    ```
 
-6. Run the E2E tests (using Cypress)
+6. Run the E2E tests (using Playwright)
 
    ```bash
    # Spins up a Grafana instance first that we tests against
    npm run server
+
+   # If you wish to start a certain Grafana version. If not specified will use latest by default
+   GRAFANA_VERSION=11.3.0 npm run server
 
    # Starts the tests
    npm run e2e

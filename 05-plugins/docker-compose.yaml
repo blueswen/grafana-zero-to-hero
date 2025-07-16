@@ -1,6 +1,6 @@
 services:
   grafana:
-    image: grafana/grafana:11.2.0
+    image: grafana/grafana:12.0.1
     ports:
       - "3000:3000"
     volumes:
@@ -8,8 +8,9 @@ services:
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./data:/var/lib/grafana
       - ./grafanazerotohero-demoapp-app/dist/:/var/lib/grafana/plugins/demoapp-app
+    environment:
+      - GF_INSTALL_PLUGINS=redis-app,grafana-resourcesexporter-app
 
   redis:
     image: redis:7.4
@@ -19,8 +20,7 @@ services:
       - ./etc/dump.rdb:/data/dump.rdb
 
   app-plugin:
-    image: node:20
+    image: node:22
     volumes:
       - ./grafanazerotohero-demoapp-app:/app
-    command: ["sh", "-c", "cd /app && npm install && npm run dev"]
-    
+    command: ["sh", "-c", "cd /app && npm install && npm run build"]

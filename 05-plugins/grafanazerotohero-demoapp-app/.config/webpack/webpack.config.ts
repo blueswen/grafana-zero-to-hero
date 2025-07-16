@@ -11,12 +11,14 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import path from 'path';
 import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import { type Configuration, BannerPlugin } from 'webpack';
+import { SubresourceIntegrityPlugin } from 'webpack-subresource-integrity';
+import webpack, { type Configuration } from 'webpack';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 
-import { DIST_DIR, SOURCE_DIR } from './constants';
-import { getCPConfigVersion, getEntries, getPackageJson, getPluginJson, hasReadme, isWSL } from './utils';
+import { BuildModeWebpackPlugin } from './BuildModeWebpackPlugin.ts';
+import { DIST_DIR, SOURCE_DIR } from './constants.ts';
+import { getCPConfigVersion, getEntries, getPackageJson, getPluginJson, hasReadme, isWSL } from './utils.ts';
 
 const pluginJson = getPluginJson();
 const cpVersion = getCPConfigVersion();
@@ -32,12 +34,17 @@ __webpack_public_path__ =
 `,
 });
 
-const config = async (env): Promise<Configuration> => {
+export type Env = {
+  [key: string]: true | string | Env;
+};
+
+const config = async (env: Env): Promise<Configuration> => {
   const baseConfig: Configuration = {
     cache: {
       type: 'filesystem',
       buildDependencies: {
-        config: [__filename],
+        // __filename doesn't work in Node 24
+        config: [path.resolve(process.cwd(), '.config', 'webpack', 'webpack.config.ts')],
       },
     },
 
@@ -66,20 +73,19 @@ const config = async (env): Promise<Configuration> => {
       'redux',
       'rxjs',
       'react-router',
-      'react-router-dom',
       'd3',
       'angular',
-      '@grafana/ui',
-      '@grafana/runtime',
-      '@grafana/data',
+      /^@grafana\/ui/i,
+      /^@grafana\/runtime/i,
+      /^@grafana\/data/i,
 
       // Mark legacy SDK imports as external if their name starts with the "grafana/" prefix
       ({ request }, callback) => {
         const prefix = 'grafana/';
-        const hasPrefix = (request) => request.indexOf(prefix) === 0;
-        const stripPrefix = (request) => request.substr(prefix.length);
+        const hasPrefix = (request: string) => request.indexOf(prefix) === 0;
+        const stripPrefix = (request: string) => request.substr(prefix.length);
 
-        if (hasPrefix(request)) {
+        if (request && hasPrefix(request)) {
           return callback(undefined, stripPrefix(request));
         }
 
@@ -174,18 +180,21 @@ const config = async (env): Promise<Configuration> => {
         keep: new RegExp(`(.*?_(amd64|arm(64)?)(.exe)?|go_plugin_build_manifest)`),
       },
       filename: '[name].js',
+      chunkFilename: env.production ? '[name].js?_cache=[contenthash]' : '[name].js',
       library: {
         type: 'amd',
       },
       path: path.resolve(process.cwd(), DIST_DIR),
       publicPath: `public/plugins/${pluginJson.id}/`,
       uniqueName: pluginJson.id,
+      crossOriginLoading: 'anonymous',
     },
 
     plugins: [
+      new BuildModeWebpackPlugin(),
       virtualPublicPath,
       // Insert create plugin version information into the bundle
-      new BannerPlugin({
+      new webpack.BannerPlugin({
         banner: '/* [create-plugin] version: ' + cpVersion + ' */',
         raw: true,
         entryOnly: true,
@@ -198,14 +207,14 @@ const config = async (env): Promise<Configuration> => {
           { from: 'plugin.json', to: '.' },
           { from: '../LICENSE', to: '.' },
           { from: '../CHANGELOG.md', to: '.', force: true },
-          { from: '**/*.json', to: '.' }, // TODO<Add an error for checking the basic structure of the repo>
-          { from: '**/*.svg', to: '.', noErrorOnMissing: true }, // Optional
-          { from: '**/*.png', to: '.', noErrorOnMissing: true }, // Optional
-          { from: '**/*.html', to: '.', noErrorOnMissing: true }, // Optional
-          { from: 'img/**/*', to: '.', noErrorOnMissing: true }, // Optional
-          { from: 'libs/**/*', to: '.', noErrorOnMissing: true }, // Optional
-          { from: 'static/**/*', to: '.', noErrorOnMissing: true }, // Optional
-          { from: '**/query_help.md', to: '.', noErrorOnMissing: true }, // Optional
+          { from: '**/*.json', to: '.' },
+          { from: '**/*.svg', to: '.', noErrorOnMissing: true },
+          { from: '**/*.png', to: '.', noErrorOnMissing: true },
+          { from: '**/*.html', to: '.', noErrorOnMissing: true },
+          { from: 'img/**/*', to: '.', noErrorOnMissing: true },
+          { from: 'libs/**/*', to: '.', noErrorOnMissing: true },
+          { from: 'static/**/*', to: '.', noErrorOnMissing: true },
+          { from: '**/query_help.md', to: '.', noErrorOnMissing: true },
         ],
       }),
       // Replace certain template-variables in the README and plugin.json
@@ -229,6 +238,9 @@ const config = async (env): Promise<Configuration> => {
           ],
         },
       ]),
+      new SubresourceIntegrityPlugin({
+        hashFuncNames: ['sha256'],
+      }),
       ...(env.development
         ? [
             new LiveReloadPlugin(),
@@ -242,6 +254,7 @@ const config = async (env): Promise<Configuration> => {
             new ESLintPlugin({
               extensions: ['.ts', '.tsx'],
               lintDirtyModulesOnly: Boolean(env.development), // don't lint on start, only lint changed files
+              failOnError: Boolean(env.production),
             }),
           ]
         : []),

@@ -28,3 +28,52 @@ datasources:
     readOnly: false
   - name: gdev-testdata
     type: testdata
+  - uid: prometheus
+    orgId: 1
+    name: Prometheus
+    type: prometheus
+    typeName: Prometheus
+    access: proxy
+    url: http://prometheus:9090
+    password: ''
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: true
+    jsonData:
+      httpMethod: POST
+    readOnly: false
+    editable: true
+  - uid: tempo
+    orgId: 1
+    name: Tempo
+    type: tempo
+    typeName: Tempo
+    access: proxy
+    url: http://tempo
+    jsonData:
+      httpMethod: GET
+      serviceMap:
+        datasourceUid: 'prometheus'
+  - uid: loki
+    orgId: 1
+    name: Loki
+    type: loki
+    typeName: Loki
+    access: proxy
+    url: http://loki:3100
+    password: ''
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: false
+    readOnly: false
+    editable: true
+  - uid: pyroscope
+    orgId: 1
+    name: Pyroscope
+    type: grafana-pyroscope-datasource
+    typeName: Grafana Pyroscope
+    url: "http://pyroscope:4040"
+    isDefault: false
+    readOnly: false

@@ -1,0 +1,136 @@
+services:
+  # Metrics
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--web.enable-remote-write-receiver"
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      - node-exporter
+      - cadvisor
+
+  node-exporter:
+    image: prom/node-exporter:v1.9.1
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.52.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  # Logs
+  alloy:
+    image: grafana/alloy:v1.9.2
+    volumes:
+      - ./etc/config.alloy:/etc/alloy/config.alloy
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - run
+      - /etc/alloy/config.alloy
+    depends_on:
+      - loki
+
+  loki:
+    image: grafana/loki:3.5.0
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+
+  # Traces
+  tempo:
+    image: grafana/tempo:2.7.2
+    volumes:
+      - ./etc/tempo.yml:/etc/tempo.yml
+    command: [ "-config.file=/etc/tempo.yml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
+
+  # Profiles
+  pyroscope:
+    image: grafana/pyroscope:1.14.0
+    ports:
+      - "4040:4040"
+
+  # Others
+  grafana:
+    image: grafana/grafana:12.0.1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-llm-app
+
+  app-a:
+    build: ../app/fastapi
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    ports:
+      - "8000:8000"
+    environment:
+      TARGET_ONE_SVC: "app-b:8000"
+      TARGET_TWO_SVC: "app-c:8000"
+      APP_NAME: app-a
+      PYROSCOPE_SERVER: http://pyroscope:4040
+      ENABLE_PYROSCOPE: "true"
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4317
+      OTEL_METRICS_EXPORTER: none
+      OTEL_SERVICE_NAME: app-a
+    command: "uv run opentelemetry-instrument python main.py"
+
+  app-b:
+    build: ../app/fastapi
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    ports:
+      - "8001:8000"
+    environment:
+      TARGET_ONE_SVC: "app-c:8000"
+      TARGET_TWO_SVC: "app-a:8000"
+      APP_NAME: app-b
+      PYROSCOPE_SERVER: http://pyroscope:4040
+      ENABLE_PYROSCOPE: "true"
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4317
+      OTEL_METRICS_EXPORTER: none
+      OTEL_SERVICE_NAME: app-b
+    command: "uv run opentelemetry-instrument python main.py"
+
+  app-c:
+    build: ../app/fastapi
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    ports:
+      - "8002:8000"
+    environment:
+      TARGET_ONE_SVC: "app-a:8000"
+      TARGET_TWO_SVC: "app-b:8000"
+      APP_NAME: app-c
+      PYROSCOPE_SERVER: http://pyroscope:4040
+      ENABLE_PYROSCOPE: "true"
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4317
+      OTEL_METRICS_EXPORTER: none
+      OTEL_SERVICE_NAME: app-c
+    command: "uv run opentelemetry-instrument python main.py"
+
+  k6:
+    image: grafana/k6:1.0.0
+    volumes:
+      - ./etc/k6-script.js:/k6/script.js
+    command: run --vus 10 --duration 6000s /k6/script.js
+    depends_on:
+      - app-a
