@@ -1,5 +1,9 @@
 # Grafana OnCall
 
+> [!WARNING]  
+> Grafana OnCall 已經在 2025-03-11 進入 maintenance mode，預計於 2026-03-24 Archive，專案會維持開源但不再更新，後續相關功能併入 [Grafana Cloud IRM](https://grafana.com/products/cloud/irm/) 中。
+> [Incident response and on-call management in one app: Introducing Grafana Cloud IRM](https://grafana.com/blog/2025/03/11/oncall-management-incident-response-grafana-cloud-irm/)
+
 ## Goals
 
 1. Nginx：單純作為被監測的 Container
@@ -19,7 +23,7 @@
 2. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 3. 執行以下指令更新 Plugin 設定修復 [stackid Bug](https://github.com/grafana/oncall/issues/4843#issuecomment-2334875281)，IP 需替換成當下機器的 IP
@@ -41,5 +45,5 @@
 5. 關閉所有服務
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
