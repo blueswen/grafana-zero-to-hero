@@ -6,7 +6,7 @@ groups:
       interval: 1m
       rules:
         - uid: ddzrcypw9idxca
-          title: Memory Usage - Policy
+          title: Provision Alert - Memory Usage - Policy
           condition: C
           data:
             - refId: A
@@ -18,7 +18,7 @@ groups:
                 datasource:
                     type: prometheus
                     uid: prometheus
-                expr: sum(container_memory_rss{instance=~".*",name=~".*",name=~".+"}) by (name)
+                expr: sum(container_memory_rss{instance=~".*",name=~".+"}) by (name)
                 interval: ""
                 intervalMs: 15000
                 legendFormat: '{{name}}'
@@ -91,12 +91,12 @@ groups:
             summary: "true"
           isPaused: false
     - orgId: 1
-      name: 1m-group
+      name: 1m
       folder: Provision Dashboards
       interval: 1m
       rules:
         - uid: bdznvz4tes2yof
-          title: Memory Usage
+          title: Provision Alert - Memory Usage
           condition: C
           data:
             - refId: A
@@ -108,7 +108,7 @@ groups:
                 datasource:
                     type: prometheus
                     uid: prometheus
-                expr: sum(container_memory_rss{instance=~".*",name=~".*",name=~".+"}) by (name)
+                expr: sum(container_memory_rss{instance=~".*",name=~".+"}) by (name)
                 interval: ""
                 intervalMs: 15000
                 legendFormat: '{{name}}'
@@ -177,6 +177,66 @@ groups:
             summary: ""
           labels:
             "": ""
+          isPaused: false
+          notification_settings:
+            receiver: grafana-default-email
+    - orgId: 1
+      name: 1m
+      folder: Provision Dashboards
+      interval: 1m
+      rules:
+        - uid: demykhzytyh34c
+          title: Provision Alert - Request Rate
+          condition: C
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: prometheus
+              model:
+                editorMode: code
+                expr: rate(fastapi_requests_total{}[3m])
+                instant: true
+                intervalMs: 1000
+                legendFormat: __auto
+                maxDataPoints: 43200
+                range: false
+                refId: A
+            - refId: C
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 0.2
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - C
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: C
+                type: threshold
+          noDataState: NoData
+          execErrState: Error
+          for: 3m
+          keepFiringFor: 3m
+          annotations:
+            Note: '{{$labels.app_name}} {{ $labels.path }}'
+            description: Request Rate >= 0.2 req/s
+            summary: Request Rate Alert
+          labels: {}
           isPaused: false
           notification_settings:
             receiver: grafana-default-email

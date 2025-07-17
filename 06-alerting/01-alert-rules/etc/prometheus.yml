@@ -42,3 +42,18 @@ scrape_configs:
   - job_name: 'cadvisor'
     static_configs:
       - targets: ['cadvisor:8080']
+
+  - job_name: 'app-a'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['app-a:8000']
+
+  - job_name: 'app-b'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['app-b:8000']
+
+  - job_name: 'app-c'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['app-c:8000']

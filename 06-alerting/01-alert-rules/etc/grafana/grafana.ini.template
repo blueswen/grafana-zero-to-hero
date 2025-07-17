@@ -13,3 +13,8 @@ capture = true
 [rendering]
 server_url = http://renderer:8081/render
 callback_url = http://grafana:3000/
+
+[unified_alerting.state_history]
+enabled = true
+backend = "loki"
+loki_remote_url = "http://loki:3100"
