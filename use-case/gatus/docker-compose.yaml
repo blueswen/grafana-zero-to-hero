@@ -1,6 +1,6 @@
 services:
   grafana:
-    image: grafana/grafana:11.2.0
+    image: grafana/grafana:12.0.1
     ports:
       - "3000:3000"
     volumes:
@@ -10,14 +10,14 @@ services:
       - ./data:/var/lib/grafana
 
   prometheus:
-    image: prom/prometheus:v2.54.1
+    image: prom/prometheus:v3.4.1
     ports:
       - "9090:9090"
     volumes:
       - ./etc/prometheus.yml:/etc/prometheus/prometheus.yml
 
   gatus:
-    image: twinproduction/gatus:v5.12.1
+    image: twinproduction/gatus:v5.18.1
     ports:
       - "8080:8080"
     volumes:
