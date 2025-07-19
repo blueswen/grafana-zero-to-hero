@@ -1,0 +1,80 @@
+loki.write "loki" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
+
+otelcol.exporter.otlp "tempo" {
+  client {
+    endpoint = "http://tempo:4317"
+    tls {
+      insecure = true
+      insecure_skip_verify = true
+    }
+  }
+}
+
+// Faro receiver for frontend observability
+
+faro.receiver "faro" {
+    server {
+      listen_address = "0.0.0.0"
+      cors_allowed_origins = ["*"]
+      // include_metadata = true
+    }
+    extra_log_labels = {
+        service = "frontend-app",
+        type = "faro",
+        app_name = "",
+    }
+    output {
+        logs   = [loki.write.loki.receiver]
+        traces = [otelcol.exporter.otlp.tempo.input]
+    }
+}
+
+// Container logs from Docker
+
+loki.source.docker "default" {
+  host       = "unix:///var/run/docker.sock"
+  targets    = discovery.docker.linux.targets 
+  forward_to = [loki.process.log_pipeline.receiver]
+  relabel_rules = loki.relabel.docker_label.rules
+}
+
+discovery.docker "linux" {
+  host = "unix:///var/run/docker.sock"
+}
+
+loki.process "log_pipeline" {
+  forward_to = [loki.write.loki.receiver]
+
+  stage.multiline {
+    firstline = "^\\d{4}-\\d{2}-\\d{2} \\d{1,2}:\\d{2}:\\d{2}"
+    max_wait_time = "3s"
+  }
+
+  stage.regex {
+    expression = "^(?P<time>\\d{4}-\\d{2}-\\d{2} \\d{1,2}:\\d{2}:\\d{2},\\d{3}) (?P<message>(?s:.*))$$"
+  }
+}
+
+loki.relabel "docker_label" {
+  forward_to = [loki.write.loki.receiver]
+
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/(.*)"
+    target_label  = "container"
+  }
+
+  rule {
+    source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+    target_label  = "service"
+  }
+
+  rule {
+    source_labels = ["__meta_docker_container_label_com_docker_compose_project"]
+    target_label  = "project"
+  }
+}

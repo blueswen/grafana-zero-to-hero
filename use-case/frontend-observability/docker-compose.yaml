@@ -1,0 +1,102 @@
+services:
+
+  frontend-jquery:
+    build: ../../app/jquery-app
+    image: ghcr.io/blueswen/grafana-zero-to-hero/jquery-app:latest
+    ports:
+      - "80:80"
+  
+  frontend-vue:
+    build: ../../app/vue-app
+    image: ghcr.io/blueswen/grafana-zero-to-hero/vue-app:latest
+    ports:
+      - "8080:80"
+
+  alloy:
+    image: grafana/alloy:v1.9.2
+    ports:
+      - "12345:12345"
+      - "12347:12347"
+      - "6832:6832"
+      - "55679:55679"
+      - "9091:9091"
+    volumes:
+      - ./etc/config.alloy:/etc/alloy/config.alloy
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - /etc/alloy/config.alloy
+
+  tempo:
+    image: grafana/tempo:2.7.2
+    ports:
+      - 4317:4317
+    volumes:
+      - ./etc/tempo.yml:/etc/tempo.yml
+    command: [ "-config.file=/etc/tempo.yml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
+
+  loki:
+    image: grafana/loki:3.5.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+
+  grafana:
+    image: grafana/grafana:12.0.1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./data:/var/lib/grafana
+
+  backend:
+    build: ../../app/fastapi
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_SERVER=postgres
+      - REDIS_SERVER=redis
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+      - OTEL_PYTHON_EXCLUDED_URLS=/metrics
+      - OTEL_SERVICE_NAME=backend
+      - CODE_BASED_INSTRUMENTATION=true
+      - APP_NAME=backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uv run obs.py
+
+  postgres:
+    image: postgres:16.4
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5

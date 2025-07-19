@@ -1,0 +1,47 @@
+# config file version
+apiVersion: 1
+
+# list of datasources that should be deleted from the database
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+# list of datasources to insert/update depending
+# what's available in the database
+datasources:
+  # <string, required> name of the datasource. Required
+  - uid: tempo
+    orgId: 1
+    name: Tempo
+    type: tempo
+    typeName: Tempo
+    access: proxy
+    url: http://tempo
+    jsonData:
+      httpMethod: GET
+  - uid: loki
+    orgId: 1
+    name: Loki
+    type: loki
+    typeName: Loki
+    access: proxy
+    url: http://loki:3100
+    jsonData:
+      derivedFields:
+        - datasourceUid: tempo
+          matcherRegex: (?:trace_id)=(\w+)
+          matcherType: regex
+          name: TraceID
+          url: $${__value.raw}
+  - uid: testdata
+    orgId: 1
+    name: grafana-testdata-datasource
+    type: grafana-testdata-datasource
+    typeName: TestData
+    access: proxy
+    url: ''
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: true
+    readOnly: false
