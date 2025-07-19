@@ -1,19 +1,22 @@
 # Grafana Infrastructure as Code
 
+![Lab Architecture](lab-arch.png)
+
+## Components
+
+1. Terraform：使用 IaC Code 建立與管理 Grafana 內資源
+2. Grafana：由 Terraform 管理的 Grafana Instance
+
 ## Goals
 
-1. Nginx：單純作為被監測的 Container
-2. cAdvisor：收集 Container 資料
-3. Node Exporter：收集運行的機器（Node）的資料
-4. Prometheus：採集 cAdvisor 與 Node Exporter 的 Metrics
-5. Grafana：Lab 操作
+1. 操作 Terraform 建立與管理 Grafana 內資源
 
 ### Quick Start
 
 1. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. [安裝 Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)，進入 `tf` 目錄執行以下指令
@@ -32,5 +35,9 @@
 4. 關閉所有服務
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
+
+## Note
+
+Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
