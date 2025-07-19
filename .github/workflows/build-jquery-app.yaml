@@ -1,4 +1,4 @@
-name: Build and Push Docker Images
+name: Build and Push jquery-app Docker Images
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - 'app/fastapi/**'
+      - 'app/jquery-app/**'
 
 jobs:
   build-and-push:
@@ -25,10 +25,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.REGISTRY_TOKEN }}
 
-      - name: Build and push FastAPI image
+      - name: Build and push jquery-app image
         uses: docker/build-push-action@v6
         with:
-          context: ./app/fastapi
+          context: ./app/jquery-app
           push: true
-          tags: ghcr.io/${{ github.repository }}/fastapi:latest
+          tags: ghcr.io/${{ github.repository }}/jquery-app:latest
           platforms: linux/amd64,linux/arm64

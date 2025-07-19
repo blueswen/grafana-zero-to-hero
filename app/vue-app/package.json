@@ -1,0 +1,26 @@
+{
+  "name": "vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@grafana/faro-web-sdk": "^1.18.2",
+    "@grafana/faro-web-tracing": "^1.18.2",
+    "axios": "^1.10.0",
+    "bootstrap": "^5.3.7",
+    "bootstrap-vue-next": "^0.30.3",
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/tsconfig": "^0.7.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0",
+    "vue-tsc": "^2.2.10"
+  }
+}

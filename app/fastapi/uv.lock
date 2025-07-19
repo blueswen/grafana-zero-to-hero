@@ -137,6 +137,25 @@ wheels = [
 ]
 
 [[package]]
+name = "confluent-kafka"
+version = "2.11.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4a/72/4dcfb7842f6a99fa6fd07afd8097b06040c240fd0a70e90b336bf0608156/confluent_kafka-2.11.0.tar.gz", hash = "sha256:d95512838eebd42a4657ce891dfa32bcbc06906e3391b328de24f7731b0c2755", size = 224835 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/28/4c/87296e4684502cd2899638326be516efaa70cc497c528610834dc2b525f1/confluent_kafka-2.11.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:7ab9b40866d783cd410019b0380b0db815ac36ecf07be2be80a429e41d7caf98", size = 3591594 },
+    { url = "https://files.pythonhosted.org/packages/a8/3d/8214379a1d9da13462b5d0f64ddaf148923c4730ad50a33b221510ab0ca1/confluent_kafka-2.11.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:70682b25b5ce835de54b6eb803a75e550a953e494fe348960ed8c534cb54ea50", size = 3119712 },
+    { url = "https://files.pythonhosted.org/packages/52/d9/e4135a375cd01c0eff5a54d6808e1853e702aceb41c7a1e9a29188a0c8f4/confluent_kafka-2.11.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:80edbdf59d312772a4c5646807cb2a0b5f5a2c7f945df070aac1782a7790f432", size = 15369806 },
+    { url = "https://files.pythonhosted.org/packages/fc/d3/b3d151e46fe81b124d12f5abe81e399d5851cdc8d6ffdeef57bc5367bef3/confluent_kafka-2.11.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:1ac35a551c8df8313695bff3e81dd8ef3d9041b0edc8827883ef8015819bc59c", size = 3912280 },
+    { url = "https://files.pythonhosted.org/packages/d4/c9/673a63367892a5935a00e683eb4c35b3d379715361798858aea541b20105/confluent_kafka-2.11.0-cp312-cp312-win_amd64.whl", hash = "sha256:be6273ae93a9076c28ccda39dacae98405af696c97bab02a8a78abd02fe3add4", size = 4035116 },
+    { url = "https://files.pythonhosted.org/packages/7c/1b/e7d6726d75a2222d3fecaa04e5d85aad954de65ddd6760959d09260b9208/confluent_kafka-2.11.0-cp313-cp313-macosx_13_0_arm64.whl", hash = "sha256:e58b263d8e02c54396e7159d2d6668c9e6f2e7faa06c40026df205ff81b6188e", size = 3124201 },
+    { url = "https://files.pythonhosted.org/packages/5f/d8/f60f5ef7e499093bca325ed8ae28583e68a55dfb423ede86bce6c33398a8/confluent_kafka-2.11.0-cp313-cp313-macosx_13_0_x86_64.whl", hash = "sha256:a29ac34c7dd3ab51c2e7cc16c37baed13369a487d7f953ff4e3a8fff08642969", size = 3594979 },
+    { url = "https://files.pythonhosted.org/packages/c6/e8/833c9f719ebb9f44435fb8ee45762f2553e50692b9a015768236a4f27c86/confluent_kafka-2.11.0-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:2552147d0929db95ace291e460c652981721e0e437a074445fbafdcee8b6817c", size = 15370231 },
+    { url = "https://files.pythonhosted.org/packages/45/98/c6e56bdd8c5c7ac4acce4f28a367bcfee4b42eca45d461c40637a038c445/confluent_kafka-2.11.0-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:ed0981e686bdc4ee86034113a750242fe1b405826bf4a553498bf558429188af", size = 3912654 },
+    { url = "https://files.pythonhosted.org/packages/1a/a6/a5efb07b25bdf47305ef21e27bbfa970d7b1083af5a3c7159a0379d658d2/confluent_kafka-2.11.0-cp313-cp313-win_amd64.whl", hash = "sha256:6d6ec6e791b1c97668ff0823dff1dc005ab418b353a430fede7b5cd6c5490497", size = 4094746 },
+    { url = "https://files.pythonhosted.org/packages/b2/11/0b5ef56d9d024ddb01a97ac36dbcd8c3105ae3ca76396429a64651e5b5dd/confluent_kafka-2.11.0-cp313-cp313t-manylinux_2_28_aarch64.whl", hash = "sha256:9f44a476241a81e6b3259d3f3f00aa0e94ed64a924131f83cb3b640ecdfcd633", size = 15368809 },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.115.14"
 source = { registry = "https://pypi.org/simple" }
@@ -155,6 +174,7 @@ name = "fastapi-app"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "confluent-kafka" },
     { name = "fastapi" },
     { name = "httpx" },
     { name = "opentelemetry-distro" },
@@ -188,6 +208,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "confluent-kafka", specifier = ">=2.11.0" },
     { name = "fastapi", specifier = ">=0.114.2" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "opentelemetry-distro", specifier = ">=0.54b1" },
