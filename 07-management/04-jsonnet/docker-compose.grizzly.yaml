@@ -40,3 +40,18 @@ services:
     image: nginxdemos/hello:0.4
     ports:
       - "80:80"
+
+  grizzly:
+    image: grafana/grizzly:0.4.8
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./jsonnet:/jsonnet
+    environment:
+      GRAFANA_URL: http://grafana:3000
+      GRAFANA_USER: admin
+      GRAFANA_TOKEN: admin
+      JSONNET_PATH: /jsonnet/vendor # for grr watch
+    working_dir: /jsonnet
+    # `mkdir -p /root/.config/grizzly` is a hotfix for the issue of grr config set error
+    entrypoint: sh -c "mkdir -p /root/.config/grizzly && tail -f /dev/null"

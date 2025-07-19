@@ -1,20 +1,52 @@
 # Grafana Dashboard as Code
 
-## Goals
+## Jsonnet
 
-1. Nginx：單純作為被監測的 Container
-2. cAdvisor：收集 Container 資料
-3. Node Exporter：收集運行的機器（Node）的資料
-4. Prometheus：採集 cAdvisor 與 Node Exporter 的 Metrics
-5. Grafana：Lab 操作
-6. Grizzly：Grizzly Container，進入後可以操作 `grr` 指令
+### Goals
+
+1. 使用 Jsonnet 編譯生成 Grafana Dashboard
 
 ### Quick Start
 
 1. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
+   ```
+
+2. 編譯 Jsonnet 撰寫的 Dasboard
+   1. 安裝 [Jsonnet](https://github.com/google/go-jsonnet) 與 [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler/)
+   2. 進入 `jsonnet` 目錄，執行以下指令安裝 [grafonnet](https://github.com/grafana/grafonnet) 並編譯 Dashboard 生成 JSON 檔案
+
+      ```bash
+      jb install github.com/grafana/grafonnet-lib@main
+      mkdir output
+      jsonnet -J vendor dashboard.libsonnet > output/dashboard.json
+      ```
+
+3. 登入 Grafana 匯入生成的 Dashboard
+   1. Grafana: <http://localhost>，登入帳號密碼為 `admin/admi`
+4. 關閉所有服務
+
+   ```bash
+   docker compose down
+   ```
+
+## Grizzly
+
+> [!WARNING]  
+> [Grizzly](https://github.com/grafana/grizzly) 已經於 2025-05-12 標記為 Deprecation，相關功能會由 [grafanactl](https://github.com/grafana/grafanactl) 取代，以下 Grizzly 相關內容僅用於參考
+
+### Goals
+
+1. 於 Grizzly Container 操作 `grr` 指令
+
+### Quick Start
+
+1. 啟動所有服務
+
+   ```bash
+   docker compose -f docker-compose.grizzly.yaml up -d
    ```
 
 2. 編譯 Jsonnet 撰寫的 Dasboard
@@ -30,7 +62,6 @@
 3. 登入 Grafana 匯入生成的 Dashboard
    1. Grafana: <http://localhost>，登入帳號密碼為 `admin/admi`
 4. 進入 Grizzly Container 操作 `grr` 指令
-
    1. push：推送編譯後生成的 Dashboard 到 Grafana 中
 
       ```bash
@@ -51,5 +82,9 @@
 5. 關閉所有服務
 
    ```bash
-   docker-compose down
+   docker compose -f docker-compose.grizzly.yaml down
    ```
+
+## Note
+
+Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
