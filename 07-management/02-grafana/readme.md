@@ -1,22 +1,31 @@
 # Grafana Self Monitoring and High Availability
 
+![Lab Architecture](lab-arch.png)
+
+## Components
+
+1. cAdvisor：收集 Container 資料，產生 Prometheus Metrics
+2. Node Exporter：收集機器資料，產生 Prometheus Metrics
+3. App：範例應用程式
+4. Prometheus：爬取並儲存 Prometheus Metrics
+5. Tempo：接收 Grafana 送出的 Trace 資料
+6. Grafana：查詢 Prometheus 與 Tempo 中的資料，Alerting Rules 處理
+7. PostgreSQL：不同 Grafana Instance 共用的資料庫
+8. Redis：供不同 Grafana Instance 同步 Alert 發送狀態
+
 ## Goals
 
-1. cAdvisor：收集 Container 資料
-2. Node Exporter：收集運行的機器（Node）的資料
-3. Prometheus：採集 cAdvisor、Node Exporter 與 Grafana 的 Metrics
-4. Tempo：收集 Grafana 送出的 Trace 資訊
-5. Nginx：Grafana 服務的入口，擔任 Load Balancer 將 Request 分散到 Grafana Instance 上
-6. Grafana：grafana-node-1 和 grafana-node-2 兩個 Instance
-7. Postgres：Grafana Instance 共用的資料庫
-8. Redis：Grafana Instance 用來同步告警狀態的資料庫
+1. 檢視與驗證不同 Grafana Instance 共用資料庫的設定與效果
+2. 使用 Explore 查看 Grafana 產生的 Trace 資訊與 Service Graph
+3. 設定能夠發送訊息的 Contact Point，驗證不同 Grafana Instance 同步 Alert 發送狀態效果
+4. 操作內建 Dashboard：Grafana Stats、Cadvisor exporter 與 Node Exporter Full Dashboard
 
 ### Quick Start
 
 1. 啟動所有服務
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. 登入 Grafana 操作 Dashboard、Explore 功能與測試 Alert 是否有 HA 架構及不會重複發送
@@ -27,8 +36,12 @@
 3. 關閉所有服務
 
    ```bash
-   docker-compose down
+   docker compose down
    ```
+
+## Note
+
+PostgreSQL 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
 
 ## 參考資料
 
