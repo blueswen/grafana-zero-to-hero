@@ -1,0 +1,11 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: Kafka
+      receivers:
+        - uid: des7tjupzr9j4c
+          type: kafka
+          settings:
+            kafkaRestProxy: http://rest-proxy:8082
+            kafkaTopic: grafana-alerting
+          disableResolveMessage: false

@@ -1,7 +1,7 @@
 apiVersion: 1
 groups:
     - orgId: 1
-      name: 1m-group
+      name: 1m
       folder: Provision Dashboards
       interval: 1m
       rules:
@@ -18,7 +18,7 @@ groups:
                 datasource:
                     type: prometheus
                     uid: prometheus
-                expr: sum(container_memory_rss{instance=~".*",name=~".*",name=~".+"}) by (name)
+                expr: sum(container_memory_rss{instance=~".*",name=~".+"}) by (name)
                 interval: ""
                 intervalMs: 15000
                 legendFormat: '{{name}}'
