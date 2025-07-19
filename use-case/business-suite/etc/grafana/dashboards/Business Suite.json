@@ -35,9 +35,9 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "marcusolsson-static-datasource",
-        "uid": "marcusolsson-static-datasource"
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 4,
@@ -55,7 +55,7 @@
         "content": "Airport Code: ${airport_code}\n\nAirport Name: ${airport_name}\n\nCity: ${city}",
         "mode": "markdown"
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "title": "Variable",
       "type": "text"
     },
@@ -81,29 +81,16 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "inspect": false
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
+          "mappings": []
         },
         "overrides": []
       },
@@ -115,18 +102,29 @@
       },
       "id": 28,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showHeader": true
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -167,7 +165,7 @@
         }
       ],
       "title": "Pie Chart with Data Source",
-      "type": "table"
+      "type": "piechart"
     },
     {
       "datasource": {
@@ -192,8 +190,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -223,7 +220,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -281,8 +278,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -312,7 +308,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
@@ -378,8 +374,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -398,8 +393,10 @@
       },
       "id": 4,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "table",
@@ -411,10 +408,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -425,7 +429,12 @@
         "tabsInOrder": true,
         "variable": "airport_code"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Table",
       "type": "volkovlabs-variable-panel"
     },
@@ -447,8 +456,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -467,8 +475,10 @@
       },
       "id": 17,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "table",
@@ -480,10 +490,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -494,7 +511,12 @@
         "tabsInOrder": true,
         "variable": "city"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Table with multiple",
       "type": "volkovlabs-variable-panel"
     },
@@ -516,8 +538,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -536,8 +557,10 @@
       },
       "id": 19,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "button",
@@ -549,10 +572,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -563,7 +593,12 @@
         "tabsInOrder": true,
         "variable": "airport_code"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Button",
       "type": "volkovlabs-variable-panel"
     },
@@ -585,8 +620,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -605,8 +639,10 @@
       },
       "id": 15,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "button",
@@ -618,10 +654,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -632,7 +675,12 @@
         "tabsInOrder": true,
         "variable": "city"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Button with multiple",
       "type": "volkovlabs-variable-panel"
     },
@@ -654,8 +702,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -674,8 +721,10 @@
       },
       "id": 16,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "slider",
@@ -687,10 +736,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -701,7 +757,12 @@
         "tabsInOrder": true,
         "variable": "airport_code"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Slider",
       "type": "volkovlabs-variable-panel"
     },
@@ -723,8 +784,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -743,8 +803,10 @@
       },
       "id": 18,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "minimize",
@@ -756,10 +818,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -770,7 +839,12 @@
         "tabsInOrder": true,
         "variable": "airport_code"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Minimize",
       "type": "volkovlabs-variable-panel"
     },
@@ -792,8 +866,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -812,8 +885,10 @@
       },
       "id": 14,
       "options": {
+        "alertCustomMessage": "",
         "alwaysVisibleFilter": false,
         "autoScroll": false,
+        "browserTabNamePattern": "",
         "collapsedByDefault": false,
         "customValue": false,
         "displayMode": "minimize",
@@ -825,10 +900,17 @@
         "filter": false,
         "groupSelection": false,
         "header": true,
+        "isMinimizeForTable": false,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
         "padding": 9,
         "persistent": false,
         "saveSelectedGroup": false,
         "saveSelectedGroupKey": "",
+        "selectedValues": {
+          "maxCount": 0,
+          "showSelected": false
+        },
         "showGroupTotal": false,
         "showLabel": false,
         "showName": false,
@@ -839,7 +921,12 @@
         "tabsInOrder": true,
         "variable": "city"
       },
-      "pluginVersion": "3.5.0",
+      "pluginVersion": "4.0.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Business Variable - Minimize with multiple",
       "type": "volkovlabs-variable-panel"
     },
@@ -868,8 +955,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -882,7 +968,7 @@
       },
       "gridPos": {
         "h": 15,
-        "w": 12,
+        "w": 6,
         "x": 0,
         "y": 26
       },
@@ -902,10 +988,10 @@
         "externalStyles": [],
         "helpers": "",
         "renderMode": "everyRow",
-        "styles": ".card {\n  border: solid 1px white;\n  border-radius: 5px;\n  margin: 10px;\n  padding: 5px;\n}",
+        "styles": ".card {\n  border: solid 1px black;\n  border-radius: 5px;\n  margin: 10px;\n  padding: 5px;\n}\n",
         "wrap": false
       },
-      "pluginVersion": "5.4.0",
+      "pluginVersion": "5.7.0",
       "targets": [
         {
           "datasource": {
@@ -949,6 +1035,14 @@
             "name": "Users"
           },
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "marcusolsson-static-datasource"
+          },
+          "hide": false,
+          "refId": "B"
         }
       ],
       "title": "Business Text - Basic",
@@ -966,8 +1060,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -980,8 +1073,8 @@
       },
       "gridPos": {
         "h": 15,
-        "w": 12,
-        "x": 12,
+        "w": 6,
+        "x": 6,
         "y": 26
       },
       "id": 22,
@@ -1001,7 +1094,7 @@
         "styles": "",
         "wrap": true
       },
-      "pluginVersion": "5.4.0",
+      "pluginVersion": "5.7.0",
       "targets": [
         {
           "csvFileName": "flight_info_by_state.csv",
@@ -1027,6 +1120,62 @@
       "type": "marcusolsson-dynamictext-panel"
     },
     {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 29,
+      "options": {
+        "afterRender": "import(\"https://esm.sh/flowchart.js\").then(async (flowchart) => {\n  await import(\"https://esm.sh/raphael\");\n\n  document.getElementById(\"flowchart\").innerHTML = \"\";\n\n  const flow = `\n        st=>start: Start|past:>http://www.google.com[blank]\n        e=>end: End|future:>http://www.google.com\n        op1=>operation: My Operation|past\n        op2=>operation: Stuff|current\n        sub1=>subroutine: My Subroutine|invalid\n        cond=>condition: Yes or No?|approved:>http://www.google.com\n        c2=>condition: Good idea|rejected\n        io=>inputoutput: catch something...|future\n\n        st->op1(right)->cond\n        cond(yes, right)->c2\n        cond(no)->sub1(left)->op1\n      `;\n\n  const chart = flowchart.parse(flow);\n  chart.drawSVG(\"flowchart\");\n});",
+        "content": "<div id=\"flowchart\" />",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "html"
+        },
+        "editors": [
+          "afterRender"
+        ],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "data",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.7.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
+      "title": "Business Text - JavaScript Code",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
@@ -1043,6 +1192,10 @@
       "datasource": {
         "type": "marcusolsson-static-datasource",
         "uid": "marcusolsson-static-datasource"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1081,7 +1234,12 @@
           "series": []
         }
       },
-      "pluginVersion": "6.4.1",
+      "pluginVersion": "6.6.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1089,6 +1247,10 @@
       "datasource": {
         "type": "marcusolsson-static-datasource",
         "uid": "marcusolsson-static-datasource"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1127,7 +1289,12 @@
           "series": []
         }
       },
-      "pluginVersion": "6.4.1",
+      "pluginVersion": "6.6.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Radar Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1136,6 +1303,10 @@
         "default": false,
         "type": "marcusolsson-static-datasource",
         "uid": "marcusolsson-static-datasource"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1174,7 +1345,12 @@
           "series": []
         }
       },
-      "pluginVersion": "6.4.1",
+      "pluginVersion": "6.6.0",
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
       "title": "Bump Chart (Ranking)",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1183,6 +1359,10 @@
         "default": false,
         "type": "marcusolsson-static-datasource",
         "uid": "marcusolsson-static-datasource"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1230,7 +1410,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.4.1",
+      "pluginVersion": "6.6.0",
       "targets": [
         {
           "datasource": {
@@ -1274,61 +1454,18 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 39,
+  "preload": false,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "Taiwan Taoyuan International Airport",
-          "value": "Taiwan Taoyuan International Airport"
-        },
-        "datasource": {
-          "type": "marcusolsson-static-datasource",
-          "uid": "marcusolsson-static-datasource"
-        },
-        "definition": "",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Airport Name",
-        "multi": false,
-        "name": "airport_name",
-        "options": [],
-        "query": {
-          "frame": {
-            "fields": [
-              {
-                "config": {},
-                "name": "value",
-                "type": "string",
-                "values": []
-              }
-            ],
-            "meta": {
-              "custom": {
-                "customCode": "const map = {\n  \"TPE\": \"Taiwan Taoyuan International Airport\",\n  \"TSA\": \"Taipei Songshan Airport\",\n  \"NRT\": \"Narita International Airport\",\n  \"KIX\": \"Kansai International Airport\"\n}\n\nconst result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [map[`${airport_code}`]]\n  }))\n}\n\nreturn Promise.resolve(result);",
-                "valuesEditor": "custom"
-              }
-            }
-          }
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
           "text": "TPE",
           "value": "TPE"
         },
-        "hide": 0,
         "includeAll": false,
         "label": "Airport Code",
-        "multi": false,
         "name": "airport_code",
         "options": [
           {
@@ -1353,13 +1490,46 @@
           }
         ],
         "query": "TPE,TSA,NRT,KIX",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": true,
+          "text": "Taiwan Taoyuan International Airport",
+          "value": "Taiwan Taoyuan International Airport"
+        },
+        "datasource": {
+          "type": "marcusolsson-static-datasource",
+          "uid": "marcusolsson-static-datasource"
+        },
+        "definition": "",
+        "includeAll": false,
+        "label": "Airport Name",
+        "name": "airport_name",
+        "options": [],
+        "query": {
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "string",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const map = {\n  \"TPE\": \"Taiwan Taoyuan International Airport\",\n  \"TSA\": \"Taipei Songshan Airport\",\n  \"NRT\": \"Narita International Airport\",\n  \"KIX\": \"Kansai International Airport\"\n}\n\nconst result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [map[`${airport_code}`]]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            }
+          }
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
           "text": [
             "Taipei",
             "Kyoto"
@@ -1370,7 +1540,6 @@
           ]
         },
         "description": "",
-        "hide": 0,
         "includeAll": false,
         "label": "City",
         "multi": true,
@@ -1398,7 +1567,6 @@
           }
         ],
         "query": "Taipei,Tokyo,Osaka,Kyoto",
-        "skipUrlSync": false,
         "type": "custom"
       }
     ]
@@ -1411,6 +1579,5 @@
   "timezone": "browser",
   "title": "Business Suite",
   "uid": "fe0pz7lp08r9ca",
-  "version": 10,
-  "weekStart": ""
+  "version": 1
 }
