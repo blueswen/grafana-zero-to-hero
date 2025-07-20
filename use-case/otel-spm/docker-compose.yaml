@@ -1,8 +1,6 @@
-version: "3.4"
-
 services:
   grafana:
-    image: grafana/grafana:11.2.0
+    image: grafana/grafana:12.0.1
     ports:
       - "3000:3000"
     volumes:
@@ -13,25 +11,27 @@ services:
 
   fastapi:
     image: ghcr.io/blueswen/opentelemetry-apm/fastapi:latest
+    restart: always
     ports:
       - "8000:8000"
     environment:
       - TARGET_ONE_SVC=spring-boot:8080
-      - TARGET_TWO_SVC=spring-boot:8080
+      - TARGET_TWO_SVC=express:3001
       - OTEL_TRACES_EXPORTER=otlp
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_METRICS_EXPORTER=none
       - OTEL_SERVICE_NAME=fastapi
-    command: "opentelemetry-instrument python main.py"
+    command: "uv run opentelemetry-instrument python main.py"
     depends_on:
       - otel-collector
 
   spring-boot:
     image: ghcr.io/blueswen/opentelemetry-apm/springboot:latest
+    restart: always
     ports:
       - "8080:8080"
     environment:
-      - TARGET_ONE_SVC=fastapi:8000
+      - TARGET_ONE_SVC=express:3001
       - TARGET_TWO_SVC=fastapi:8000
       - OTEL_EXPORTER=otlp_span
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
@@ -44,12 +44,13 @@ services:
 
   express:
     image: ghcr.io/blueswen/opentelemetry-apm/express:latest
+    restart: always
     ports:
       - "3001:3001"
     environment:
       - EXPOSE_PORT=3001
       - TARGET_ONE_SVC=fastapi:8000
-      - TARGET_TWO_SVC=fastapi:8000
+      - TARGET_TWO_SVC=spring-boot:8080
       - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_SERVICE_NAME=express
@@ -58,17 +59,19 @@ services:
       - otel-collector
 
   k6:
-    image: grafana/k6:0.54.0
+    image: grafana/k6:1.0.0
     volumes:
       - ./etc/k6-script.js:/etc/k6/script.js
-    command: "run --vus 1 --duration 3600s /etc/k6/script.js"
+    command: "run --vus 1 --duration 6000s /etc/k6/script.js"
 
   tempo:
-    image: grafana/tempo:2.6.0
-    command: [ "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
+    image: grafana/tempo:2.7.2
+    volumes:
+      - ./etc/tempo.yml:/etc/tempo.yml
+    command: [ "-config.file=/etc/tempo.yml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
 
   prometheus:
-    image: prom/prometheus:v2.54.1
+    image: prom/prometheus:v3.4.1
     ports:
       - "9090:9090"
     volumes:
@@ -77,7 +80,7 @@ services:
       - --config.file=/workspace/prometheus.yml
 
   otel-collector:
-    image: otel/opentelemetry-collector-contrib:0.111.0
+    image: otel/opentelemetry-collector-contrib:0.128.0
     command:
       - "--config=/conf/config.yaml"
     volumes:
@@ -92,7 +95,7 @@ services:
       - tempo
 
   jaeger-collector:
-    image: jaegertracing/jaeger-collector:1.62.0
+    image: jaegertracing/jaeger-collector:1.70.0
     command: 
       - "--cassandra.keyspace=jaeger_v1_dc1"
       - "--cassandra.servers=cassandra"
@@ -107,12 +110,12 @@ services:
     image: cassandra:4.1.5
 
   cassandra-schema:
-    image: jaegertracing/jaeger-cassandra-schema:1.62.0
+    image: jaegertracing/jaeger-cassandra-schema:1.70.0
     depends_on:
       - cassandra
 
   jaeger-query:
-    image: jaegertracing/jaeger-query:1.62.0
+    image: jaegertracing/jaeger-query:1.70.0
     environment:
       - METRICS_STORAGE_TYPE=prometheus
       - LOG_LEVEL=debug
