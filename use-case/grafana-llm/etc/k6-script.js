@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { sleep } from 'k6';
+import { randomSeed, sleep } from 'k6';
 
 export function setup() {
   var server = "localhost:8000";
@@ -65,6 +65,8 @@ export default function () {
     server_list = ["app-a:8000", "app-b:8000", "app-c:8000"];
   }
   var endpoint_list = ["/", "/io_task", "/cpu_task", "/random_status", "/random_sleep", "/chain"]
+  // randomly pick 3 endpoints from the list
+  endpoint_list = endpoint_list.sort(() => 0.5 - Math.random()).slice(0, 3);  
   server_list.forEach(function(server) {
     endpoint_list.forEach(function(endpoint) {
       http.get("http://" + server + endpoint);
@@ -75,7 +77,7 @@ export default function () {
   if (mode === "compose") {
     todo_server = "app-a:8000";
   }
-  var tasks = ["query_all_todos", "query_todo", "update_todo"];
+  var tasks = ["query_all_todos", "query_all_todos", "query_all_todos", "query_todo", "update_todo"];
   tasks.forEach(function(task) {
     switch (task) {
       case "query_all_todos":

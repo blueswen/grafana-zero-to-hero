@@ -965,7 +965,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "sum by(type) (rate({compose_service=~\"$app_name\"} | pattern `<date> <time> <type> <logger> <code> [<_>=<trace_id> <_>=<span_id> <_>=<service_name>] - <msg>` | type != \"\" |= \"$log_keyword\" [1m]))",
+          "expr": "sum by(type) (rate({service=~\"$app_name\"} | pattern `<date> <time> <type> <logger> <code> [<_>=<trace_id> <_>=<span_id> <_>=<service>] - <msg>` | type != \"\" |= \"$log_keyword\" [1m]))",
           "legendFormat": "{{type}}",
           "queryType": "range",
           "refId": "A"
@@ -1010,7 +1010,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "{compose_service=~\"$app_name\"} | pattern `<date> <time> <type> <logger> <code> [<_>=<trace_id> <_>=<span_id> <_>=<service_name>] - <msg>` | line_format \"{{.compose_service}}\\t{{.type}}\\t trace_id={{.trace_id}}\\t {{.msg}}\" |= \"$log_keyword\"",
+          "expr": "{service=~\"$app_name\"} | pattern `<date> <time> <type> <logger> <code> [<_>=<trace_id> <_>=<span_id> <_>=<service>] - <msg>` | line_format \"{{.service}}\\t{{.type}}\\t trace_id={{.trace_id}}\\t {{.msg}}\" |= \"$log_keyword\"",
           "hide": false,
           "queryType": "range",
           "refId": "A"

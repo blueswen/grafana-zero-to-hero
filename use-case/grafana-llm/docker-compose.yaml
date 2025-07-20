@@ -5,10 +5,8 @@ x-app-dependencies: &app-dependencies
     condition: service_healthy
 services:
   # Metrics
-
   prometheus:
     image: prom/prometheus:v3.3.1
-    container_name: prometheus
     ports:
       - "9090:9090"
     volumes:
@@ -20,7 +18,6 @@ services:
 
   node-exporter:
     image: prom/node-exporter:v1.9.1
-    container_name: node-exporter
     ports:
       - "9100:9100"
     volumes:
@@ -30,7 +27,6 @@ services:
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.52.0
-    container_name: cadvisor
     ports:
       - "8080:8080"
     volumes:
@@ -42,7 +38,6 @@ services:
   # Logs
   alloy:
     image: grafana/alloy:v1.9.2
-    container_name: alloy
     volumes:
       - ./etc/config.alloy:/etc/alloy/config.alloy
       - /var/run/docker.sock:/var/run/docker.sock
@@ -56,7 +51,6 @@ services:
       - loki
   loki:
     image: grafana/loki:3.5.0
-    container_name: loki
     command: -config.file=/etc/loki/local-config.yaml
     ports:
       - "3100:3100"
@@ -65,7 +59,6 @@ services:
 
   tempo:
     image: grafana/tempo:2.7.2
-    container_name: tempo
     volumes:
       - ./etc/tempo.yml:/etc/tempo.yml
     command: [ "-config.file=/etc/tempo.yml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
@@ -74,7 +67,6 @@ services:
 
   pyroscope:
     image: grafana/pyroscope:1.14.0
-    container_name: pyroscope
     ports:
       - "4040:4040"
 
@@ -82,22 +74,22 @@ services:
 
   grafana:
     image: grafana/grafana:12.0.1
-    container_name: grafana
     ports:
       - "3000:3000"
     volumes:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./etc/grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+      - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
+      - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
       - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
       - ./data:/var/lib/grafana
     environment:
       GF_FEATURE_TOGGLES_ENABLE: alertingCentralAlertHistory
 
   app-a:
-    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
     build: ../../app/fastapi/
-    container_name: app-a
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
     ports:
       - "8000:8000"
     environment:
@@ -122,9 +114,9 @@ services:
     command: uv run obs.py
 
   app-b:
-    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
     build: ../../app/fastapi/
-    container_name: app-b
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
     ports:
       - "8001:8000"
     environment:
@@ -148,9 +140,9 @@ services:
     command: uv run obs.py
 
   app-c:
-    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
     build: ../../app/fastapi/
-    container_name: app-c
+    image: ghcr.io/blueswen/grafana-zero-to-hero/fastapi:latest
+    restart: always
     ports:
       - "8002:8000"
     environment:
@@ -175,7 +167,6 @@ services:
 
   postgres:
     image: postgres:16.4
-    container_name: postgres
     ports:
       - "5432:5432"
     environment:
@@ -190,7 +181,6 @@ services:
 
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:v0.15.0
-    container_name: postgres-exporter
     ports:
       - "9187:9187"
     environment:
@@ -202,7 +192,6 @@ services:
   
   redis:
     image: redis:7.4
-    container_name: redis
     ports:
       - "6379:6379"
     healthcheck:
@@ -213,9 +202,8 @@ services:
 
   k6:
     image: grafana/k6:latest
-    container_name: k6
     volumes:
-      - ./k6-script.js:/var/k6/script.js
+      - ./etc/k6-script.js:/var/k6/script.js
     environment:
       - MODE=compose
     command: run --vus 3 --duration 3000s /var/k6/script.js

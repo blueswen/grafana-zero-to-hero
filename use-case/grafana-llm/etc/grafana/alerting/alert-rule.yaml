@@ -1,0 +1,208 @@
+apiVersion: 1
+groups:
+    - orgId: 1
+      name: 1m
+      folder: Provision Dashboards
+      interval: 1m
+      rules:
+        - uid: bdznvz4tes2yof
+          title: Provision Alert - Memory Usage
+          condition: C
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 21600
+                to: 0
+              datasourceUid: prometheus
+              model:
+                datasource:
+                    type: prometheus
+                    uid: prometheus
+                expr: sum(container_memory_rss{instance=~".*",name=~".+"}) by (name)
+                interval: ""
+                intervalMs: 15000
+                legendFormat: '{{name}}'
+                maxDataPoints: 43200
+                refId: A
+            - refId: B
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params: []
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - B
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                reducer: last
+                refId: B
+                type: reduce
+            - refId: C
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 5e+07
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - C
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: B
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: C
+                type: threshold
+          dashboardUid: pMEd7m0Mz
+          panelId: 9
+          noDataState: NoData
+          execErrState: Error
+          for: 3m
+          annotations:
+            __dashboardUid__: pMEd7m0Mz
+            __panelId__: "9"
+            description: ""
+            runbook_url: ""
+            summary: ""
+          labels:
+            "": ""
+          isPaused: false
+          notification_settings:
+            receiver: grafana-default-email
+    - orgId: 1
+      name: 1m
+      folder: Provision Dashboards
+      interval: 1m
+      rules:
+        - uid: demykhzytyh34c
+          title: Provision Alert - Request Rate
+          condition: C
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: prometheus
+              model:
+                editorMode: code
+                expr: rate(fastapi_requests_total{}[3m])
+                instant: true
+                intervalMs: 1000
+                legendFormat: __auto
+                maxDataPoints: 43200
+                range: false
+                refId: A
+            - refId: C
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 0.2
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - C
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: C
+                type: threshold
+          noDataState: NoData
+          execErrState: Error
+          for: 3m
+          keepFiringFor: 3m
+          annotations:
+            Note: '{{$labels.app_name}} {{ $labels.path }}'
+            description: Request Rate >= 0.2 req/s
+            summary: Request Rate Alert
+          labels: {}
+          isPaused: false
+          notification_settings:
+            receiver: grafana-default-email
+    - orgId: 1
+      name: 1m
+      folder: Provision Dashboards
+      interval: 1m
+      rules:
+        - uid: beshjxxhbjugwd
+          title: Provision Alert - Request High Latency Alert
+          condition: C
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: prometheus
+              model:
+                editorMode: code
+                expr: histogram_quantile(0.99, sum(rate(fastapi_requests_duration_seconds_bucket{}[3m])) by (le, app_name, method, path))
+                instant: true
+                intervalMs: 1000
+                legendFormat: __auto
+                maxDataPoints: 43200
+                range: false
+                refId: A
+            - refId: C
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 5
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - C
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: C
+                type: threshold
+          noDataState: NoData
+          execErrState: Error
+          for: 1m
+          annotations: {}
+          labels: {}
+          isPaused: false
+          notification_settings:
+            receiver: grafana-default-email
