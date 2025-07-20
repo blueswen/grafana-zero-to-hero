@@ -1,0 +1,26 @@
+services:
+  grafana:
+    user: root
+    container_name: 'demo-org-panel'
+
+    build:
+      context: .
+      args:
+        grafana_image: ${GRAFANA_IMAGE:-grafana-enterprise}
+        grafana_version: ${GRAFANA_VERSION:-12.0.2}
+        development: ${DEVELOPMENT:-false}
+        anonymous_auth_enabled: ${ANONYMOUS_AUTH_ENABLED:-true}
+    ports:
+      - 3000:3000/tcp
+    volumes:
+      - ../dist:/var/lib/grafana/plugins/demo-org-panel
+      - ../provisioning:/etc/grafana/provisioning
+      - ..:/root/demo-org-panel
+
+    environment:
+      NODE_ENV: development
+      GF_LOG_FILTERS: plugin.demo-org-panel:debug
+      GF_LOG_LEVEL: debug
+      GF_DATAPROXY_LOGGING: 1
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: demo-org-panel
+      GF_AUTH_BASIC_ENABLED: true
