@@ -1,0 +1,6 @@
+id,campaign_id,channel,start_time,end_time,budget_usd,campaign_name
+1,camp-001,Facebook,2025-09-17T08:00:00Z,2025-09-17T11:00:00Z,2000,FB Summer Launch
+2,camp-002,YouTube,2025-09-17T12:00:00Z,2025-09-17T13:00:00Z,2500,Video Teaser
+3,camp-003,Instagram,2025-09-17T14:30:00Z,2025-09-17T18:30:00Z,1800,IG Flash Sale
+4,camp-004,Threads,2025-09-17T19:00:00Z,2025-09-17T20:00:00Z,2200,Threads Trend Catch
+5,camp-005,Google,2025-09-18T13:40:00Z,2025-09-18T20:00:00Z,3000,Search Boost
