@@ -41,14 +41,8 @@
       2. 開啟 Redpanda Console: <http://localhost:8080/> 在 Topic 頁籤中選擇 `grafana-alerting` Topic 查看測試訊息
       3. 檢視 Application 的 Container Log 查看 Topic 被訂閱後 Consume 印出的內容
 
-3. 關閉所有服務
+3. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
-
-n8n 的資料會儲存在 `n8n` 目錄中，如果要將 n8n 還原至初始狀態，可以將 `n8n` 目錄刪除。

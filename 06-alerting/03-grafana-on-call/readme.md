@@ -42,8 +42,8 @@
    4. 在 Alerts & IRM > OnCall > Settings 的 Chat Ops 設定 Slack Integration
    5. 從右上的 User Icon 進入 Profile 的 IRM 選單，設定 Grafana Cloud OnCall API，再透過 QR code 登入 Mobile App
    6. 使用預設的 Alert Rule `Memory Usage` 操作 Grafana OnCall 各項功能，也可以複製該 Alert Rule 測試 Grouping 等功能
-5. 關閉所有服務
+5. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```

@@ -7,7 +7,7 @@ services:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
       - ./etc/sqlite.db:/etc/sqlite.db
     environment:
       - GF_INSTALL_PLUGINS=frser-sqlite-datasource,grafana-googlesheets-datasource,redis-datasource,yesoreyeram-infinity-datasource
@@ -27,3 +27,6 @@ services:
     ports:
       - "8000:8000"
     command: uv run fake_todo.py
+
+volumes:
+  grafana-data:

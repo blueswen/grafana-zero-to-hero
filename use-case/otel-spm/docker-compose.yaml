@@ -7,7 +7,7 @@ services:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   fastapi:
     image: ghcr.io/blueswen/opentelemetry-apm/fastapi:latest
@@ -131,3 +131,6 @@ services:
     restart: on-failure
     depends_on:
       - cassandra-schema
+
+volumes:
+  grafana-data:

@@ -38,15 +38,11 @@ Dashboard 參考 [Grafana Faro - Frontend Monitoring](https://grafana.com/grafan
    2. Grafana：[http://localhost:3000](http://localhost:3000)，登入帳號密碼為 `admin/admin`
       1. 點擊左上 Menu > Dashboards > Provision Dashboards 瀏覽 Frontend Observability
       2. Frontend Observability 下方 Sessions 可以連結至 Session Detail Dashboard
-3. 關閉所有服務
+3. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
 
 ## Reference
 

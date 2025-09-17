@@ -8,7 +8,7 @@ services:
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     environment:
       GF_INSTALL_PLUGINS: grafana-clock-panel,marcusolsson-treemap-panel,williamvenner-timepickerbuttons-panel
 
@@ -40,3 +40,6 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  grafana-data:

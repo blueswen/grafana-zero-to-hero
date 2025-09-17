@@ -7,7 +7,7 @@ services:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -51,3 +51,6 @@ services:
     command: run --vus 10 --duration 6000s /k6/script.js
     depends_on:
       - app
+
+volumes:
+  grafana-data:

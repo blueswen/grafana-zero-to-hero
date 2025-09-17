@@ -33,14 +33,8 @@
    2. 進入 Administration > Authentication 頁籤中選擇 LDAP，確認 lldap 上新增的帳號可以被查詢到
    3. 開啟無痕視窗用 lldap 新增的帳號登入
    4. 測試 Role、Team、Organization 等功能
-4. 關閉所有服務
+4. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
-
-lldap 的資料會儲存在 `lldap_data` 目錄中，如果要將 lldap 還原至初始狀態，可以將 `lldap_data` 目錄刪除。

@@ -82,7 +82,7 @@ services:
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
       - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     environment:
       GF_FEATURE_TOGGLES_ENABLE: alertingCentralAlertHistory
 
@@ -207,3 +207,6 @@ services:
     environment:
       - MODE=compose
     command: run --vus 3 --duration 3000s /var/k6/script.js
+
+volumes:
+  grafana-data:

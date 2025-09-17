@@ -50,7 +50,7 @@ services:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   backend:
     build: ../../app/fastapi
@@ -100,3 +100,6 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+
+volumes:
+  grafana-data:

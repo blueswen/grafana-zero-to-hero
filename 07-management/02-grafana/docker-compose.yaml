@@ -38,7 +38,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./data/storage:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d grafana -U password"]
       timeout: 10s
@@ -108,3 +108,6 @@ services:
       - "--storage.trace.local.path=/var/tempo"
       - "--auth.enabled=false"
       - "--config.file=/etc/tempo/tempo.yaml"
+
+volumes:
+  postgres-data:

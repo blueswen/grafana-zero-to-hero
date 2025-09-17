@@ -32,12 +32,8 @@
    1. Grafana: <http://localhost:3000>，登入帳號密碼為 `admin/admin`
    2. 進入 Grafana 的 Swagger UI <http://localhost:3000/swagger> 測試各種 API
 
-4. 關閉所有服務
+4. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。

@@ -24,12 +24,8 @@
    1. Gatus: <http://localhost:8080>，檢視 Gatuts Status Page
    2. Grafana: <http://localhost:3000>，登入帳號密碼為 `admin/admin`
       1. 點擊左上 Menu > Dashboards > Provision Dashboards 即可選擇預先建立的 Dashboard
-3. 關閉所有服務
+3. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。

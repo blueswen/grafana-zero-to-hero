@@ -33,15 +33,11 @@
    2. 點擊左上 Menu > Dashboards > Provision Dashboards 查看 Grafana Stats 多個 Grafana Instance 的狀態
    3. 使用 Explore 查看 Grafana 產生的 Trace 資訊
    4. 停止一個 Grafana Container，確認 Grafana 仍可以正常檢視與發送 Alert
-3. 關閉所有服務
+3. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-PostgreSQL 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。
 
 ## 參考資料
 

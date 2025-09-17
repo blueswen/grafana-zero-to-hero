@@ -9,7 +9,7 @@ services:
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/grafana.ini:/etc/grafana/grafana.ini
       - ./etc/grafana/ldap.toml:/etc/grafana/ldap.toml
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -51,8 +51,12 @@ services:
       - "3890:3890" # For LDAP
       - "17170:17170" # For the web front-end
     volumes:
-      - "./lldap_data:/data"
+      - lldap-data:/data
     environment:
       - LLDAP_JWT_SECRET=REPLACE_WITH_RANDOM
       - LLDAP_KEY_SEED=REPLACE_WITH_RANDOM
       - LLDAP_LDAP_BASE_DN=dc=example,dc=com
+
+volumes:
+  grafana-data:
+  lldap-data:

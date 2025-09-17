@@ -27,7 +27,7 @@ services:
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -72,7 +72,7 @@ services:
     command: sh -c "uwsgi --ini uwsgi.ini"
     environment: *oncall-environment
     volumes:
-      - ./oncall_data:/var/lib/oncall
+      - oncall-data:/var/lib/oncall
     depends_on:
       oncall_db_migration:
         condition: service_completed_successfully
@@ -85,7 +85,7 @@ services:
     command: sh -c "./celery_with_exporter.sh"
     environment: *oncall-environment
     volumes:
-      - ./oncall_data:/var/lib/oncall
+      - oncall-data:/var/lib/oncall
     depends_on:
       oncall_db_migration:
         condition: service_completed_successfully
@@ -97,7 +97,7 @@ services:
     command: python manage.py migrate --noinput
     environment: *oncall-environment
     volumes:
-      - ./oncall_data:/var/lib/oncall
+      - oncall-data:/var/lib/oncall
     depends_on:
       redis:
         condition: service_healthy
@@ -108,7 +108,7 @@ services:
     expose:
       - 6379
     volumes:
-      - ./redis_data:/data
+      - redis-data:/data
     deploy:
       resources:
         limits:
@@ -119,3 +119,8 @@ services:
       timeout: 5s
       interval: 5s
       retries: 10
+
+volumes:
+  grafana-data:
+  oncall-data:
+  redis-data:

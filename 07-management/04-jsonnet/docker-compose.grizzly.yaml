@@ -5,7 +5,7 @@ services:
       - "3000:3000"
     volumes:
       - ./etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -55,3 +55,6 @@ services:
     working_dir: /jsonnet
     # `mkdir -p /root/.config/grizzly` is a hotfix for the issue of grr config set error
     entrypoint: sh -c "mkdir -p /root/.config/grizzly && tail -f /dev/null"
+
+volumes:
+  grafana-data:

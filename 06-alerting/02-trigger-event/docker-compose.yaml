@@ -8,7 +8,7 @@ services:
       - ./etc/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - ./etc/grafana/dashboards:/etc/grafana/dashboards
       - ./etc/grafana/alerting:/etc/grafana/provisioning/alerting
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -107,6 +107,8 @@ services:
     ports:
       - 5678:5678
     volumes:
-      - ./n8n:/home/node/.n8n
-    # environment:
-    #   - WEBHOOK_URL=https://23b5-210-71-175-44.ngrok-free.app
+      - n8n-data:/home/node/.n8n
+
+volumes:
+  grafana-data:
+  n8n-data:

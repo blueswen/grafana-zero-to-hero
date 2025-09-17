@@ -29,12 +29,8 @@
       1. 點擊左上 Menu > Dashboards > Provision Dashboards 再選擇 Basic Dashboard、cAdvisor exporter 或 Node Exporter Full，即可看到預先建立的 Dashboard
    2. nginx：[http://localhost](http://localhost)，可以顯示 IP 與時間
 
-3. 關閉所有服務
+3. 關閉所有服務並清除 Data Volume
 
    ```bash
-   docker compose down
+   docker compose down -v
    ```
-
-## Note
-
-Grafana 資料會儲存在 `data` 目錄中，如果要將 Grafana 還原至初始狀態，可以將 `data` 目錄刪除。

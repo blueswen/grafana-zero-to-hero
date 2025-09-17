@@ -4,7 +4,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
 
   prometheus:
     image: prom/prometheus:v3.4.1
@@ -39,3 +39,6 @@ services:
     image: nginxdemos/hello:0.4
     ports:
       - "80:80"
+
+volumes:
+  grafana-data:
