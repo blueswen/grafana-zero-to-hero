@@ -33,7 +33,7 @@
    1. Grafana: <http://localhost:3000>，登入帳號密碼為 `admin/admin`
       1. 點擊左上 Menu > Administration > Users and access > Service accounts，建立 Admin 角色的 Service Account，並建立 Token 供 MCP Server 使用
    2. 在支援 MCP Server 的 LLM Agent 中設定 Grafana MCP Server，如 [Claude Desktop](https://modelcontextprotocol.io/quickstart/user)、[GitHub Copilot](https://docs.github.com/en/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) 或 [Gemini CLI](https://cloud.google.com/gemini/docs/codeassist/use-agentic-chat-pair-programmer#configure-mcp-servers) 都有支援
-      
+
       ```json
       {
         "mcpServers": {
@@ -65,3 +65,13 @@
    ```bash
    docker compose down -v
    ```
+
+## Demo
+
+使用 Claude 梳理 Alert 狀況並查詢根因
+
+![Alert History](llm-demo-01.png)
+
+![Summary Alert](llm-demo-02.png)
+
+![Finding Root Cause](llm-demo-03.png)

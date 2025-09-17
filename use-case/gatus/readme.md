@@ -12,6 +12,8 @@
 
 1. 檢視與學習如何設計 Gatus Dashboard
 
+![Gatus Dashboard](dashboard.png)
+
 ## Quick Start
 
 1. 啟動所有服務

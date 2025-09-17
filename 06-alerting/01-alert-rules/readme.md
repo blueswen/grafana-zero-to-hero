@@ -21,6 +21,12 @@
 2. 瀏覽 Alert State History 與 Alerting History Page
 3. 設定與測試 Mail、Slack、Discord 與 Telegram Contact Point
 
+![Alert State History](alert-state-history.png)  
+Alert State History
+
+![Alerting History Page](alert-history-page.png)  
+Alerting History Page
+
 ### Quick Start
 
 1. 複製 `etc/grafana/grafana.ini.template` 為 `etc/grafana/grafana.ini` 並更新其中 smtp 的 username 與 password，password 需使用 Google Account 的應用程式密碼
