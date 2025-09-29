@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
+  "id": 15,
   "links": [],
   "panels": [
     {
@@ -419,7 +419,7 @@
           "scenarioId": "csv_content"
         }
       ],
-      "title": "Filter data by name",
+      "title": "Filter fields by name",
       "transformations": [
         {
           "id": "filterFieldsByName",
