@@ -1,4 +1,4 @@
-# Alert Rules
+# Trigger Event
 
 ![Lab Architecture](lab-arch.png)
 
